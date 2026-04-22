@@ -222,6 +222,33 @@ function initFormEnhancements() {
 }
 
 /* =========================
+   CARD LINK FALLBACKS
+========================= */
+function initCardLinkFallbacks() {
+    const setups = [
+        { cardSelector: ".service-card", linkSelector: "a.service-card-link[href]" },
+        { cardSelector: ".directory-card", linkSelector: "a.directory-card-link[href]" }
+    ];
+
+    setups.forEach(({ cardSelector, linkSelector }) => {
+        const cards = selectAll(cardSelector);
+        if (!cards.length) return;
+
+        cards.forEach((card) => {
+            const link = card.querySelector(linkSelector);
+            if (!link) return;
+
+            card.addEventListener("click", (event) => {
+                if (event.defaultPrevented) return;
+                if (event.target.closest("a")) return;
+                if (event.target.closest("button, input, select, textarea, label")) return;
+                link.click();
+            });
+        });
+    });
+}
+
+/* =========================
    INIT
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -233,4 +260,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initCookieBanner();
     setActiveNavLink();
     initFormEnhancements();
+    initCardLinkFallbacks();
 });

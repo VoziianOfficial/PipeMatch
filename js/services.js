@@ -98,25 +98,8 @@ function initServicesReveal() {
     cards.forEach((card) => observer.observe(card));
 }
 
-function initDirectoryCardClickFallback() {
-    const cards = document.querySelectorAll(".directory-card");
-    if (!cards.length) return;
-
-    cards.forEach((card) => {
-        const link = card.querySelector("a.directory-card-link[href]");
-        if (!link) return;
-
-        card.addEventListener("click", (event) => {
-            // If something overlays the link, ensure the whole card still navigates.
-            if (event.target.closest("a")) return;
-            link.click();
-        });
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     initServicesFiltering();
     initServicesFaqSingleOpen();
     initServicesReveal();
-    initDirectoryCardClickFallback();
 });
