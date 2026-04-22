@@ -5,9 +5,11 @@ export const siteConfig = {
     phoneNumber: "+1 (800) 417-2038",
     phoneHref: "tel:+18004172038",
     email: "support@pipematch.com",
+    emailHref: "mailto:support@pipematch.com",
     address: "1450 W Stonebridge Ave, Suite 210, Phoenix, AZ 85003, USA",
 
-    serviceAreaText: "Helping homeowners compare plumbing service providers across major U.S. service areas.",
+    serviceAreaText:
+        "Helping homeowners compare plumbing service providers across major U.S. service areas.",
 
     footerText:
         "PipeMatch is an independent matching platform that helps homeowners compare local plumbing service providers based on project needs, location, and availability.",

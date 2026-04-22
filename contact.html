@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Contact PipeMatch to request plumbing quotes, explore service categories, and start comparing local plumbing provider options." />
+    <meta name="keywords"
+        content="contact plumbing quotes, compare local plumbers, plumbing provider platform, request plumbing quotes" />
+    <meta name="theme-color" content="#0B1F3A" />
+
+    <title>PipeMatch | Contact & Quote Requests</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/icons/favicon.svg" />
+</head>
+
+<body data-page="contact">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="site-shell">
+        <!-- ================= HEADER ================= -->
+        <header class="site-header" id="siteHeader">
+            <div class="container header-inner">
+                <a class="brand" href="index.html" aria-label="PipeMatch home">
+                    <span class="brand-mark" aria-hidden="true">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="40" height="40" rx="12" fill="#0B1F3A" />
+                            <path d="M14 29V18.5C14 15.4624 16.4624 13 19.5 13H26.5" stroke="#ffffff" stroke-width="2.5"
+                                stroke-linecap="round" />
+                            <path d="M22 13H30V21" stroke="#176BFF" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M14 24H22" stroke="#7EC3FF" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="28.5" cy="28.5" r="4.5" stroke="#ffffff" stroke-width="2.5" />
+                        </svg>
+                    </span>
+                    <span class="brand-text">
+                        <strong class="brand-name">PipeMatch</strong>
+                        <span class="brand-tag">Compare local plumbing providers</span>
+                    </span>
+                </a>
+
+                <nav class="desktop-nav" aria-label="Primary navigation">
+                    <ul class="desktop-nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="is-active">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a class="header-phone-btn" href="tel:+18004172038" aria-label="Call now" data-phone-link>
+                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <span data-phone-display>Call Now</span>
+                    </a>
+
+                    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                        aria-controls="mobileMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ================= MOBILE PHONE CTA ================= -->
+        <div class="mobile-callbar">
+            <a href="tel:+18004172038" class="mobile-callbar-link" aria-label="Call now" data-phone-link>
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span data-phone-display>Call Now</span>
+            </a>
+        </div>
+
+        <!-- ================= FULLSCREEN MOBILE MENU ================= -->
+        <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu-panel">
+                <div class="mobile-menu-top">
+                    <a class="brand brand--mobile" href="index.html" aria-label="PipeMatch home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg width="42" height="42" viewBox="0 0 44 44" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="40" height="40" rx="12" fill="#0B1F3A" />
+                                <path d="M14 29V18.5C14 15.4624 16.4624 13 19.5 13H26.5" stroke="#ffffff"
+                                    stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M22 13H30V21" stroke="#176BFF" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14 24H22" stroke="#7EC3FF" stroke-width="2.5" stroke-linecap="round" />
+                                <circle cx="28.5" cy="28.5" r="4.5" stroke="#ffffff" stroke-width="2.5" />
+                            </svg>
+                        </span>
+                        <span class="brand-text">
+                            <strong class="brand-name">PipeMatch</strong>
+                            <span class="brand-tag">Plumbing provider matching</span>
+                        </span>
+                    </a>
+
+                    <button class="mobile-menu-close" type="button" aria-label="Close menu">
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <nav class="mobile-nav" aria-label="Mobile navigation">
+                    <ul class="mobile-nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="mobile-services-dropdown">
+                    <label class="mobile-services-label" for="mobileServicesSelect">Browse service categories</label>
+                    <div class="select-wrap">
+                        <select id="mobileServicesSelect" aria-label="Browse service categories">
+                            <option value="">Choose a service</option>
+                            <option value="emergency-plumbing.html">Emergency Plumbing</option>
+                            <option value="drain-cleaning.html">Drain Cleaning</option>
+                            <option value="water-heater-services.html">Water Heater Services</option>
+                            <option value="leak-detection.html">Leak Detection</option>
+                            <option value="sewer-line-services.html">Sewer Line Services</option>
+                            <option value="fixture-installation.html">Fixture Installation</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="mobile-contact-card">
+                    <p class="mobile-contact-label">Need help now?</p>
+                    <a href="tel:+18004172038" class="mobile-contact-phone" data-phone-link>
+                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <span data-phone-display>Call Now</span>
+                    </a>
+                    <a href="mailto:support@pipematch.com" class="mobile-contact-email" data-email>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <span>support@pipematch.com</span>
+                    </a>
+                </div>
+
+                <div class="mobile-legal-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                </div>
+            </div>
+        </aside>
+
+        <main id="main-content">
+            <!-- ================= HERO ================= -->
+            <section class="contact-hero">
+                <div class="contact-hero-bg" aria-hidden="true"></div>
+                <div class="contact-hero-overlay" aria-hidden="true"></div>
+
+                <div class="container contact-hero-inner">
+                    <div class="contact-hero-copy">
+                        <p class="eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            Contact PipeMatch
+                        </p>
+
+                        <h1>Start your plumbing request with a cleaner, faster comparison flow.</h1>
+
+                        <p class="contact-hero-text">
+                            Tell us what kind of plumbing help you are looking for, share your ZIP code and project
+                            timing, and start with a more organized way to compare local provider options.
+                        </p>
+
+                        <div class="contact-hero-actions">
+                            <a href="#contact-form-section" class="btn btn-primary">Send Request</a>
+                            <a href="services.html" class="btn btn-secondary">Browse Services</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-hero-side">
+                        <article class="contact-hero-card">
+                            <span class="mini-label">Platform model</span>
+                            <strong>Independent matching platform</strong>
+                            <p>
+                                PipeMatch does not perform plumbing work directly. We help homeowners compare service
+                                categories and move toward local provider quote requests.
+                            </p>
+                        </article>
+
+                        <article class="contact-hero-card contact-hero-card--dark">
+                            <span class="mini-label">Quick start</span>
+                            <strong>ZIP code + service category + timing</strong>
+                            <p>
+                                A few clear details can make the request flow more useful from the start.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CONTACT LAYOUT ================= -->
+            <section class="contact-main-section" id="contact-form-section">
+                <div class="container contact-main-grid">
+                    <div class="contact-form-wrap">
+                        <div class="section-intro">
+                            <p class="section-kicker">Request form</p>
+                            <h2>Tell us about your plumbing request</h2>
+                            <p>
+                                Start with the service category that best matches your need. This helps frame the
+                                request before comparing local provider options.
+                            </p>
+                        </div>
+
+                        <form class="compact-form contact-page-form" action="#" method="post" novalidate>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="contactFullName">Full name</label>
+                                    <div class="input-shell">
+                                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                        <input type="text" id="contactFullName" name="fullName"
+                                            placeholder="Your full name" aria-label="Full name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactZip">ZIP code</label>
+                                    <div class="input-shell">
+                                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                        <input type="text" id="contactZip" name="zipCode" placeholder="ZIP code"
+                                            aria-label="ZIP code" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactEmail">Email address</label>
+                                    <div class="input-shell">
+                                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                                        <input type="email" id="contactEmail" name="email" placeholder="Your email"
+                                            aria-label="Email address" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactPhone">Phone number</label>
+                                    <div class="input-shell">
+                                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                                        <input type="tel" id="contactPhone" name="phone" placeholder="Your phone number"
+                                            aria-label="Phone number" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactServiceType">Service category</label>
+                                    <div class="input-shell input-shell--select">
+                                        <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+                                        <select id="contactServiceType" name="serviceType"
+                                            aria-label="Service category">
+                                            <option value="">Select service</option>
+                                            <option>Emergency Plumbing</option>
+                                            <option>Drain Cleaning</option>
+                                            <option>Water Heater Services</option>
+                                            <option>Leak Detection</option>
+                                            <option>Sewer Line Services</option>
+                                            <option>Fixture Installation</option>
+                                            <option>General Request</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactTimeline">Project timing</label>
+                                    <div class="input-shell input-shell--select">
+                                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                                        <select id="contactTimeline" name="timeline" aria-label="Project timing">
+                                            <option value="">Select timing</option>
+                                            <option>As soon</option>
+                                            <option>This week</option>
+                                            <option>This month</option>
+                                            <option>Plan Ahead</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-field form-field--full">
+                                    <label for="contactDetails">Project details</label>
+                                    <div class="input-shell input-shell--textarea">
+                                        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+                                        <textarea id="contactDetails" name="projectDetails" rows="5"
+                                            placeholder="Briefly describe the issue, upgrade, or plumbing request"
+                                            aria-label="Project details"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="custom-checks">
+                                <label class="custom-check">
+                                    <input type="checkbox" name="consentContact" />
+                                    <span class="check-ui" aria-hidden="true"></span>
+                                    <span class="check-text">I agree to be contacted regarding my request.</span>
+                                </label>
+
+                                <label class="custom-check">
+                                    <input type="checkbox" name="consentPolicy" />
+                                    <span class="check-ui" aria-hidden="true"></span>
+                                    <span class="check-text">
+                                        I reviewed the
+                                        <a href="privacy-policy.html">Privacy Policy</a>,
+                                        <a href="cookie-policy.html">Cookie Policy</a>,
+                                        and
+                                        <a href="terms-of-service.html">Terms of Service</a>.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Request Provider Options
+                            </button>
+                        </form>
+                    </div>
+
+                    <aside class="contact-sidebar">
+                        <div class="contact-info-grid">
+                            <article class="contact-info-card">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                                </div>
+                                <h3>Call</h3>
+                                <p>Use the phone CTA for a faster start if you prefer to begin by phone.</p>
+                                <a href="tel:+18004172038" data-phone-link>
+                                    <span data-phone-display>Call Now</span>
+                                </a>
+                            </article>
+
+                            <article class="contact-info-card">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <h3>Email</h3>
+                                <p>Send a general request or follow-up if email is more convenient.</p>
+                                <a href="mailto:support@pipematch.com" data-email>
+                                    <span>support@pipematch.com</span>
+                                </a>
+                            </article>
+
+                            <article class="contact-info-card contact-info-card--wide">
+                                <div class="contact-info-icon">
+                                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                                </div>
+                                <h3>Important note</h3>
+                                <p>
+                                    PipeMatch is not a direct plumbing company. We help homeowners compare local service
+                                    categories and move toward relevant provider quote requests.
+                                </p>
+                            </article>
+                        </div>
+
+                        <div class="contact-sidebar-panel">
+                            <span class="mini-label">Helpful starting details</span>
+                            <ul class="contact-bullets">
+                                <li><i class="fa-solid fa-check"></i><span>ZIP code or service area</span></li>
+                                <li><i class="fa-solid fa-check"></i><span>Type of plumbing issue</span></li>
+                                <li><i class="fa-solid fa-check"></i><span>Urgency or preferred timing</span></li>
+                                <li><i class="fa-solid fa-check"></i><span>Short project description</span></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- ================= MAP / COVERAGE ================= -->
+            <section class="contact-map-section">
+                <div class="container">
+                    <div class="contact-map-wrap">
+                        <div class="contact-map-copy">
+                            <p class="section-kicker">Service area view</p>
+                            <h2>A request flow designed around local plumbing availability.</h2>
+                            <p>
+                                Provider availability can vary by ZIP code, region, urgency, and project type. PipeMatch
+                                is built to help homeowners begin with a structured request instead of a scattered
+                                search.
+                            </p>
+
+                            <div class="coverage-points">
+                                <span><i class="fa-solid fa-location-crosshairs"></i> ZIP-based request flow</span>
+                                <span><i class="fa-solid fa-dollar-sign"></i> Quote-oriented process</span>
+                                <span><i class="fa-solid fa-house"></i> Residential plumbing focus</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-map-visual" aria-label="Decorative service area visualization">
+                            <div class="contact-map-grid"></div>
+                            <div class="contact-map-line line-1"></div>
+                            <div class="contact-map-line line-2"></div>
+                            <div class="contact-map-pulse pulse-a"></div>
+                            <div class="contact-map-pulse pulse-b"></div>
+                            <div class="contact-map-pulse pulse-c"></div>
+
+                            <div class="contact-map-card">
+                                <span>Request-ready flow</span>
+                                <strong>Compare by category & area</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= FAQ ================= -->
+            <section class="contact-faq-section">
+                <div class="container">
+                    <div class="section-intro">
+                        <p class="section-kicker">FAQ</p>
+                        <h2>Common questions before sending a request</h2>
+                    </div>
+
+                    <div class="faq-list">
+                        <details class="faq-item" open>
+                            <summary>Do I need to know the exact plumbing problem before submitting a request?</summary>
+                            <p>
+                                No. Many homeowners begin with symptoms rather than a full diagnosis. Choosing the
+                                closest service category and adding a short description is usually enough to start.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Can I submit a request for a planned plumbing upgrade?</summary>
+                            <p>
+                                Yes. Not every request is urgent. Planned upgrades such as fixture installation or water
+                                heater replacement can also be submitted through the same request flow.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Why does the form ask for ZIP code and timing?</summary>
+                            <p>
+                                Location and urgency can affect which provider options are most relevant to the request,
+                                so these details help frame the comparison more clearly.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Does PipeMatch guarantee any contractor’s work?</summary>
+                            <p>
+                                No. PipeMatch is an independent matching platform. Homeowners should independently
+                                verify licensing, insurance, and suitability before hiring any contractor.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CTA ================= -->
+            <section class="contact-cta-section">
+                <div class="container">
+                    <div class="cta-strip">
+                        <div class="cta-strip-copy">
+                            <p class="section-kicker">Need a clearer start?</p>
+                            <h2>Browse categories first, then send a request with the right plumbing context.</h2>
+                        </div>
+
+                        <div class="cta-strip-actions">
+                            <a href="services.html" class="btn btn-primary">Browse Services</a>
+                            <a href="about.html" class="btn btn-secondary">How PipeMatch Works</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div class="footer-brand-block">
+                    <a class="brand brand--footer" href="index.html" aria-label="PipeMatch home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg width="42" height="42" viewBox="0 0 44 44" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="40" height="40" rx="12" fill="#0B1F3A" />
+                                <path d="M14 29V18.5C14 15.4624 16.4624 13 19.5 13H26.5" stroke="#ffffff"
+                                    stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M22 13H30V21" stroke="#176BFF" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14 24H22" stroke="#7EC3FF" stroke-width="2.5" stroke-linecap="round" />
+                                <circle cx="28.5" cy="28.5" r="4.5" stroke="#ffffff" stroke-width="2.5" />
+                            </svg>
+                        </span>
+                        <span class="brand-text">
+                            <strong class="brand-name">PipeMatch</strong>
+                            <span class="brand-tag">Independent provider matching platform</span>
+                        </span>
+                    </a>
+
+                    <p class="footer-text" data-footer-text>
+                        PipeMatch is an independent matching platform that helps homeowners compare local plumbing
+                        service providers based on project needs, location, and availability.
+                    </p>
+
+                    <div class="footer-contact">
+                        <a href="tel:+18004172038" data-phone-link>
+                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                            <span data-phone-display>Call Now</span>
+                        </a>
+                        <a href="mailto:support@pipematch.com" data-email>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <span>support@pipematch.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-block">
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-block">
+                    <h2>Services</h2>
+                    <ul>
+                        <li><a href="emergency-plumbing.html">Emergency Plumbing</a></li>
+                        <li><a href="drain-cleaning.html">Drain Cleaning</a></li>
+                        <li><a href="water-heater-services.html">Water Heater Services</a></li>
+                        <li><a href="leak-detection.html">Leak Detection</a></li>
+                        <li><a href="sewer-line-services.html">Sewer Line Services</a></li>
+                        <li><a href="fixture-installation.html">Fixture Installation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-block">
+                    <h2>Legal</h2>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+
+                    <div class="footer-company-meta">
+                        <p><strong data-company-name>PipeMatch</strong> <span data-company-id>PM-48291</span></p>
+                        <p data-address>1450 W Stonebridge Ave, Suite 210, Phoenix, AZ 85003, USA</p>
+                        <p data-service-area>
+                            Helping homeowners compare plumbing service providers across major U.S. service areas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container footer-disclaimer-wrap">
+                <p class="footer-disclaimer" data-disclaimer>
+                    Disclaimer: This site is a free service to assist homeowners in connecting with local service
+                    providers. All contractors/providers are independent and this site does not warrant or guarantee any
+                    work performed. It is the responsibility of the homeowner to verify that the hired contractor
+                    furnishes the necessary license and insurance required for the work being performed. All persons
+                    depicted in a photo or video are actors or models and not contractors listed on this site.
+                </p>
+            </div>
+
+            <div class="container footer-bottom">
+                <p>© <span id="year"></span> <span data-company-name>PipeMatch</span>. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- ================= COOKIE BAR ================= -->
+        <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+            <div class="cookie-banner-inner">
+                <div class="cookie-copy">
+                    <p class="cookie-title">Privacy & cookie preferences</p>
+                    <p class="cookie-text" data-cookie-text>
+                        We use cookies to improve site functionality, remember your preferences, and support a better
+                        browsing experience. By continuing, you confirm that you have reviewed our legal policies.
+                    </p>
+                    <div class="cookie-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                    </div>
+                </div>
+
+                <div class="cookie-actions">
+                    <button type="button" class="btn btn-primary" id="acceptCookies">Accept</button>
+                    <button type="button" class="btn btn-secondary" id="declineCookies">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/contact.js"></script>
+</body>
+
+</html>
