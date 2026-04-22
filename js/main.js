@@ -13,13 +13,6 @@ const setTextForElements = (selector, value) => {
     });
 };
 
-const setHrefForElements = (selector, hrefValue) => {
-    const elements = selectAll(selector);
-    elements.forEach((element) => {
-        element.setAttribute("href", hrefValue);
-    });
-};
-
 /* =========================
    CONFIG INJECTION
 ========================= */
@@ -32,6 +25,10 @@ function applySiteConfig() {
     setTextForElements("[data-footer-text]", siteConfig.footerText);
     setTextForElements("[data-disclaimer]", siteConfig.disclaimer);
     setTextForElements("[data-cookie-text]", siteConfig.cookieNoticeText);
+    setTextForElements(
+        "[data-legal-last-updated-label]",
+        `Last updated: ${siteConfig.legalLastUpdated}`
+    );
 
     const phoneLinks = selectAll("[data-phone-link]");
     phoneLinks.forEach((link) => {

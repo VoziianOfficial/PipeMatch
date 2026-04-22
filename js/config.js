@@ -20,6 +20,8 @@ export const siteConfig = {
     cookieNoticeText:
         "We use cookies to improve site functionality, remember your preferences, and support a better browsing experience. By continuing, you confirm that you have reviewed our legal policies.",
 
+    legalLastUpdated: "April 22, 2026",
+
     navLinks: [
         { label: "Home", href: "index.html" },
         { label: "Services", href: "services.html" },

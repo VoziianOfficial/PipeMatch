@@ -353,7 +353,7 @@
 .service-card-grid--popular {
     --popular-card-size: 250px;
     grid-template-columns: repeat(3, var(--popular-card-size));
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .section-block--popular-services {
@@ -1019,7 +1019,7 @@
     }
 
     .service-card-grid--popular {
-        grid-template-columns: repeat(3, var(--popular-card-size));
+        grid-template-columns: repeat(2, var(--popular-card-size));
     }
 
     .steps-grid {

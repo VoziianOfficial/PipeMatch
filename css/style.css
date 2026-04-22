@@ -561,27 +561,21 @@ main {
 ========================= */
 .mobile-callbar {
     display: none;
-    position: sticky;
-    top: var(--header-height);
-    z-index: var(--z-mobile-callbar);
-    width: 100%;
-    padding: 10px var(--container-pad);
-    background: rgba(11, 31, 58, 0.94);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mobile-callbar-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-height: 44px;
+    min-height: 52px;
     padding: 10px 16px;
     border-radius: var(--radius-pill);
     color: var(--color-white);
     font-weight: 800;
     background: linear-gradient(135deg, var(--color-primary), #1258d8);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
 }
 
 /* =========================
@@ -1209,6 +1203,15 @@ summary::-webkit-details-marker {
         display: none;
     }
 
+    .brand-tag {
+        display: none;
+    }
+
+    .header-actions {
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
     .mobile-menu-toggle {
         display: inline-flex;
     }
@@ -1219,6 +1222,16 @@ summary::-webkit-details-marker {
 
     .mobile-callbar {
         display: block;
+        position: static;
+        width: auto;
+        padding: 0;
+        background: transparent;
+        border-bottom: 0;
+        backdrop-filter: none;
+    }
+
+    .mobile-callbar-link {
+        min-width: 122px;
     }
 
     .form-grid {
