@@ -105,7 +105,6 @@ function initContactMap() {
     const L = window.L;
     if (!L || typeof L.map !== "function") return;
 
-    // Phoenix, AZ (used across the site footer). Keeps the map concrete without implying provider HQ.
     const center = [33.4484, -112.0740];
 
     const map = L.map(mapEl, {
@@ -168,7 +167,6 @@ function initContactMap() {
         try {
             localStorage.setItem("pipematch:contactMapStyle", style);
         } catch {
-            // Ignore storage failures (privacy modes).
         }
     };
 
@@ -193,7 +191,6 @@ function initContactMap() {
         updateButtons(normalized);
         setStoredStyle(normalized);
 
-        // Avoid rendering glitches if the container size changes after reveal animations.
         requestAnimationFrame(() => map.invalidateSize());
     };
 

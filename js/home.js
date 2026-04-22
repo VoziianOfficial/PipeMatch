@@ -82,7 +82,6 @@ function initCoverageMap() {
     const L = window.L;
     if (!L || typeof L.map !== "function") return;
 
-    // Matches the site-wide default location context.
     const center = [33.4484, -112.0740];
 
     const map = L.map(mapEl, {
@@ -145,7 +144,6 @@ function initCoverageMap() {
         try {
             localStorage.setItem("pipematch:homeMapStyle", style);
         } catch {
-            // Ignore storage failures in private browsing.
         }
     };
 

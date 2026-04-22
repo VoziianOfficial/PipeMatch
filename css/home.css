@@ -1,6 +1,3 @@
-/* =========================
-   HOME HERO
-========================= */
 .home-hero {
     position: relative;
     padding: clamp(34px, 5vw, 58px) 0 clamp(72px, 8vw, 110px);
@@ -102,9 +99,6 @@
     color: rgba(255, 255, 255, 0.72);
 }
 
-/* =========================
-   HERO FORM CARD
-========================= */
 .hero-form-card {
     position: relative;
     border-radius: 30px;
@@ -161,9 +155,6 @@
     margin-top: 2px;
 }
 
-/* =========================
-   HOME CONTENT LAYOUT
-========================= */
 .home-content-section {
     position: relative;
     margin-top: clamp(28px, 4vw, 56px);
@@ -181,9 +172,6 @@
     min-width: 0;
 }
 
-/* =========================
-   STICKY RAIL
-========================= */
 .service-rail {
     position: sticky;
     top: calc(var(--header-height) + 96px);
@@ -329,9 +317,6 @@
     width: 100%;
 }
 
-/* =========================
-   SECTION CONTRAST BLOCK
-========================= */
 .section-block--contrast {
     padding: 36px;
     border-radius: 32px;
@@ -341,9 +326,6 @@
     box-shadow: 0 22px 64px rgba(11, 31, 58, 0.08);
 }
 
-/* =========================
-   SERVICE CARD GRID
-========================= */
 .service-card-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -494,9 +476,6 @@
     color: var(--color-white);
 }
 
-/* =========================
-   STEPS GRID
-========================= */
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -549,9 +528,6 @@
     margin: 0;
 }
 
-/* =========================
-   SPLIT FEATURE
-========================= */
 .split-feature {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 380px;
@@ -642,10 +618,8 @@
     margin: 10px 0 0;
 }
 
-/* =========================
-   REVIEWS
-========================= */
 .section-block--reviews {
+    --review-card-height: 280px;
     overflow: hidden;
 }
 
@@ -653,10 +627,14 @@
     overflow: visible;
 }
 
+.reviews-slider .swiper-slide {
+    height: auto;
+}
+
 .review-card {
-    height: 100%;
-    min-height: 260px;
+    height: var(--review-card-height);
     display: grid;
+    grid-template-rows: auto 1fr auto auto;
     align-content: start;
     gap: 12px;
     padding: 28px;
@@ -675,11 +653,14 @@
 }
 
 .review-card p {
-    min-height: 106px;
     margin: 0;
     font-size: 1rem;
     line-height: 1.72;
     color: var(--color-text);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .review-card h3 {
@@ -730,9 +711,6 @@
     transform: scale(1.12);
 }
 
-/* =========================
-   COVERAGE / MAP BLOCK
-========================= */
 .section-block--coverage {
     position: relative;
 }
@@ -939,9 +917,6 @@
     letter-spacing: -0.03em;
 }
 
-/* =========================
-   FAQ
-========================= */
 .section-block--faq .faq-list {
     display: grid;
     gap: 14px;
@@ -999,9 +974,6 @@
     max-width: 1000px;
 }
 
-/* =========================
-   CTA STRIP
-========================= */
 .cta-strip {
     display: flex;
     align-items: center;
@@ -1040,12 +1012,6 @@
     background: rgba(255, 255, 255, 0.92);
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
-/* =========================
-   RESPONSIVE
-========================= */
 @media (max-width: 1280px) {
     .home-content-grid {
         grid-template-columns: 290px minmax(0, 1fr);
@@ -1127,7 +1093,7 @@
     }
 
     .review-card {
-        min-height: 230px;
+        height: var(--review-card-height);
         padding: 22px;
     }
 
@@ -1266,13 +1232,9 @@
     }
 
     .review-card {
-        min-height: 240px;
+        height: var(--review-card-height);
         padding: 22px;
         border-radius: 22px;
-    }
-
-    .review-card p {
-        min-height: auto;
     }
 
     .coverage-map-box {

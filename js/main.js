@@ -1,8 +1,5 @@
 import { siteConfig } from "./config.js";
 
-/* =========================
-   HELPERS
-========================= */
 const select = (selector, scope = document) => scope.querySelector(selector);
 const selectAll = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
@@ -13,9 +10,6 @@ const setTextForElements = (selector, value) => {
     });
 };
 
-/* =========================
-   CONFIG INJECTION
-========================= */
 function applySiteConfig() {
     setTextForElements("[data-company-name]", siteConfig.companyName);
     setTextForElements("[data-company-id]", siteConfig.companyId);
@@ -53,9 +47,6 @@ function applySiteConfig() {
     });
 }
 
-/* =========================
-   CURRENT YEAR
-========================= */
 function setCurrentYear() {
     const yearElement = select("#year");
     if (yearElement) {
@@ -63,9 +54,6 @@ function setCurrentYear() {
     }
 }
 
-/* =========================
-   STICKY HEADER SCROLL STATE
-========================= */
 function initHeaderScrollState() {
     const header = select("#siteHeader");
     if (!header) return;
@@ -82,9 +70,6 @@ function initHeaderScrollState() {
     window.addEventListener("scroll", toggleScrolledState, { passive: true });
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
 function initMobileMenu() {
     const menu = select("#mobileMenu");
     const openButton = select(".mobile-menu-toggle");
@@ -129,9 +114,6 @@ function initMobileMenu() {
     });
 }
 
-/* =========================
-   MOBILE SERVICES SELECT
-========================= */
 function initMobileServicesSelect() {
     const selectElement = select("#mobileServicesSelect");
     if (!selectElement) return;
@@ -144,9 +126,6 @@ function initMobileServicesSelect() {
     });
 }
 
-/* =========================
-   COOKIE BANNER
-========================= */
 function initCookieBanner() {
     const cookieBanner = select("#cookieBanner");
     const acceptButton = select("#acceptCookies");
@@ -175,9 +154,6 @@ function initCookieBanner() {
     });
 }
 
-/* =========================
-   ACTIVE NAV LINK
-========================= */
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
@@ -194,9 +170,6 @@ function setActiveNavLink() {
     });
 }
 
-/* =========================
-   GENERIC FORM UX
-========================= */
 function initFormEnhancements() {
     const forms = selectAll("form");
     if (!forms.length) return;
@@ -221,9 +194,6 @@ function initFormEnhancements() {
     });
 }
 
-/* =========================
-   CARD LINK FALLBACKS
-========================= */
 function initCardLinkFallbacks() {
     const setups = [
         { cardSelector: ".service-card", linkSelector: "a.service-card-link[href]" },
@@ -248,9 +218,6 @@ function initCardLinkFallbacks() {
     });
 }
 
-/* =========================
-   INIT
-========================= */
 document.addEventListener("DOMContentLoaded", () => {
     applySiteConfig();
     setCurrentYear();
