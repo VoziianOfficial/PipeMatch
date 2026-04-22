@@ -14,7 +14,7 @@
 .service-page-hero-bg {
     background:
         linear-gradient(118deg, rgba(11, 31, 58, 0.90) 0%, rgba(11, 31, 58, 0.62) 46%, rgba(11, 31, 58, 0.24) 100%),
-        var(--service-hero-image, url("../assets/images/service-pages/default-service-hero.jpg")) center/cover no-repeat;
+        var(--service-hero-image, none) center/cover no-repeat;
     transform: scale(1.02);
 }
 
