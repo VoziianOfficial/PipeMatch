@@ -484,6 +484,29 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .services-stat-card,
+    .services-sidebar-card,
+    .services-comparison-block {
+        padding: 24px;
+        border-radius: 26px;
+    }
+
+    .directory-card {
+        min-height: 350px;
+    }
+
+    .directory-card-content {
+        padding: 22px;
+        padding-top: 90px;
+    }
+
+    .editorial-panel-card {
+        padding: 24px;
+        border-radius: 26px;
+    }
+}
+
 @media (max-width: 767px) {
     .services-directory-section {
         margin-top: 24px;

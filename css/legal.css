@@ -380,6 +380,22 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .legal-hero-card,
+    .legal-sidebar-card,
+    .legal-intro-card,
+    .legal-section,
+    .legal-bottom-note {
+        padding: 24px;
+        border-radius: 26px;
+    }
+
+    .legal-toc a {
+        white-space: normal;
+        line-height: 1.35;
+    }
+}
+
 @media (max-width: 767px) {
     .legal-hero {
         padding: 28px 0 54px;

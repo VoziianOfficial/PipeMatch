@@ -22,6 +22,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -591,14 +592,26 @@
                                     </div>
                                 </div>
 
-                                <div class="coverage-map-box" aria-label="Decorative service area visualization">
-                                    <div class="map-grid"></div>
-                                    <div class="map-pulse pulse-1"></div>
-                                    <div class="map-pulse pulse-2"></div>
-                                    <div class="map-pulse pulse-3"></div>
+                                <div class="coverage-map-box" aria-label="Interactive service area map">
+                                    <div class="coverage-map-toolbar" role="group" aria-label="Map style">
+                                        <button type="button" class="coverage-map-style-btn is-active"
+                                            data-coverage-map-style="standard">Standard</button>
+                                        <button type="button" class="coverage-map-style-btn"
+                                            data-coverage-map-style="light">Light</button>
+                                        <button type="button" class="coverage-map-style-btn"
+                                            data-coverage-map-style="dark">Dark</button>
+                                    </div>
+
+                                    <div class="coverage-map" id="coverageMap" aria-label="Coverage map"></div>
+                                    <div class="coverage-map-decor" aria-hidden="true"></div>
+
                                     <div class="map-center-card">
                                         <span>Coverage-ready request flow</span>
                                         <strong>Compare providers by area</strong>
+                                        <a class="map-open-link" href="https://maps.google.com/?q=Phoenix,+AZ"
+                                            target="_blank" rel="noopener noreferrer">
+                                            Open full map
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -848,6 +861,7 @@
   </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/home.js"></script>
 </body>

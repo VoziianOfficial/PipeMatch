@@ -131,13 +131,16 @@
 
 .contact-main-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns: minmax(0, 760px) minmax(300px, 360px);
     gap: clamp(24px, 4vw, 40px);
+    justify-content: space-between;
     align-items: start;
 }
 
 .contact-form-wrap {
-    padding: 34px;
+    width: 100%;
+    max-width: 760px;
+    padding: clamp(24px, 2.2vw, 32px);
     border-radius: 34px;
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 244, 251, 0.96) 100%);
@@ -309,92 +312,152 @@
 
 .contact-map-visual {
     position: relative;
-    min-height: 380px;
+    min-height: 410px;
     border-radius: 30px;
     overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(17, 40, 71, 0.98) 0%, rgba(11, 31, 58, 1) 100%);
+    background: linear-gradient(180deg, rgba(17, 40, 71, 0.98) 0%, rgba(11, 31, 58, 1) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.contact-map-grid {
+.contact-map {
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(126, 195, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(126, 195, 255, 0.08) 1px, transparent 1px);
-    background-size: 34px 34px;
-    mask-image: radial-gradient(circle at center, #000 50%, transparent 100%);
+    z-index: 1;
 }
 
-.contact-map-line {
+.contact-map-toolbar {
     position: absolute;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(126, 195, 255, 0.46) 50%, transparent 100%);
-    transform-origin: left center;
+    top: 14px;
+    left: 14px;
+    z-index: 6;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(11, 31, 58, 0.14);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 45px rgba(11, 31, 58, 0.16);
 }
 
-.line-1 {
-    width: 180px;
-    top: 34%;
-    left: 18%;
-    transform: rotate(18deg);
+.contact-map-style-btn {
+    appearance: none;
+    border: 1px solid rgba(11, 31, 58, 0.14);
+    background: rgba(255, 255, 255, 0.72);
+    color: rgba(11, 31, 58, 0.92);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 9px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.line-2 {
-    width: 160px;
-    bottom: 28%;
-    right: 14%;
-    transform: rotate(-24deg);
+.contact-map-style-btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(11, 31, 58, 0.22);
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.contact-map-pulse {
+.contact-map-style-btn:focus-visible {
+    outline: 3px solid rgba(23, 107, 255, 0.35);
+    outline-offset: 2px;
+}
+
+.contact-map-style-btn.is-active {
+    background: linear-gradient(135deg, rgba(23, 107, 255, 1) 0%, rgba(126, 195, 255, 1) 100%);
+    border-color: rgba(23, 107, 255, 0.55);
+    color: var(--color-white);
+    box-shadow: 0 10px 22px rgba(23, 107, 255, 0.24);
+}
+
+.contact-map-decor {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--color-primary-light);
-    box-shadow: 0 0 0 0 rgba(126, 195, 255, 0.34);
-    animation: contactPulse 2.9s infinite;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(126, 195, 255, 0.24), transparent 48%),
+        radial-gradient(circle at 78% 28%, rgba(23, 107, 255, 0.18), transparent 52%),
+        linear-gradient(180deg, rgba(11, 31, 58, 0.22) 0%, rgba(11, 31, 58, 0.12) 28%, rgba(11, 31, 58, 0.40) 100%);
+    mix-blend-mode: soft-light;
 }
 
-.pulse-a {
-    top: 28%;
-    left: 26%;
+.contact-map-visual .leaflet-container {
+    background: linear-gradient(180deg, rgba(17, 40, 71, 0.98) 0%, rgba(11, 31, 58, 1) 100%);
+    font-family: var(--font-body);
 }
 
-.pulse-b {
-    top: 48%;
-    right: 20%;
-    animation-delay: 0.8s;
+.contact-map-visual .leaflet-control-container .leaflet-control {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(11, 31, 58, 0.16);
+    box-shadow: 0 12px 30px rgba(11, 31, 58, 0.18);
 }
 
-.pulse-c {
-    bottom: 20%;
-    left: 48%;
-    animation-delay: 1.5s;
+.contact-map-visual .leaflet-control-zoom a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: rgba(11, 31, 58, 0.92);
+}
+
+.contact-map-visual .leaflet-control-scale-line {
+    border: 1px solid rgba(11, 31, 58, 0.16);
+    border-top: none;
+    background: rgba(255, 255, 255, 0.86);
+    color: rgba(11, 31, 58, 0.9);
+    border-radius: 14px;
+    padding: 6px 10px 5px;
+    box-shadow: 0 12px 28px rgba(11, 31, 58, 0.16);
+}
+
+.contact-map-visual .leaflet-control-attribution {
+    background: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin: 0 10px 10px 0;
+    padding: 4px 8px;
+    color: rgba(11, 31, 58, 0.78);
+}
+
+.contact-map-visual .leaflet-popup-content-wrapper,
+.contact-map-visual .leaflet-popup-tip {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(11, 31, 58, 0.08);
+    box-shadow: 0 18px 50px rgba(11, 31, 58, 0.18);
+}
+
+.contact-map-visual .leaflet-popup-content {
+    margin: 12px 14px;
+    color: rgba(11, 31, 58, 0.9);
 }
 
 .contact-map-card {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 230px;
-    padding: 18px 20px;
-    border-radius: 22px;
+    left: 16px;
+    bottom: 16px;
+    z-index: 6;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    transform: none;
+    min-width: 240px;
+    max-width: 280px;
+    padding: 16px 18px;
+    border-radius: 20px;
     background: rgba(255, 255, 255, 0.10);
     border: 1px solid rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(12px);
-    text-align: center;
+    text-align: left;
     color: var(--color-white);
     box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
 }
 
 .contact-map-card span {
     display: block;
-    margin-bottom: 8px;
     font-size: 0.8rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -402,9 +465,14 @@
 }
 
 .contact-map-card strong {
+    display: block;
     font-family: var(--font-heading);
     font-size: 1.12rem;
     letter-spacing: -0.03em;
+}
+
+.contact-map-card .map-open-link {
+    width: max-content;
 }
 
 /* =========================
@@ -427,23 +495,6 @@
 }
 
 /* =========================
-   ANIMATION
-========================= */
-@keyframes contactPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(126, 195, 255, 0.30);
-    }
-
-    70% {
-        box-shadow: 0 0 0 18px rgba(126, 195, 255, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(126, 195, 255, 0);
-    }
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 1150px) {
@@ -457,6 +508,32 @@
     .contact-hero-inner {
         min-height: auto;
         align-items: start;
+    }
+}
+
+@media (max-width: 1280px) {
+    .contact-main-grid {
+        grid-template-columns: minmax(0, 1fr) 330px;
+    }
+
+    .contact-form-wrap {
+        max-width: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-form-wrap,
+    .contact-map-wrap {
+        padding: 26px;
+        border-radius: 28px;
+    }
+
+    .contact-info-card {
+        padding: 20px;
+    }
+
+    .contact-map-visual {
+        min-height: 340px;
     }
 }
 
@@ -500,9 +577,32 @@
         border-radius: 22px;
     }
 
+    .contact-map-toolbar {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        border-radius: 18px;
+        justify-content: space-between;
+    }
+
+    .contact-map-style-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px 10px;
+    }
+
     .contact-map-card {
-        min-width: 190px;
-        padding: 16px 18px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        min-width: 0;
+        max-width: none;
+        width: auto;
+        padding: 14px 16px;
+    }
+
+    .contact-map-card .map-open-link {
+        width: 100%;
     }
 }
 

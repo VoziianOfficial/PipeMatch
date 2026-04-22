@@ -98,9 +98,133 @@ function initServicePrefillFromQuery() {
     });
 }
 
+function initContactMap() {
+    const mapEl = document.querySelector("#contactMap");
+    if (!mapEl) return;
+
+    const L = window.L;
+    if (!L || typeof L.map !== "function") return;
+
+    // Phoenix, AZ (used across the site footer). Keeps the map concrete without implying provider HQ.
+    const center = [33.4484, -112.0740];
+
+    const map = L.map(mapEl, {
+        center,
+        zoom: 11,
+        zoomControl: false,
+        scrollWheelZoom: false,
+        dragging: true,
+        tap: true
+    });
+
+    L.control
+        .zoom({
+            position: "bottomright"
+        })
+        .addTo(map);
+
+    L.control
+        .scale({
+            position: "bottomleft",
+            imperial: true,
+            metric: false
+        })
+        .addTo(map);
+
+    if (map.attributionControl) {
+        map.attributionControl.setPrefix(false);
+    }
+
+    const layers = {
+        standard: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: "&copy; OpenStreetMap contributors"
+        }),
+        light: L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+            subdomains: "abcd",
+            maxZoom: 20,
+            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+        }),
+        dark: L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+            subdomains: "abcd",
+            maxZoom: 20,
+            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+        })
+    };
+
+    let activeLayer = null;
+
+    const buttons = [...document.querySelectorAll(".contact-map-style-btn[data-map-style]")];
+
+    const getStoredStyle = () => {
+        try {
+            return localStorage.getItem("pipematch:contactMapStyle");
+        } catch {
+            return null;
+        }
+    };
+
+    const setStoredStyle = (style) => {
+        try {
+            localStorage.setItem("pipematch:contactMapStyle", style);
+        } catch {
+            // Ignore storage failures (privacy modes).
+        }
+    };
+
+    const updateButtons = (style) => {
+        buttons.forEach((btn) => {
+            const isActive = btn.dataset.mapStyle === style;
+            btn.classList.toggle("is-active", isActive);
+            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+    };
+
+    const setStyle = (style) => {
+        const normalized = layers[style] ? style : "standard";
+
+        if (activeLayer) {
+            map.removeLayer(activeLayer);
+        }
+
+        activeLayer = layers[normalized];
+        activeLayer.addTo(map);
+
+        updateButtons(normalized);
+        setStoredStyle(normalized);
+
+        // Avoid rendering glitches if the container size changes after reveal animations.
+        requestAnimationFrame(() => map.invalidateSize());
+    };
+
+    setStyle(getStoredStyle() || "standard");
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            setStyle(btn.dataset.mapStyle);
+        });
+    });
+
+    const marker = L.marker(center, {
+        keyboard: false
+    }).addTo(map);
+
+    marker.bindPopup("<strong>Phoenix, AZ</strong><br/>Example service-area view");
+
+    L.circle(center, {
+        radius: 24000,
+        color: "#176BFF",
+        weight: 2,
+        opacity: 0.9,
+        fillColor: "#7EC3FF",
+        fillOpacity: 0.12
+    }).addTo(map);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initContactFaqSingleOpen();
     initContactReveal();
     initContactHoverDepth();
     initServicePrefillFromQuery();
+    initContactMap();
 });

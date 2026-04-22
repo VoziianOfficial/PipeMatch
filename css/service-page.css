@@ -564,6 +564,28 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .service-page-hero-card,
+    .service-page-sidebar-card,
+    .service-overview-block,
+    .service-factors-block,
+    .service-checklist-panel {
+        padding: 24px;
+        border-radius: 26px;
+    }
+
+    .service-step-card,
+    .service-factor-card,
+    .service-overview-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .service-visual-card {
+        min-height: 360px;
+    }
+}
+
 @media (max-width: 767px) {
     .service-page-hero {
         padding: 28px 0 62px;

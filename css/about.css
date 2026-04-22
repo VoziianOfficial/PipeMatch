@@ -446,6 +446,24 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .about-hero-note,
+    .about-story-copy,
+    .about-model-wrap,
+    .about-note-wrap {
+        padding: 26px;
+        border-radius: 28px;
+    }
+
+    .about-story-card,
+    .about-benefits-panel-card,
+    .process-card,
+    .model-point {
+        padding: 22px;
+        border-radius: 24px;
+    }
+}
+
 @media (max-width: 767px) {
     .about-hero {
         padding: 28px 0 62px;

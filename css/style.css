@@ -295,6 +295,13 @@ p {
 main {
     position: relative;
     z-index: 1;
+    min-width: 0;
+}
+
+main section,
+.section-block,
+[class*="-grid"]>* {
+    min-width: 0;
 }
 
 /* =========================
@@ -381,6 +388,31 @@ main {
 
 .btn-block {
     width: 100%;
+}
+
+.map-open-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.map-open-link:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* =========================
@@ -1199,6 +1231,14 @@ summary::-webkit-details-marker {
         --container-pad: 20px;
     }
 
+    .section-intro {
+        margin-bottom: 28px;
+    }
+
+    .section-intro p {
+        font-size: 1rem;
+    }
+
     .desktop-nav {
         display: none;
     }
@@ -1238,6 +1278,11 @@ summary::-webkit-details-marker {
         grid-template-columns: 1fr;
     }
 
+    .compact-form .input-shell,
+    .service-rail-form .input-shell {
+        min-height: 54px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1268,6 +1313,16 @@ summary::-webkit-details-marker {
         gap: 14px;
     }
 
+    .mobile-callbar-link {
+        min-width: 0;
+        padding-inline: 12px;
+    }
+
+    .mobile-menu-toggle {
+        width: 48px;
+        height: 48px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -1282,6 +1337,10 @@ summary::-webkit-details-marker {
     .cookie-banner-inner {
         padding: 18px;
         border-radius: 20px;
+    }
+
+    .btn {
+        white-space: normal;
     }
 
     .cookie-actions {
@@ -1325,5 +1384,31 @@ summary::-webkit-details-marker {
         transition-duration: 0.01ms !important;
         transition-delay: 0ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover .service-card-link,
+    .directory-card:hover .directory-card-link {
+        transform: none;
+    }
+
+    .service-card:hover .service-card-image,
+    .directory-card:hover .directory-card-media {
+        transform: none;
+    }
+
+    .step-card:hover,
+    .process-card:hover,
+    .service-step-card:hover,
+    .service-factor-card:hover,
+    .comparison-card:hover,
+    .about-story-card:hover,
+    .model-point:hover,
+    .contact-info-card:hover,
+    .faq-item:hover,
+    .legal-toc a:hover,
+    .service-page-sidebar-links a:hover {
+        transform: none;
     }
 }

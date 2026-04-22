@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin="anonymous" />
+
     <link rel="stylesheet" href="./css/style.css" />
 
     <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
@@ -395,17 +398,31 @@
                             </div>
                         </div>
 
-                        <div class="contact-map-visual" aria-label="Decorative service area visualization">
-                            <div class="contact-map-grid"></div>
-                            <div class="contact-map-line line-1"></div>
-                            <div class="contact-map-line line-2"></div>
-                            <div class="contact-map-pulse pulse-a"></div>
-                            <div class="contact-map-pulse pulse-b"></div>
-                            <div class="contact-map-pulse pulse-c"></div>
+                        <div class="contact-map-visual" aria-label="Service area map">
+                            <div class="contact-map-toolbar" role="group" aria-label="Map style">
+                                <button type="button" class="contact-map-style-btn is-active"
+                                    data-map-style="standard">
+                                    Standard
+                                </button>
+                                <button type="button" class="contact-map-style-btn" data-map-style="light">
+                                    Light
+                                </button>
+                                <button type="button" class="contact-map-style-btn" data-map-style="dark">
+                                    Dark
+                                </button>
+                            </div>
+
+                            <div class="contact-map" id="contactMap" aria-label="Interactive map"></div>
+
+                            <div class="contact-map-decor" aria-hidden="true"></div>
 
                             <div class="contact-map-card">
                                 <span>Request-ready flow</span>
                                 <strong>Compare by category & area</strong>
+                                <a class="map-open-link" href="https://maps.google.com/?q=Phoenix,+AZ" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Open full map
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -593,6 +610,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/contact.js"></script>
 </body>
