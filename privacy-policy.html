@@ -20,14 +20,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./css/style.css" />
-    <style>
-        body[data-legal-page="privacy"] {
-            --legal-hero-image: url("./assets/images/legal/privacy-hero.jpg");
-        }
-    </style>
 </head>
 
-<body data-page="legal" data-legal-page="privacy">
+<body data-page="legal" data-legal-page="privacy"
+    style="--legal-hero-image: url('./assets/images/legal/hero.jpg');">
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <div class="site-shell">
@@ -161,7 +157,9 @@
         <main id="main-content">
             <!-- HERO -->
             <section class="legal-hero">
-                <div class="legal-hero-bg" aria-hidden="true"></div>
+                <div class="legal-hero-bg" aria-hidden="true"
+                    style="background: linear-gradient(118deg, rgba(11, 31, 58, 0.92) 0%, rgba(11, 31, 58, 0.72) 42%, rgba(11, 31, 58, 0.36) 100%), url('./assets/images/legal/hero.jpg') center/cover no-repeat;">
+                </div>
                 <div class="legal-hero-overlay" aria-hidden="true"></div>
 
                 <div class="container legal-hero-inner">

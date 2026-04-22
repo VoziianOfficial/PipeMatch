@@ -17,7 +17,7 @@
 .legal-hero-bg {
     background:
         linear-gradient(118deg, rgba(11, 31, 58, 0.92) 0%, rgba(11, 31, 58, 0.72) 42%, rgba(11, 31, 58, 0.36) 100%),
-        var(--legal-hero-image, url("../assets/images/legal/legal-hero-bg.jpg")) center/cover no-repeat;
+        var(--legal-hero-image, url("../assets/images/legal/hero.jpg")) center/cover no-repeat;
     transform: scale(1.02);
 }
 

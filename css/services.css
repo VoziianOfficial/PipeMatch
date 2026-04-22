@@ -220,6 +220,7 @@
     border-radius: 30px;
     transform-style: preserve-3d;
     perspective: 1200px;
+    cursor: pointer;
 }
 
 .directory-card-link {
@@ -227,6 +228,7 @@
     display: block;
     min-height: inherit;
     height: 100%;
+    cursor: pointer;
     border-radius: inherit;
     overflow: hidden;
     box-shadow:
@@ -236,6 +238,11 @@
     transition:
         transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
         box-shadow 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.directory-card-link:focus-visible {
+    outline: 3px solid rgba(23, 107, 255, 0.35);
+    outline-offset: 4px;
 }
 
 .directory-card:hover .directory-card-link {
