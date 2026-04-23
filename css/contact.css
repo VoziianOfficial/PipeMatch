@@ -11,6 +11,8 @@
     pointer-events: none;
 }
 
+
+
 .contact-hero-bg {
     background:
         linear-gradient(118deg, rgba(11, 31, 58, 0.90) 0%, rgba(11, 31, 58, 0.62) 46%, rgba(11, 31, 58, 0.28) 100%),
@@ -89,7 +91,7 @@
     font-family: var(--font-heading);
     font-size: 1.34rem;
     line-height: 1.12;
-    color: var(--color-navy);
+    color: var(--color-primary);
 }
 
 .contact-hero-card p {
@@ -411,6 +413,10 @@
     color: rgba(11, 31, 58, 0.78);
 }
 
+.contact-map-visual :is(.leaflet-control-attribution, .leaflet-control-scale, .leaflet-control-scale-line) {
+    display: none !important;
+}
+
 .contact-map-visual .leaflet-popup-content-wrapper,
 .contact-map-visual .leaflet-popup-tip {
     background: rgba(255, 255, 255, 0.92);
@@ -490,7 +496,7 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (min-width: 1151px) and (max-width: 1280px) {
     .contact-main-grid {
         grid-template-columns: minmax(0, 1fr) 330px;
     }
@@ -542,7 +548,7 @@
     .contact-form-wrap,
     .contact-sidebar-panel,
     .contact-map-wrap {
-        padding: 22px;
+        padding: 18px;
         border-radius: 24px;
     }
 
@@ -599,4 +605,204 @@
     .contact-map-card strong {
         font-size: 1rem;
     }
+}
+
+/* ==========================================
+   CONTACT DARK REFERENCE OVERRIDE
+========================================== */
+.contact-hero-bg {
+    background:
+        linear-gradient(112deg, rgba(2, 8, 24, 0.94) 0%, rgba(2, 8, 24, 0.76) 44%, rgba(2, 8, 24, 0.62) 100%),
+        url("../assets/images/contact/contact-hero-bg.jpg") center/cover no-repeat;
+}
+
+.contact-hero-overlay {
+    background:
+        radial-gradient(circle at 16% 14%, rgba(76, 198, 235, 0.16), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(14, 44, 97, 0.34), transparent 34%),
+        linear-gradient(180deg, rgba(2, 8, 24, 0.08) 0%, rgba(2, 8, 24, 0.24) 100%);
+}
+
+.contact-main-section {
+    margin-top: 0;
+}
+
+.contact-hero-card,
+.contact-form-wrap,
+.contact-info-card,
+.contact-sidebar-panel,
+.contact-map-wrap,
+.contact-map-visual,
+.contact-faq-section .faq-item {
+    background: linear-gradient(180deg, rgba(8, 20, 48, 0.86) 0%, rgba(5, 15, 37, 0.92) 100%);
+    border-color: rgba(120, 158, 219, 0.22);
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+}
+
+.contact-hero-copy h1,
+.contact-form-wrap h2,
+.contact-info-card h3,
+.contact-sidebar-panel h3 {
+    color: #eef6ff;
+}
+
+.contact-hero-text,
+.contact-hero-card p,
+.contact-form-wrap p,
+.contact-info-card p,
+.contact-sidebar-panel p,
+.contact-bullets span {
+    color: #9db2d4;
+}
+
+.contact-info-card a {
+    color: #68caee;
+}
+
+.contact-bullets li {
+    background: rgba(12, 31, 71, 0.7);
+    border-color: rgba(120, 158, 219, 0.18);
+}
+
+.contact-map-wrap {
+    padding: clamp(20px, 2vw, 30px);
+}
+
+.contact-map-visual {
+    min-height: 320px;
+    max-height: 420px;
+}
+
+.contact-page-form {
+    max-width: 720px;
+}
+
+.contact-page-form .form-grid {
+    gap: 10px;
+}
+
+.contact-page-form .input-shell {
+    min-height: 50px;
+}
+
+.contact-page-form .input-shell--textarea,
+.contact-page-form .input-shell--textarea textarea {
+    min-height: 108px;
+}
+
+.contact-page-form .btn[type="submit"] {
+    margin-top: 6px;
+}
+
+.contact-hero-description{
+    color:#ffffff!important;
+}
+
+.contact-faq-section .faq-item summary {
+    color: #eaf3ff;
+}
+
+.contact-faq-section .faq-item p {
+    color: #9eb4d4;
+}
+
+@media (min-width: 1500px) {
+    .contact-main-grid {
+        grid-template-columns: minmax(0, 820px) 360px;
+        justify-content: center;
+    }
+}
+
+/* ==========================================
+   CONTACT COMPACT / SIDEBAR PHOTO TUNING
+========================================== */
+.contact-main-section {
+    padding-top: clamp(36px, 5vw, 74px);
+}
+
+.contact-form-wrap {
+    max-width: 690px;
+}
+
+.contact-page-form {
+    max-width: 650px;
+}
+
+.contact-page-form .form-grid {
+    gap: 8px;
+}
+
+.contact-page-form .input-shell {
+    min-height: 48px;
+}
+
+.contact-page-form .input-shell--textarea,
+.contact-page-form .input-shell--textarea textarea {
+    min-height: 98px;
+}
+
+/* Make contact info cards match the dark theme with white text */
+.contact-info-grid .contact-info-card {
+    background: linear-gradient(180deg, rgba(8, 20, 48, 0.9) 0%, rgba(5, 15, 37, 0.94) 100%);
+    border-color: rgba(120, 158, 219, 0.22);
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.26);
+}
+
+.contact-info-grid .contact-info-card h3 {
+    color: #ffffff;
+}
+
+.contact-info-grid .contact-info-card p {
+    color: #ffffff;
+}
+
+.contact-info-grid .contact-info-card a {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.contact-info-grid .contact-info-card .contact-info-icon {
+    background: rgba(12, 31, 71, 0.7);
+    color: #4cc6eb;
+}
+
+@media (max-width: 767px) {
+    .contact-main-section {
+        padding-top: 26px;
+    }
+
+    .contact-page-form .input-shell {
+        min-height: 44px;
+    }
+
+    .contact-page-form .input-shell--textarea,
+    .contact-page-form .input-shell--textarea textarea {
+        min-height: 90px;
+    }
+    .contact-hero-description{
+    color:#ffffff!important;
+}
+}
+
+/* Force all paragraphs on Contact page to be white */
+body[data-page="contact"] p {
+    color: #ffffff!important;
+}
+
+/* Force all content in these contact blocks to be white */
+body[data-page="contact"] .contact-info-grid,
+body[data-page="contact"] .contact-hero-side {
+    color: #ffffff!important;
+}
+
+body[data-page="contact"] .contact-info-grid :where(h1, h2, h3, h4, p, a, span, strong, small, li, summary),
+body[data-page="contact"] .contact-hero-side :where(h1, h2, h3, h4, p, a, span, strong, small, li, summary),
+body[data-page="contact"] .contact-info-grid :where(.mini-label, .section-kicker, .service-rail-label),
+body[data-page="contact"] .contact-hero-side :where(.mini-label, .section-kicker, .service-rail-label) {
+    color: #ffffff;
+}
+
+body[data-page="contact"] .contact-info-grid a,
+body[data-page="contact"] .contact-hero-side a {
+    text-decoration-color: rgba(255, 255, 255, 0.5);
 }

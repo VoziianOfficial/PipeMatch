@@ -1,21 +1,30 @@
 function initReviewsSlider() {
     const sliderElement = document.querySelector(".reviews-slider");
-
     if (!sliderElement || typeof Swiper === "undefined") return;
 
-    new Swiper(".reviews-slider", {
+    const paginationElement = sliderElement.querySelector(".swiper-pagination");
+
+    new Swiper(sliderElement, {
         slidesPerView: 1,
         spaceBetween: 18,
-        speed: 700,
+        speed: 900,
         loop: true,
         grabCursor: true,
+        centeredSlides: false,
+        watchSlidesProgress: true,
+        autoplay: {
+            delay: 4200,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+        },
         pagination: {
-            el: ".swiper-pagination",
+            el: paginationElement,
             clickable: true
         },
         breakpoints: {
             640: {
-                slidesPerView: 1.2
+                slidesPerView: 1.15,
+                spaceBetween: 18
             },
             768: {
                 slidesPerView: 2,
@@ -23,21 +32,9 @@ function initReviewsSlider() {
             },
             1200: {
                 slidesPerView: 3,
-                spaceBetween: 22
+                spaceBetween: 24
             }
         }
-    });
-}
-
-function initRailChips() {
-    const chips = document.querySelectorAll(".rail-filter-group .chip");
-    if (!chips.length) return;
-
-    chips.forEach((chip) => {
-        chip.addEventListener("click", () => {
-            chips.forEach((item) => item.classList.remove("is-active"));
-            chip.classList.add("is-active");
-        });
     });
 }
 
@@ -59,12 +56,12 @@ function initFaqSingleOpen() {
 }
 
 function initServiceSearch() {
-    const searchInput = document.querySelector('.rail-search input');
-    const railLinks = document.querySelectorAll('.rail-links a');
+    const searchInput = document.querySelector(".rail-search input");
+    const railLinks = document.querySelectorAll(".rail-links a");
 
     if (!searchInput || !railLinks.length) return;
 
-    searchInput.addEventListener('input', (event) => {
+    searchInput.addEventListener("input", (event) => {
         const query = event.target.value.trim().toLowerCase();
 
         railLinks.forEach((link) => {
@@ -88,28 +85,14 @@ function initCoverageMap() {
         center,
         zoom: 11,
         zoomControl: false,
+        attributionControl: false,
         scrollWheelZoom: false,
         dragging: true,
         tap: true
     });
 
-    L.control
-        .zoom({
-            position: "bottomright"
-        })
-        .addTo(map);
-
-    L.control
-        .scale({
-            position: "bottomleft",
-            imperial: true,
-            metric: false
-        })
-        .addTo(map);
-
-    if (map.attributionControl) {
-        map.attributionControl.setPrefix(false);
-    }
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+    // Attribution + scale controls are intentionally omitted for a cleaner UI.
 
     const layers = {
         standard: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -129,7 +112,6 @@ function initCoverageMap() {
     };
 
     let activeLayer = null;
-
     const buttons = [...document.querySelectorAll(".coverage-map-style-btn[data-coverage-map-style]")];
 
     const getStoredStyle = () => {
@@ -144,6 +126,7 @@ function initCoverageMap() {
         try {
             localStorage.setItem("pipematch:homeMapStyle", style);
         } catch {
+            /* ignore */
         }
     };
 
@@ -187,18 +170,170 @@ function initCoverageMap() {
 
     L.circle(center, {
         radius: 24000,
-        color: "#176BFF",
+        color: "#b28a4f",
         weight: 2,
-        opacity: 0.9,
-        fillColor: "#7EC3FF",
-        fillOpacity: 0.12
+        opacity: 0.95,
+        fillColor: "#d7bb89",
+        fillOpacity: 0.16
     }).addTo(map);
+}
+
+function initRevealAnimations() {
+    const revealItems = document.querySelectorAll(`
+        .hero-copy,
+        .hero-form-card,
+        .service-rail-card,
+        .service-card,
+        .step-card,
+        .split-feature-copy,
+        .visual-card,
+        .review-card,
+        .coverage-card,
+        .faq-item,
+        .cta-strip
+    `);
+
+    if (!revealItems.length || !("IntersectionObserver" in window)) return;
+
+    revealItems.forEach((item, index) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(42px)";
+        item.style.transition = `
+            opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) ${index * 0.03}s,
+            transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) ${index * 0.03}s
+        `;
+    });
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                obs.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+}
+
+function initHeroParallax() {
+    const hero = document.querySelector(".home-hero");
+    const bg = document.querySelector(".home-hero-bg");
+    const orbOne = document.querySelector(".home-hero-orb");
+    const orbTwo = document.querySelector(".home-hero-orb--two");
+    const formCard = document.querySelector(".hero-form-card");
+
+    if (!hero || window.innerWidth < 992) return;
+
+    hero.addEventListener("mousemove", (event) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+
+        const moveX = (x - 0.5) * 18;
+        const moveY = (y - 0.5) * 14;
+
+        if (bg) {
+            bg.style.transform = `scale(1.08) translate(${moveX * -0.35}px, ${moveY * -0.35}px)`;
+        }
+
+        if (orbOne) {
+            orbOne.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+
+        if (orbTwo) {
+            orbTwo.style.transform = `translate(${moveX * -0.75}px, ${moveY * -0.75}px)`;
+        }
+
+        if (formCard) {
+            formCard.style.transform = `perspective(1200px) rotateX(${(y - 0.5) * -4}deg) rotateY(${(x - 0.5) * 4}deg) translateY(-4px)`;
+        }
+    });
+
+    hero.addEventListener("mouseleave", () => {
+        if (bg) bg.style.transform = "";
+        if (orbOne) orbOne.style.transform = "";
+        if (orbTwo) orbTwo.style.transform = "";
+        if (formCard) formCard.style.transform = "";
+    });
+}
+
+function initCardDepth() {
+    const cards = document.querySelectorAll(`
+        .service-card,
+        .step-card,
+        .review-card
+    `);
+
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        card.addEventListener("mousemove", (event) => {
+            if (window.innerWidth < 992) return;
+
+            const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const rotateY = ((x / rect.width) - 0.5) * 7;
+            const rotateX = ((y / rect.height) - 0.5) * -7;
+
+            card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+        });
+    });
+}
+
+function initHeadingMotion() {
+    const heroTitle = document.querySelector(".hero-copy h1");
+    const heroText = document.querySelector(".hero-text");
+    const heroBadges = document.querySelectorAll(".hero-badges span");
+    const heroButtons = document.querySelectorAll(".hero-actions .btn");
+    const heroDisclaimer = document.querySelector(".hero-disclaimer-note");
+
+    if (!heroTitle) return;
+
+    const animatedItems = [
+        heroTitle,
+        heroText,
+        ...heroBadges,
+        ...heroButtons,
+        heroDisclaimer
+    ].filter(Boolean);
+
+    animatedItems.forEach((item, index) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(26px)";
+        item.style.transition = `
+            opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) ${0.08 + index * 0.08}s,
+            transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) ${0.08 + index * 0.08}s
+        `;
+    });
+
+    requestAnimationFrame(() => {
+        animatedItems.forEach((item) => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+        });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     initReviewsSlider();
-    initRailChips();
     initFaqSingleOpen();
     initServiceSearch();
     initCoverageMap();
+    initRevealAnimations();
+    initHeroParallax();
+    initCardDepth();
+    initHeadingMotion();
 });

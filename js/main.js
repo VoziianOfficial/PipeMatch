@@ -70,6 +70,22 @@ function initHeaderScrollState() {
     window.addEventListener("scroll", toggleScrolledState, { passive: true });
 }
 
+function initPageLoadFadeIn() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const main = select("main");
+    if (!main) return;
+
+    // Fade in on initial load/reload without transform to avoid clashing with other animations.
+    main.style.opacity = "0";
+    main.style.transition = "opacity 0.75s ease";
+    main.style.willChange = "opacity";
+
+    requestAnimationFrame(() => {
+        main.style.opacity = "1";
+    });
+}
+
 function initMobileMenu() {
     const menu = select("#mobileMenu");
     const openButton = select(".mobile-menu-toggle");
@@ -171,15 +187,49 @@ function setActiveNavLink() {
 }
 
 function initFormEnhancements() {
-    const forms = selectAll("form");
+    const forms = selectAll("form.compact-form, form.contact-page-form");
     if (!forms.length) return;
 
     forms.forEach((form) => {
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (!submitButton) return;
+        const phoneInput = form.querySelector('input[type="tel"][name="phone"]');
+        const emailInput = form.querySelector('input[type="email"][name="email"]');
+
+        const validatePhone = () => {
+            if (!phoneInput) return;
+            const value = phoneInput.value.trim();
+            const isValid = /^\+?[0-9()\-\s]{7,20}$/.test(value);
+            phoneInput.setCustomValidity(value && !isValid ? "Please enter a valid phone number." : "");
+        };
+
+        const validateEmail = () => {
+            if (!emailInput) return;
+            const value = emailInput.value.trim();
+            const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+            emailInput.setCustomValidity(value && !isValid ? "Please enter a valid email address." : "");
+        };
+
+        if (phoneInput) {
+            phoneInput.addEventListener("input", validatePhone);
+            phoneInput.addEventListener("blur", validatePhone);
+        }
+
+        if (emailInput) {
+            emailInput.addEventListener("input", validateEmail);
+            emailInput.addEventListener("blur", validateEmail);
+        }
+
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            const submitButton = form.querySelector('button[type="submit"]');
-            if (!submitButton) return;
+            validatePhone();
+            validateEmail();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
 
             const originalText = submitButton.textContent;
             submitButton.disabled = true;
@@ -194,10 +244,56 @@ function initFormEnhancements() {
     });
 }
 
+function initGlobalRevealAnimations() {
+    if (!("IntersectionObserver" in window)) return;
+
+    const revealTargets = selectAll(`
+        .section-intro,
+        .service-card,
+        .directory-card,
+        .comparison-card,
+        .service-step-card,
+        .service-factor-card,
+        .service-overview-card,
+        .service-visual-card,
+        .review-card,
+        .faq-item,
+        .legal-section,
+        .legal-intro-card,
+        .contact-info-card,
+        .contact-sidebar-panel,
+        .contact-map-wrap,
+        .cta-strip
+    `);
+
+    if (!revealTargets.length) return;
+
+    revealTargets.forEach((item, index) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(24px)";
+        item.style.transition = `opacity 0.65s ease ${Math.min(index * 0.025, 0.22)}s, transform 0.65s ease ${Math.min(index * 0.025, 0.22)}s`;
+    });
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                obs.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    revealTargets.forEach((item) => observer.observe(item));
+}
+
 function initCardLinkFallbacks() {
     const setups = [
         { cardSelector: ".service-card", linkSelector: "a.service-card-link[href]" },
-        { cardSelector: ".directory-card", linkSelector: "a.directory-card-link[href]" }
+        { cardSelector: ".directory-card", linkSelector: "a.directory-card-link[href]" },
+        { cardSelector: "[data-card-href]", linkSelector: "a[href]" }
     ];
 
     setups.forEach(({ cardSelector, linkSelector }) => {
@@ -205,16 +301,62 @@ function initCardLinkFallbacks() {
         if (!cards.length) return;
 
         cards.forEach((card) => {
+            const explicitHref = card.getAttribute("data-card-href");
             const link = card.querySelector(linkSelector);
-            if (!link) return;
+
+            if (explicitHref && !link && !card.hasAttribute("tabindex")) {
+                card.setAttribute("tabindex", "0");
+                card.setAttribute("role", "link");
+            }
 
             card.addEventListener("click", (event) => {
                 if (event.defaultPrevented) return;
                 if (event.target.closest("a")) return;
                 if (event.target.closest("button, input, select, textarea, label")) return;
-                link.click();
+
+                if (link) {
+                    link.click();
+                    return;
+                }
+
+                if (explicitHref) {
+                    window.location.href = explicitHref;
+                }
+            });
+
+            card.addEventListener("keydown", (event) => {
+                if (!explicitHref || link) return;
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                window.location.href = explicitHref;
             });
         });
+    });
+}
+
+function initHeadingRevealAnimation() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const headings = selectAll(`
+        .hero-copy h1,
+        .services-hero-copy h1,
+        .service-page-hero-copy h1,
+        .about-hero-copy h1,
+        .contact-hero-copy h1,
+        .legal-hero-copy h1,
+        .section-intro h2,
+        .cta-strip h2
+    `);
+
+    if (!headings.length) return;
+
+    headings.forEach((heading, index) => {
+        heading.classList.add("title-reveal");
+        const delay = Math.min(index * 60, 280);
+
+        window.setTimeout(() => {
+            heading.classList.add("is-visible");
+        }, delay);
     });
 }
 
@@ -222,10 +364,13 @@ document.addEventListener("DOMContentLoaded", () => {
     applySiteConfig();
     setCurrentYear();
     initHeaderScrollState();
+    initPageLoadFadeIn();
     initMobileMenu();
     initMobileServicesSelect();
     initCookieBanner();
     setActiveNavLink();
     initFormEnhancements();
     initCardLinkFallbacks();
+    initGlobalRevealAnimations();
+    initHeadingRevealAnimation();
 });

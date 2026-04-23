@@ -165,14 +165,14 @@
 
                 <div class="container contact-hero-inner">
                     <div class="contact-hero-copy">
-                        <p class="eyebrow">
+                        <p class="eyebrow contact-hero-description">
                             <span class="eyebrow-dot"></span>
                             Contact PipeMatch
                         </p>
 
                         <h1>Start your plumbing request with a cleaner, faster comparison flow.</h1>
 
-                        <p class="contact-hero-text">
+                        <p class="contact-hero-text contact-hero-description">
                             Tell us what kind of plumbing help you are looking for, share your ZIP code and project
                             timing, and start with a more organized way to compare local provider options.
                         </p>
@@ -184,19 +184,19 @@
                     </div>
 
                     <div class="contact-hero-side">
-                        <article class="contact-hero-card">
+                        <article class="contact-hero-card" data-card-href="about.html">
                             <span class="mini-label">Platform model</span>
-                            <strong>Independent matching platform</strong>
-                            <p>
+                            <strong class="contact-hero-brand-name">Independent matching platform</strong>
+                            <p class="contact-hero-description">
                                 PipeMatch does not perform plumbing work directly. We help homeowners compare service
                                 categories and move toward local provider quote requests.
                             </p>
                         </article>
 
-                        <article class="contact-hero-card contact-hero-card--dark">
+                        <article class="contact-hero-card contact-hero-card--dark" data-card-href="#contact-form-section">
                             <span class="mini-label">Quick start</span>
                             <strong>ZIP code + service category + timing</strong>
-                            <p>
+                            <p class="contact-hero-description">
                                 A few clear details can make the request flow more useful from the start.
                             </p>
                         </article>
@@ -208,22 +208,23 @@
                 <div class="container contact-main-grid">
                     <div class="contact-form-wrap">
                         <div class="section-intro">
-                            <p class="section-kicker">Request form</p>
+                            <p class="section-kicker contact-hero-description">Request form</p>
                             <h2>Tell us about your plumbing request</h2>
-                            <p>
+                            <p class="contact-hero-description">
                                 Start with the service category that best matches your need. This helps frame the
                                 request before comparing local provider options.
                             </p>
                         </div>
 
-                        <form class="compact-form contact-page-form" action="#" method="post" novalidate>
+                        <form class="compact-form contact-page-form" action="#" method="post">
                             <div class="form-grid">
                                 <div class="form-field">
                                     <label for="contactFullName">Full name</label>
                                     <div class="input-shell">
                                         <i class="fa-solid fa-user" aria-hidden="true"></i>
                                         <input type="text" id="contactFullName" name="fullName"
-                                            placeholder="Your full name" aria-label="Full name" />
+                                            placeholder="Your full name" aria-label="Full name" autocomplete="name"
+                                            minlength="2" required />
                                     </div>
                                 </div>
 
@@ -232,7 +233,8 @@
                                     <div class="input-shell">
                                         <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                                         <input type="text" id="contactZip" name="zipCode" placeholder="ZIP code"
-                                            aria-label="ZIP code" />
+                                            aria-label="ZIP code" autocomplete="postal-code" inputmode="numeric"
+                                            minlength="4" pattern="^[0-9\-\s]{4,10}$" required />
                                     </div>
                                 </div>
 
@@ -241,7 +243,8 @@
                                     <div class="input-shell">
                                         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                                         <input type="email" id="contactEmail" name="email" placeholder="Your email"
-                                            aria-label="Email address" />
+                                            aria-label="Email address" autocomplete="email"
+                                            pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required />
                                     </div>
                                 </div>
 
@@ -250,7 +253,8 @@
                                     <div class="input-shell">
                                         <i class="fa-solid fa-phone" aria-hidden="true"></i>
                                         <input type="tel" id="contactPhone" name="phone" placeholder="Your phone number"
-                                            aria-label="Phone number" />
+                                            aria-label="Phone number" autocomplete="tel" minlength="7"
+                                            inputmode="tel" pattern="^\+?[0-9\s()\-]{7,20}$" required />
                                     </div>
                                 </div>
 
@@ -259,7 +263,7 @@
                                     <div class="input-shell input-shell--select">
                                         <i class="fa-solid fa-wrench" aria-hidden="true"></i>
                                         <select id="contactServiceType" name="serviceType"
-                                            aria-label="Service category">
+                                            aria-label="Service category" required>
                                             <option value="">Select service</option>
                                             <option>Emergency Plumbing</option>
                                             <option>Drain Cleaning</option>
@@ -277,7 +281,7 @@
                                     <label for="contactTimeline">Project timing</label>
                                     <div class="input-shell input-shell--select">
                                         <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                                        <select id="contactTimeline" name="timeline" aria-label="Project timing">
+                                        <select id="contactTimeline" name="timeline" aria-label="Project timing" required>
                                             <option value="">Select timing</option>
                                             <option>As soon</option>
                                             <option>This week</option>
@@ -294,29 +298,9 @@
                                         <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
                                         <textarea id="contactDetails" name="projectDetails" rows="5"
                                             placeholder="Briefly describe the issue, upgrade, or plumbing request"
-                                            aria-label="Project details"></textarea>
+                                            aria-label="Project details" minlength="12" required></textarea>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="custom-checks">
-                                <label class="custom-check">
-                                    <input type="checkbox" name="consentContact" />
-                                    <span class="check-ui" aria-hidden="true"></span>
-                                    <span class="check-text">I agree to be contacted regarding my request.</span>
-                                </label>
-
-                                <label class="custom-check">
-                                    <input type="checkbox" name="consentPolicy" />
-                                    <span class="check-ui" aria-hidden="true"></span>
-                                    <span class="check-text">
-                                        I reviewed the
-                                        <a href="privacy-policy.html">Privacy Policy</a>,
-                                        <a href="cookie-policy.html">Cookie Policy</a>,
-                                        and
-                                        <a href="terms-of-service.html">Terms of Service</a>.
-                                    </span>
-                                </label>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block">
@@ -327,7 +311,7 @@
 
                     <aside class="contact-sidebar">
                         <div class="contact-info-grid">
-                            <article class="contact-info-card">
+                            <article class="contact-info-card" data-card-href="tel:+18004172038">
                                 <div class="contact-info-icon">
                                     <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
                                 </div>
@@ -338,7 +322,7 @@
                                 </a>
                             </article>
 
-                            <article class="contact-info-card">
+                            <article class="contact-info-card" data-card-href="mailto:support@pipematch.com">
                                 <div class="contact-info-icon">
                                     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                                 </div>
@@ -349,7 +333,7 @@
                                 </a>
                             </article>
 
-                            <article class="contact-info-card contact-info-card--wide">
+                            <article class="contact-info-card contact-info-card--wide" data-card-href="services.html">
                                 <div class="contact-info-icon">
                                     <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
                                 </div>
@@ -359,6 +343,7 @@
                                     categories and move toward relevant provider quote requests.
                                 </p>
                             </article>
+
                         </div>
 
                         <div class="contact-sidebar-panel">
@@ -477,7 +462,7 @@
 
                         <div class="cta-strip-actions">
                             <a href="services.html" class="btn btn-primary">Browse Services</a>
-                            <a href="about.html" class="btn btn-secondary">How PipeMatch Works</a>
+                            <a href="about.html" class="btn btn-secondary">How It Works</a>
                         </div>
                     </div>
                 </div>

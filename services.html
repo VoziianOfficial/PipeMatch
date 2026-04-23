@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -179,17 +179,23 @@
                             <a href="#service-directory" class="btn btn-primary">Browse Categories</a>
                             <a href="contact.html" class="btn btn-secondary">Request Quotes</a>
                         </div>
+
+                        <div class="services-mini-counter" aria-label="Satisfied homeowners counter">
+                            <span class="mini-label">Satisfied homeowners</span>
+                            <strong><span data-counter-target="2400">0</span>+</strong>
+                            <p>Users who started with service categories before sending a request.</p>
+                        </div>
                     </div>
 
                     <div class="services-hero-panel">
-                        <div class="services-stat-card">
+                        <div class="services-stat-card" data-card-href="services.html#service-directory">
                             <span class="mini-label">Project types</span>
                             <strong>6 core service categories</strong>
                             <p>Organized to help homeowners compare options by urgency, system type, and project fit.
                             </p>
                         </div>
 
-                        <div class="services-stat-card services-stat-card--dark">
+                        <div class="services-stat-card services-stat-card--dark" data-card-href="about.html">
                             <span class="mini-label">Platform model</span>
                             <strong>Independent matching platform</strong>
                             <p>PipeMatch does not perform plumbing work directly. We help users explore and compare
@@ -264,7 +270,6 @@
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i
                                                     class="fa-solid fa-screwdriver-wrench"></i></span>
-                                            <span class="directory-tag">Urgent response category</span>
                                         </div>
                                         <h3>Emergency Plumbing</h3>
                                         <p>
@@ -286,7 +291,6 @@
                                     <div class="directory-card-content">
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i class="fa-solid fa-water"></i></span>
-                                            <span class="directory-tag">Flow & blockage category</span>
                                         </div>
                                         <h3>Drain Cleaning</h3>
                                         <p>
@@ -310,7 +314,6 @@
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i
                                                     class="fa-solid fa-temperature-half"></i></span>
-                                            <span class="directory-tag">System & equipment category</span>
                                         </div>
                                         <h3>Water Heater Services</h3>
                                         <p>
@@ -332,7 +335,6 @@
                                     <div class="directory-card-content">
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i class="fa-solid fa-droplet"></i></span>
-                                            <span class="directory-tag">Investigation category</span>
                                         </div>
                                         <h3>Leak Detection</h3>
                                         <p>
@@ -355,7 +357,6 @@
                                     <div class="directory-card-content">
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i class="fa-solid fa-road"></i></span>
-                                            <span class="directory-tag">Below-ground category</span>
                                         </div>
                                         <h3>Sewer Line Services</h3>
                                         <p>
@@ -378,7 +379,6 @@
                                     <div class="directory-card-content">
                                         <div class="directory-card-top">
                                             <span class="service-icon"><i class="fa-solid fa-faucet"></i></span>
-                                            <span class="directory-tag">Kitchen & bath category</span>
                                         </div>
                                         <h3>Fixture Installation</h3>
                                         <p>
@@ -399,7 +399,7 @@
                             </div>
 
                             <div class="comparison-grid">
-                                <article class="comparison-card">
+                                <article class="comparison-card" data-card-href="emergency-plumbing.html">
                                     <span class="step-number">01</span>
                                     <h3>Urgency</h3>
                                     <p>
@@ -408,7 +408,7 @@
                                     </p>
                                 </article>
 
-                                <article class="comparison-card">
+                                <article class="comparison-card" data-card-href="water-heater-services.html">
                                     <span class="step-number">02</span>
                                     <h3>System type</h3>
                                     <p>
@@ -417,7 +417,7 @@
                                     </p>
                                 </article>
 
-                                <article class="comparison-card">
+                                <article class="comparison-card" data-card-href="leak-detection.html">
                                     <span class="step-number">03</span>
                                     <h3>Property conditions</h3>
                                     <p>
@@ -426,7 +426,7 @@
                                     </p>
                                 </article>
 
-                                <article class="comparison-card">
+                                <article class="comparison-card" data-card-href="contact.html#contact-form-section">
                                     <span class="step-number">04</span>
                                     <h3>Service area fit</h3>
                                     <p>
@@ -467,11 +467,11 @@
                             </div>
 
                             <div class="editorial-panel">
-                                <div class="editorial-panel-card">
+                                <div class="editorial-panel-card" data-card-href="terms-of-service.html#no-guarantees">
                                     <span class="mini-label">Important note</span>
                                     <h3>Homeowners should verify contractor qualifications independently.</h3>
                                     <p>
-                                        Licensing, insurance, availability, scope, and service fit should always be
+                                        Licensing, insurance, availability, scope, and service fit should be
                                         confirmed directly before hiring any provider.
                                     </p>
                                 </div>

@@ -21,12 +21,27 @@ function initServicesFiltering() {
     };
 
     const updateCards = () => {
+        const visibleCards = [];
+
         cards.forEach((card) => {
             const visibleByFilter = matchesFilter(card, activeFilter);
             const visibleBySearch = matchesSearch(card, searchQuery);
             const shouldShow = visibleByFilter && visibleBySearch;
 
             card.classList.toggle("is-hidden", !shouldShow);
+            if (shouldShow) visibleCards.push(card);
+        });
+
+        visibleCards.forEach((card, index) => {
+            const isDesktop = window.matchMedia("(min-width: 1025px)").matches;
+            card.style.opacity = "0";
+            card.style.transform = isDesktop ? "translateX(22px)" : "translateY(16px)";
+            card.style.transition = `opacity 0.42s ease ${index * 0.08}s, transform 0.42s ease ${index * 0.08}s`;
+
+            requestAnimationFrame(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateX(0)";
+            });
         });
     };
 
@@ -98,8 +113,39 @@ function initServicesReveal() {
     cards.forEach((card) => observer.observe(card));
 }
 
+function initServicesClientCounter() {
+    const counter = document.querySelector("[data-counter-target]");
+    if (!counter) return;
+
+    const rawTarget = Number.parseInt(counter.getAttribute("data-counter-target") || "0", 10);
+    if (!Number.isFinite(rawTarget) || rawTarget <= 0) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+        counter.textContent = rawTarget.toLocaleString("en-US");
+        return;
+    }
+
+    const duration = 1300;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(rawTarget * eased);
+        counter.textContent = value.toLocaleString("en-US");
+
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        }
+    };
+
+    requestAnimationFrame(tick);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initServicesFiltering();
     initServicesFaqSingleOpen();
     initServicesReveal();
+    initServicesClientCounter();
 });

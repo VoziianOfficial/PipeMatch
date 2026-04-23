@@ -144,6 +144,7 @@
     border: 1px solid rgba(18, 32, 51, 0.08);
     box-shadow: 0 24px 72px rgba(11, 31, 58, 0.10);
     overflow: hidden;
+    
 }
 
 .service-page-sidebar-card::before {
@@ -157,6 +158,7 @@
 .service-page-sidebar-card h2 {
     margin: 10px 0 18px;
     font-size: 1.52rem;
+    
 }
 
 .service-page-sidebar-links {
@@ -181,6 +183,7 @@
         color var(--transition-base),
         border-color var(--transition-base),
         box-shadow var(--transition-base);
+        color: var(--color-white) !important;
 }
 
 .service-page-sidebar-links a::before {
@@ -219,11 +222,17 @@
 .service-page-sidebar-note h3 {
     margin-bottom: 10px;
     font-size: 1.06rem;
+    
 }
 
 .service-page-sidebar-note p {
     margin: 0;
     line-height: 1.68;
+    color: var(--color-white) !important;
+}
+
+.rail-cta-box p{
+    color: var(--color-white) !important;
 }
 
 .service-page-sidebar-card .rail-cta-box {
@@ -608,5 +617,139 @@
 
     .service-checklist-panel h3 {
         font-size: 1.28rem;
+    }
+}
+
+/* ==========================================
+   SERVICE PAGE DARK REFERENCE OVERRIDE
+========================================== */
+.service-page-hero-bg {
+    background:
+        linear-gradient(112deg, rgba(2, 8, 24, 0.94) 0%, rgba(2, 8, 24, 0.76) 44%, rgba(2, 8, 24, 0.62) 100%),
+        var(--service-hero-image, none) center/cover no-repeat;
+}
+
+.service-page-hero-overlay {
+    background:
+        radial-gradient(circle at 16% 14%, rgba(76, 198, 235, 0.16), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(14, 44, 97, 0.34), transparent 34%),
+        linear-gradient(180deg, rgba(2, 8, 24, 0.08) 0%, rgba(2, 8, 24, 0.24) 100%);
+}
+
+.service-page-hero-copy .eyebrow,
+.service-page-hero-copy h1,
+.service-page-hero-text {
+    color: #eaf3ff;
+}
+
+.service-page-main {
+    margin-top: 0;
+}
+
+.service-page-sidebar-card,
+.service-overview-block,
+.service-factors-block,
+.service-factor-card,
+.service-overview-card,
+.service-checklist-panel,
+.service-step-card {
+    background: linear-gradient(180deg, rgba(8, 20, 48, 0.86) 0%, rgba(5, 15, 37, 0.92) 100%);
+    border-color: rgba(120, 158, 219, 0.22);
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+}
+
+.service-page-sidebar-card h2,
+.service-overview-copy h2,
+.service-factor-card h3,
+.service-step-card h3,
+.service-overview-card h3,
+.service-checklist-panel h3 {
+    color: #eef6ff;
+}
+
+.service-page-sidebar-card p,
+.service-overview-copy p,
+.service-factor-card p,
+.service-step-card p,
+.service-overview-card p,
+.service-checklist-panel p,
+.service-checklist-panel li {
+    color: #9db2d4;
+}
+
+.service-page-sidebar-links a {
+    background: rgba(12, 31, 71, 0.74);
+    border-color: rgba(120, 158, 219, 0.2);
+    color: #c7d8f3;
+}
+
+.service-page-sidebar-links a:hover,
+.service-page-sidebar-links a.is-active {
+    background: rgba(17, 41, 88, 0.82);
+    color: #e7f3ff;
+    transform: translateX(0);
+}
+
+.service-page-sidebar-note {
+    background: rgba(10, 26, 58, 0.72);
+    border-color: rgba(120, 158, 219, 0.18);
+}
+
+.service-factors-grid,
+.service-steps-grid {
+    align-items: stretch;
+}
+
+.service-factor-card,
+.service-step-card,
+.service-overview-card {
+    min-height: 220px;
+}
+
+.service-step-card .step-number {
+    background: transparent;
+    box-shadow: none;
+    color: rgba(110, 143, 202, 0.24);
+    min-width: auto;
+    height: auto;
+    padding: 0;
+    margin-left: auto;
+}
+
+.service-page-faq .faq-item {
+    border-color: rgba(120, 158, 219, 0.22);
+    background: linear-gradient(180deg, rgba(8, 20, 48, 0.84) 0%, rgba(5, 15, 37, 0.9) 100%);
+}
+
+.service-page-faq .faq-item summary {
+    color: #eaf3ff;
+}
+
+.service-page-faq .faq-item p {
+    color: #9eb4d4;
+}
+
+.service-page-cta .cta-strip {
+    border: 1px solid rgba(120, 158, 219, 0.22);
+
+}
+
+.service-visual-card {
+    min-height: 320px;
+    max-height: 420px;
+}
+
+.service-visual-card__media {
+    transition: transform 0.85s ease;
+}
+
+.service-visual-card:hover .service-visual-card__media {
+    transform: scale(1.08);
+}
+
+@media (min-width: 1500px) {
+    .service-page-grid {
+        grid-template-columns: 320px minmax(0, 980px);
+        justify-content: center;
     }
 }

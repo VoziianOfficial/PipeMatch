@@ -52,6 +52,8 @@
     text-wrap: balance;
 }
 
+
+
 .legal-hero-text {
     max-width: 760px;
     margin: 0;
@@ -420,5 +422,94 @@
     .legal-section ul,
     .legal-section ol {
         padding-left: 16px;
+    }
+}
+
+/* ==========================================
+   LEGAL DARK REFERENCE OVERRIDE
+========================================== */
+.legal-hero-bg {
+    background:
+        linear-gradient(112deg, rgba(2, 8, 24, 0.94) 0%, rgba(2, 8, 24, 0.76) 44%, rgba(2, 8, 24, 0.62) 100%),
+        var(--legal-hero-image, url("../assets/images/legal/hero.jpg")) center/cover no-repeat;
+}
+
+.legal-hero-overlay {
+    background:
+        radial-gradient(circle at 16% 14%, rgba(76, 198, 235, 0.16), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(14, 44, 97, 0.34), transparent 34%),
+        linear-gradient(180deg, rgba(2, 8, 24, 0.08) 0%, rgba(2, 8, 24, 0.24) 100%);
+}
+
+.legal-main {
+    margin-top: 0;
+}
+
+.legal-hero-card,
+.legal-sidebar-card,
+.legal-intro-card,
+.legal-section,
+.legal-bottom-note,
+.legal-sidebar-note {
+    background: linear-gradient(180deg, rgba(8, 20, 48, 0.86) 0%, rgba(5, 15, 37, 0.92) 100%);
+    border-color: rgba(120, 158, 219, 0.22);
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+}
+
+.legal-hero-copy h1,
+.legal-sidebar-card h2,
+.legal-intro-card h2,
+.legal-section h2,
+.legal-section h3 {
+    color: #eef6ff;
+}
+
+.legal-hero-text,
+.legal-hero-card p,
+.legal-intro-card p,
+.legal-section p,
+.legal-section li,
+.legal-sidebar-note p,
+.legal-bottom-note p {
+    color: #9db2d4;
+}
+
+.legal-toc a {
+    background: rgba(12, 31, 71, 0.74);
+    border-color: rgba(120, 158, 219, 0.2);
+    color: #c7d8f3;
+}
+
+.legal-toc a:hover,
+.legal-toc a.is-active {
+    background: rgba(17, 41, 88, 0.82);
+    color: #e7f3ff;
+    transform: translateX(0);
+}
+
+.legal-highlight {
+    background: rgba(12, 45, 84, 0.5);
+    border-color: rgba(120, 158, 219, 0.22);
+}
+
+.legal-warning {
+    background: rgba(25, 56, 95, 0.58);
+    border-color: rgba(120, 158, 219, 0.22);
+}
+
+.legal-updated {
+    background: rgba(12, 31, 71, 0.66);
+    color: #77d3f2;
+}
+
+.legal-section a,
+.legal-bottom-note a {
+    color: #68caee;
+}
+
+@media (min-width: 1500px) {
+    .legal-grid {
+        grid-template-columns: 300px minmax(0, 980px);
+        justify-content: center;
     }
 }

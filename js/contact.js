@@ -111,6 +111,7 @@ function initContactMap() {
         center,
         zoom: 11,
         zoomControl: false,
+        attributionControl: false,
         scrollWheelZoom: false,
         dragging: true,
         tap: true
@@ -121,18 +122,7 @@ function initContactMap() {
             position: "bottomright"
         })
         .addTo(map);
-
-    L.control
-        .scale({
-            position: "bottomleft",
-            imperial: true,
-            metric: false
-        })
-        .addTo(map);
-
-    if (map.attributionControl) {
-        map.attributionControl.setPrefix(false);
-    }
+    // Attribution + scale controls are intentionally omitted for a cleaner UI.
 
     const layers = {
         standard: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
