@@ -94,6 +94,7 @@ function initMobileMenu() {
     if (!menu || !openButton || !closeButton) return;
 
     const menuLinks = selectAll(".mobile-nav a, .mobile-legal-links a", menu);
+    const servicesSelect = select("#mobileServicesSelect", menu);
     const body = document.body;
 
     const openMenu = () => {
@@ -101,6 +102,7 @@ function initMobileMenu() {
         menu.setAttribute("aria-hidden", "false");
         openButton.setAttribute("aria-expanded", "true");
         body.classList.add("no-scroll");
+        menu.scrollTop = 0;
     };
 
     const closeMenu = () => {
@@ -128,17 +130,327 @@ function initMobileMenu() {
     menuLinks.forEach((link) => {
         link.addEventListener("click", closeMenu);
     });
+
+    if (servicesSelect) {
+        servicesSelect.addEventListener("change", () => {
+            if (!menu.classList.contains("is-open")) return;
+            closeMenu();
+        });
+    }
 }
 
 function initMobileServicesSelect() {
     const selectElement = select("#mobileServicesSelect");
     if (!selectElement) return;
+    const dropdownWrap = selectElement.closest(".mobile-services-dropdown");
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const matchingOption = [...selectElement.options].find((option) => {
+        const value = (option.value || "").trim();
+        if (!value) return false;
+        return value === currentPage;
+    });
+
+    if (matchingOption) {
+        selectElement.value = matchingOption.value;
+    }
+
+    if (dropdownWrap && !select(".mobile-services-hint", dropdownWrap)) {
+        const hint = document.createElement("p");
+        hint.className = "mobile-services-hint";
+        hint.textContent = "Quick jump between service pages";
+        dropdownWrap.append(hint);
+    }
 
     selectElement.addEventListener("change", (event) => {
         const targetUrl = event.target.value?.trim();
 
         if (!targetUrl) return;
-        window.location.href = targetUrl;
+        if (targetUrl === currentPage) return;
+
+        // Let native select close first to avoid flicker on iOS/Android before navigation.
+        window.requestAnimationFrame(() => {
+            window.location.href = targetUrl;
+        });
+    });
+}
+
+function initComparisonGridSlider() {
+    const grids = selectAll(".comparison-grid");
+    if (!grids.length) return;
+
+    const sliderMediaQuery = window.matchMedia("(max-width: 1024px)");
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    grids.forEach((grid, gridIndex) => {
+        const cards = selectAll(".comparison-card", grid);
+        if (cards.length < 2) return;
+
+        const sliderId = `comparison-slider-${gridIndex + 1}`;
+        grid.dataset.sliderId = sliderId;
+
+        let currentIndex = 0;
+        let isTicking = false;
+
+        const controls = document.createElement("div");
+        controls.className = "comparison-slider-controls";
+        controls.setAttribute("data-comparison-slider", sliderId);
+
+        const nav = document.createElement("div");
+        nav.className = "comparison-slider-nav";
+
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "comparison-slider-btn";
+        prevButton.setAttribute("aria-label", "Previous comparison card");
+        prevButton.textContent = "Prev";
+
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "comparison-slider-btn";
+        nextButton.setAttribute("aria-label", "Next comparison card");
+        nextButton.textContent = "Next";
+
+        nav.append(prevButton, nextButton);
+
+        const dots = document.createElement("div");
+        dots.className = "comparison-slider-dots";
+        dots.setAttribute("role", "tablist");
+
+        const dotButtons = cards.map((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "comparison-slider-dot";
+            dot.setAttribute("role", "tab");
+            dot.setAttribute("aria-label", `Open card ${index + 1}`);
+            dot.setAttribute("aria-selected", index === 0 ? "true" : "false");
+            dots.append(dot);
+            return dot;
+        });
+
+        controls.append(nav, dots);
+        grid.insertAdjacentElement("afterend", controls);
+
+        const updateActiveState = (index) => {
+            currentIndex = clamp(index, 0, cards.length - 1);
+            dotButtons.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === currentIndex;
+                dot.classList.toggle("is-active", isActive);
+                dot.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === cards.length - 1;
+        };
+
+        const scrollToCard = (index, behavior = "smooth") => {
+            const safeIndex = clamp(index, 0, cards.length - 1);
+            cards[safeIndex].scrollIntoView({
+                behavior,
+                inline: "start",
+                block: "nearest"
+            });
+            updateActiveState(safeIndex);
+        };
+
+        const detectIndexFromScroll = () => {
+            const gridLeft = grid.getBoundingClientRect().left;
+            let closestIndex = 0;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            cards.forEach((card, index) => {
+                const distance = Math.abs(card.getBoundingClientRect().left - gridLeft);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            updateActiveState(closestIndex);
+        };
+
+        grid.addEventListener("scroll", () => {
+            if (!sliderMediaQuery.matches) return;
+            if (isTicking) return;
+            isTicking = true;
+            requestAnimationFrame(() => {
+                detectIndexFromScroll();
+                isTicking = false;
+            });
+        }, { passive: true });
+
+        prevButton.addEventListener("click", () => {
+            scrollToCard(currentIndex - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            scrollToCard(currentIndex + 1);
+        });
+
+        dotButtons.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+                scrollToCard(dotIndex);
+            });
+        });
+
+        const applySliderMode = () => {
+            const isSlider = sliderMediaQuery.matches;
+            grid.classList.toggle("is-comparison-slider", isSlider);
+            controls.hidden = !isSlider;
+
+            if (!isSlider) {
+                updateActiveState(0);
+                return;
+            }
+
+            requestAnimationFrame(() => {
+                detectIndexFromScroll();
+            });
+        };
+
+        applySliderMode();
+        sliderMediaQuery.addEventListener("change", applySliderMode);
+    });
+}
+
+function initAboutProcessSlider() {
+    const grids = selectAll(".about-process-grid");
+    if (!grids.length) return;
+
+    const sliderMediaQuery = window.matchMedia("(max-width: 1024px)");
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    grids.forEach((grid, gridIndex) => {
+        const cards = selectAll(".process-card", grid);
+        if (cards.length < 2) return;
+
+        const sliderId = `about-process-slider-${gridIndex + 1}`;
+        let currentIndex = 0;
+        let isTicking = false;
+
+        const controls = document.createElement("div");
+        controls.className = "about-process-slider-controls";
+        controls.setAttribute("data-about-process-slider", sliderId);
+
+        const nav = document.createElement("div");
+        nav.className = "about-process-slider-nav";
+
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "about-process-slider-btn";
+        prevButton.setAttribute("aria-label", "Previous process step");
+        prevButton.textContent = "Prev";
+
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "about-process-slider-btn";
+        nextButton.setAttribute("aria-label", "Next process step");
+        nextButton.textContent = "Next";
+
+        nav.append(prevButton, nextButton);
+
+        const dots = document.createElement("div");
+        dots.className = "about-process-slider-dots";
+        dots.setAttribute("role", "tablist");
+
+        const dotButtons = cards.map((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "about-process-slider-dot";
+            dot.setAttribute("role", "tab");
+            dot.setAttribute("aria-label", `Open step ${index + 1}`);
+            dot.setAttribute("aria-selected", index === 0 ? "true" : "false");
+            dots.append(dot);
+            return dot;
+        });
+
+        controls.append(nav, dots);
+        grid.insertAdjacentElement("afterend", controls);
+
+        const updateActiveState = (index) => {
+            currentIndex = clamp(index, 0, cards.length - 1);
+            dotButtons.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === currentIndex;
+                dot.classList.toggle("is-active", isActive);
+                dot.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === cards.length - 1;
+        };
+
+        const scrollToCard = (index, behavior = "smooth") => {
+            const safeIndex = clamp(index, 0, cards.length - 1);
+            cards[safeIndex].scrollIntoView({
+                behavior,
+                inline: "start",
+                block: "nearest"
+            });
+            updateActiveState(safeIndex);
+        };
+
+        const detectIndexFromScroll = () => {
+            const gridLeft = grid.getBoundingClientRect().left;
+            let closestIndex = 0;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            cards.forEach((card, index) => {
+                const distance = Math.abs(card.getBoundingClientRect().left - gridLeft);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            updateActiveState(closestIndex);
+        };
+
+        grid.addEventListener(
+            "scroll",
+            () => {
+                if (!sliderMediaQuery.matches) return;
+                if (isTicking) return;
+                isTicking = true;
+                requestAnimationFrame(() => {
+                    detectIndexFromScroll();
+                    isTicking = false;
+                });
+            },
+            { passive: true }
+        );
+
+        prevButton.addEventListener("click", () => {
+            scrollToCard(currentIndex - 1);
+        });
+
+        nextButton.addEventListener("click", () => {
+            scrollToCard(currentIndex + 1);
+        });
+
+        dotButtons.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+                scrollToCard(dotIndex);
+            });
+        });
+
+        const applySliderMode = () => {
+            const isSlider = sliderMediaQuery.matches;
+            grid.classList.toggle("is-about-process-slider", isSlider);
+            controls.hidden = !isSlider;
+
+            if (!isSlider) {
+                updateActiveState(0);
+                return;
+            }
+
+            requestAnimationFrame(() => {
+                detectIndexFromScroll();
+            });
+        };
+
+        applySliderMode();
+        sliderMediaQuery.addEventListener("change", applySliderMode);
     });
 }
 
@@ -553,4 +865,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initGlobalRevealAnimations();
     initHeadingRevealAnimation();
     initSmoothFaqAccordions();
+    initComparisonGridSlider();
+    initAboutProcessSlider();
 });
