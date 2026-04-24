@@ -2086,6 +2086,111 @@ h6 {
 }
 
 /* ==========================================
+   FAQ ACCORDIONS (SIMPLE + SMOOTH)
+========================================== */
+.faq-list {
+    display: grid;
+    gap: 10px;
+}
+
+.faq-item {
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid rgba(171, 199, 235, 0.24);
+    background: linear-gradient(180deg, rgba(12, 31, 71, 0.82) 0%, rgba(8, 20, 48, 0.9) 100%);
+    box-shadow: 0 10px 24px rgba(4, 12, 28, 0.18);
+    clip-path: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.faq-item:hover {
+    transform: translateY(-1px);
+    border-color: rgba(183, 214, 248, 0.42);
+    box-shadow: 0 16px 30px rgba(4, 12, 28, 0.24);
+}
+
+.faq-item summary {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    padding: 13px 46px 13px 14px;
+    font-size: clamp(0.95rem, 1.04vw, 1.03rem);
+    font-weight: 600;
+    line-height: 1.38;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: #eef6ff;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(173, 208, 245, 0.36);
+    background: rgba(173, 208, 245, 0.14);
+    color: #d8edff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    transform: translateY(-50%);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+    background: rgba(211, 235, 255, 0.24);
+    border-color: rgba(202, 230, 255, 0.55);
+    color: #ffffff;
+}
+
+.faq-item p {
+    margin: 0;
+    padding: 0 14px 12px;
+    max-width: 78ch;
+    color: rgba(224, 238, 255, 0.9);
+    font-size: 0.93rem;
+    line-height: 1.56;
+}
+
+.services-faq-block .faq-item summary,
+.service-page-faq .faq-item summary,
+.contact-faq-section .faq-item summary,
+.section-block--faq .faq-item summary {
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 767px) {
+    .faq-item summary {
+        padding: 12px 42px 12px 12px;
+        font-size: 0.91rem;
+    }
+
+    .faq-item summary::after {
+        right: 12px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.86rem;
+    }
+
+    .faq-item p {
+        padding: 0 12px 10px;
+        font-size: 0.89rem;
+        line-height: 1.5;
+    }
+}
+
+/* ==========================================
    GLOBAL SMOOTH TEXT MOTION
 ========================================== */
 @keyframes titleRevealIn {

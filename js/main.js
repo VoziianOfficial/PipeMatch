@@ -382,117 +382,157 @@ function initSmoothFaqAccordions() {
         const items = selectAll(".faq-item", list);
         if (!items.length) return;
 
-        const bodyByItem = new Map();
+        const stateByItem = new Map();
 
         items.forEach((item) => {
-            const body = item.querySelector("p");
-            if (!body) return;
+            const panel = [...item.children].find((child) => child.tagName !== "SUMMARY");
+            if (!panel) return;
 
-            bodyByItem.set(item, body);
-            body.style.overflow = "hidden";
-            body.style.height = item.open ? "auto" : "0px";
-            body.style.opacity = item.open ? "1" : "0";
+            const state = {
+                panel,
+                isAnimating: false,
+                cleanupTransitionEnd: null
+            };
+
+            stateByItem.set(item, state);
+            panel.style.overflow = "hidden";
+            panel.style.transition = "height 0.44s cubic-bezier(0.22, 0.72, 0.16, 1), opacity 0.26s ease";
+            panel.style.willChange = "height, opacity";
+            panel.style.height = item.open ? "auto" : "0px";
+            panel.style.opacity = item.open ? "1" : "0";
         });
 
-        const closeInstant = (item) => {
-            const body = bodyByItem.get(item);
-            if (!body) return;
+        const clearTransitionHandler = (state) => {
+            if (typeof state.cleanupTransitionEnd === "function") {
+                state.cleanupTransitionEnd();
+                state.cleanupTransitionEnd = null;
+            }
+        };
+
+        const setClosedInstant = (item) => {
+            const state = stateByItem.get(item);
+            if (!state) return;
+
+            clearTransitionHandler(state);
+            state.isAnimating = false;
             item.open = false;
-            item.dataset.faqAnimating = "false";
-            body.style.height = "0px";
-            body.style.opacity = "0";
+            state.panel.style.height = "0px";
+            state.panel.style.opacity = "0";
         };
 
-        const openInstant = (item) => {
-            const body = bodyByItem.get(item);
-            if (!body) return;
+        const setOpenInstant = (item) => {
+            const state = stateByItem.get(item);
+            if (!state) return;
+
+            clearTransitionHandler(state);
+            state.isAnimating = false;
             item.open = true;
-            item.dataset.faqAnimating = "false";
-            body.style.height = "auto";
-            body.style.opacity = "1";
+            state.panel.style.height = "auto";
+            state.panel.style.opacity = "1";
         };
 
-        const animateClose = (item) => {
-            const body = bodyByItem.get(item);
-            if (!body || !item.open || item.dataset.faqAnimating === "true") return;
+        const animateToClosed = (item) => {
+            const state = stateByItem.get(item);
+            if (!state || !item.open) return;
 
-            item.dataset.faqAnimating = "true";
-            const startHeight = body.scrollHeight;
-            body.style.height = `${startHeight}px`;
-            body.style.opacity = "1";
+            clearTransitionHandler(state);
+            state.isAnimating = true;
+
+            const startHeight = Math.max(state.panel.getBoundingClientRect().height, state.panel.scrollHeight);
+            state.panel.style.height = `${startHeight}px`;
+            state.panel.style.opacity = "1";
 
             requestAnimationFrame(() => {
-                body.style.height = "0px";
-                body.style.opacity = "0";
+                state.panel.style.height = "0px";
+                state.panel.style.opacity = "0";
             });
 
-            const onCloseEnd = (event) => {
+            const onEnd = (event) => {
                 if (event.propertyName !== "height") return;
-                body.removeEventListener("transitionend", onCloseEnd);
+
+                state.panel.removeEventListener("transitionend", onEnd);
+                state.cleanupTransitionEnd = null;
+                state.isAnimating = false;
                 item.open = false;
-                item.dataset.faqAnimating = "false";
             };
 
-            body.addEventListener("transitionend", onCloseEnd);
+            state.cleanupTransitionEnd = () => {
+                state.panel.removeEventListener("transitionend", onEnd);
+            };
+
+            state.panel.addEventListener("transitionend", onEnd);
         };
 
-        const animateOpen = (item) => {
-            const body = bodyByItem.get(item);
-            if (!body || item.open || item.dataset.faqAnimating === "true") return;
+        const animateToOpen = (item) => {
+            const state = stateByItem.get(item);
+            if (!state || item.open) return;
 
-            item.dataset.faqAnimating = "true";
+            clearTransitionHandler(state);
+            state.isAnimating = true;
+
             item.open = true;
-            body.style.height = "0px";
-            body.style.opacity = "0";
+            state.panel.style.height = "0px";
+            state.panel.style.opacity = "0";
 
             requestAnimationFrame(() => {
-                const targetHeight = body.scrollHeight;
-                body.style.height = `${targetHeight}px`;
-                body.style.opacity = "1";
+                const targetHeight = state.panel.scrollHeight;
+                state.panel.style.height = `${targetHeight}px`;
+                state.panel.style.opacity = "1";
             });
 
-            const onOpenEnd = (event) => {
+            const onEnd = (event) => {
                 if (event.propertyName !== "height") return;
-                body.removeEventListener("transitionend", onOpenEnd);
-                body.style.height = "auto";
-                item.dataset.faqAnimating = "false";
+
+                state.panel.removeEventListener("transitionend", onEnd);
+                state.cleanupTransitionEnd = null;
+                state.isAnimating = false;
+                state.panel.style.height = "auto";
             };
 
-            body.addEventListener("transitionend", onOpenEnd);
+            state.cleanupTransitionEnd = () => {
+                state.panel.removeEventListener("transitionend", onEnd);
+            };
+
+            state.panel.addEventListener("transitionend", onEnd);
         };
 
         items.forEach((item) => {
             const summary = item.querySelector("summary");
-            if (!summary || !bodyByItem.has(item)) return;
+            if (!summary || !stateByItem.has(item)) return;
 
             summary.addEventListener("click", (event) => {
                 event.preventDefault();
-                if (item.dataset.faqAnimating === "true") return;
+
+                const state = stateByItem.get(item);
+                if (!state) return;
+                if (state.isAnimating) return;
 
                 if (item.open) {
                     if (prefersReducedMotion) {
-                        closeInstant(item);
+                        setClosedInstant(item);
                     } else {
-                        animateClose(item);
+                        animateToClosed(item);
                     }
                     return;
                 }
 
                 items.forEach((otherItem) => {
                     if (otherItem === item) return;
-                    if (!bodyByItem.has(otherItem)) return;
+                    if (!stateByItem.has(otherItem)) return;
 
                     if (prefersReducedMotion) {
-                        closeInstant(otherItem);
+                        setClosedInstant(otherItem);
                     } else {
-                        animateClose(otherItem);
+                        animateToClosed(otherItem);
                     }
                 });
 
                 if (prefersReducedMotion) {
-                    openInstant(item);
+                    setOpenInstant(item);
                 } else {
-                    animateOpen(item);
+                    requestAnimationFrame(() => {
+                        animateToOpen(item);
+                    });
                 }
             });
         });
