@@ -300,6 +300,9 @@
 }
 
 .service-factors-block {
+    width: 100%;
+
+    margin-inline: auto;
     padding: 34px;
     border-radius: 32px;
     background:
@@ -310,7 +313,7 @@
 
 .service-factors-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 18px;
 }
 
@@ -717,12 +720,12 @@
 .service-steps-grid {
     align-items: stretch;
 }
-
+/* 
 .service-factor-card,
 .service-step-card,
 .service-overview-card {
     min-height: 226px;
-}
+} */
 
 .service-step-card .step-number {
     position: absolute;

@@ -2841,6 +2841,10 @@ main::before {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --tablet-stack-width: 860px;
+    }
+
     .hero-grid,
     .services-hero-inner,
     .about-hero-inner,
@@ -2849,6 +2853,17 @@ main::before {
         justify-items: center;
         align-items: center;
         text-align: center;
+    }
+
+    .section-intro {
+        margin-inline: auto;
+        text-align: center;
+        display: grid;
+        justify-items: center;
+    }
+
+    .section-intro p {
+        margin-inline: auto;
     }
 
     .hero-copy,
@@ -2870,6 +2885,30 @@ main::before {
         margin-inline: auto;
     }
 
+    .home-content-grid,
+    .services-layout,
+    .service-page-grid,
+    .about-story-grid,
+    .about-model-wrap,
+    .about-benefits-grid,
+    .contact-main-grid,
+    .contact-map-wrap,
+    .legal-grid {
+        justify-items: center;
+    }
+
+    .home-content-grid > *,
+    .services-layout > *,
+    .service-page-grid > *,
+    .about-story-grid > *,
+    .about-model-wrap > *,
+    .about-benefits-grid > *,
+    .contact-main-grid > *,
+    .contact-map-wrap > *,
+    .legal-grid > * {
+        width: min(100%, var(--tablet-stack-width));
+    }
+
     .hero-badges,
     .hero-actions,
     .services-hero-actions,
@@ -2887,6 +2926,72 @@ main::before {
     .contact-hero-side,
     .service-page-hero-side {
         width: min(100%, 620px);
+        margin-inline: auto;
+    }
+
+    .services-chip-group,
+    .coverage-points {
+        justify-content: center;
+    }
+
+    .cta-strip {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cta-strip h2 {
+        margin-inline: auto;
+    }
+
+    .cta-strip-actions {
+        width: min(100%, 520px);
+        justify-items: stretch;
+    }
+
+    .coverage-card,
+    .split-feature {
+        justify-items: center;
+        text-align: center;
+    }
+
+    .coverage-card {
+        justify-items: stretch;
+    }
+
+    .coverage-copy,
+    .coverage-map-box {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .split-feature-copy {
+        margin-inline: auto;
+        max-width: var(--tablet-stack-width);
+        text-align: center;
+    }
+
+    .feature-list {
+        width: min(100%, 640px);
+        margin-inline: auto;
+        text-align: left;
+    }
+
+    .coverage-copy,
+    .service-overview-copy,
+    .editorial-copy,
+    .about-story-copy,
+    .about-model-copy,
+    .contact-map-copy {
+        text-align: center;
+    }
+
+    .coverage-copy p,
+    .service-overview-copy > p,
+    .editorial-copy p,
+    .about-story-copy p,
+    .about-model-copy p,
+    .contact-map-copy p {
         margin-inline: auto;
     }
 }

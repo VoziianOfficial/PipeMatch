@@ -2283,7 +2283,7 @@
 }
 
 .hero-copy h1 {
-    max-width: 24ch;
+    /* max-width: 24ch; */
     font-size: clamp(2.1rem, 4.9vw, 3.9rem);
     line-height: 1.04;
 }

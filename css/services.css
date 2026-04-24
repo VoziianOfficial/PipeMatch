@@ -539,6 +539,7 @@
     .services-editorial-block {
         grid-template-columns: 1fr;
     }
+    
 
     .services-sidebar {
         position: relative;
@@ -558,6 +559,8 @@
     .comparison-grid {
         grid-template-columns: 1fr;
     }
+    
+
 
     .services-hero-copy h1,
     .services-intro-block h2,
@@ -570,10 +573,18 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .services-mini-counter {
+        margin-inline: auto;
+    }
+}
+
 @media (max-width: 767px) {
     .services-hero {
         padding: 28px 0 64px;
     }
+
+    
 
     .services-sidebar-card,
     .comparison-card,
@@ -669,7 +680,7 @@
 }
 
 .services-hero-copy h1 {
-    max-width: 24ch;
+    /* max-width: 24ch; */
     font-size: clamp(2rem, 4.4vw, 3.35rem);
     line-height: 1.06;
 }
