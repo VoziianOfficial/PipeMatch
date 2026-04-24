@@ -709,3 +709,39 @@
         padding: 16px;
     }
 }
+
+/* ==========================================
+   COMPARISON CARD TEXT BALANCE
+========================================== */
+.comparison-grid {
+    align-items: stretch;
+}
+
+.comparison-card {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+    min-height: 272px;
+}
+
+.comparison-card h3 {
+    min-height: 2.5em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.comparison-card p {
+    margin-top: 2px;
+    max-width: 58ch;
+    line-height: 1.58;
+}
+
+@media (max-width: 900px) {
+    .comparison-card {
+        min-height: 0;
+    }
+
+    .comparison-card h3 {
+        min-height: 0;
+    }
+}

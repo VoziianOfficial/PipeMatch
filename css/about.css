@@ -753,3 +753,39 @@
         padding: 16px;
     }
 }
+
+/* ==========================================
+   PROCESS CARD TEXT BALANCE
+========================================== */
+.about-process-grid {
+    align-items: stretch;
+}
+
+.process-card {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+    min-height: 272px;
+}
+
+.process-card h3 {
+    min-height: 2.5em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.process-card p {
+    margin-top: 2px;
+    max-width: 58ch;
+    line-height: 1.62;
+}
+
+@media (max-width: 980px) {
+    .process-card {
+        min-height: 0;
+    }
+
+    .process-card h3 {
+        min-height: 0;
+    }
+}

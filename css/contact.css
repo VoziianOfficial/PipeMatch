@@ -853,3 +853,114 @@ body[data-page="contact"] .contact-hero-side a {
         display: none;
     }
 }
+
+/* ==========================================
+   CONTACT FORM COMPACT + STATUS MESSAGE
+========================================== */
+.contact-form-wrap {
+    max-width: 640px;
+    padding: clamp(16px, 1.8vw, 22px);
+    border-radius: 24px;
+}
+
+.contact-form-wrap .section-intro {
+    margin-bottom: 10px;
+}
+
+.contact-form-wrap .section-intro h2 {
+    margin-bottom: 8px;
+    font-size: clamp(1.28rem, 2.1vw, 1.72rem);
+    line-height: 1.2;
+}
+
+.contact-page-form {
+    max-width: 100%;
+}
+
+.contact-page-form .form-grid {
+    gap: 6px;
+}
+
+.contact-page-form .form-field label {
+    margin-bottom: 4px;
+    font-size: 0.8rem;
+}
+
+.contact-page-form .input-shell {
+    min-height: 44px;
+}
+
+.contact-page-form .input-shell input,
+.contact-page-form .input-shell select,
+.contact-page-form .input-shell textarea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contact-page-form .input-shell--textarea,
+.contact-page-form .input-shell--textarea textarea {
+    min-height: 86px;
+}
+
+.contact-page-form .btn[type="submit"] {
+    min-height: 44px;
+    margin-top: 6px;
+    padding: 10px 14px;
+}
+
+.form-status-message {
+    margin: 8px 2px 0;
+    min-height: 1.25em;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.24s ease;
+}
+
+.form-status-message.is-visible {
+    opacity: 1;
+}
+
+.form-status-message.is-success {
+    color: #83d8b0;
+}
+
+.form-status-message.is-error {
+    color: #ffb3b3;
+}
+
+@media (max-width: 1024px) {
+    .contact-form-wrap {
+        max-width: 100%;
+        padding: 18px;
+        border-radius: 22px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-form-wrap {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .contact-page-form .form-grid {
+        gap: 5px;
+    }
+
+    .contact-page-form .input-shell {
+        min-height: 42px;
+    }
+
+    .contact-page-form .input-shell--textarea,
+    .contact-page-form .input-shell--textarea textarea {
+        min-height: 78px;
+    }
+
+    .contact-page-form .btn[type="submit"] {
+        min-height: 42px;
+    }
+
+    .form-status-message {
+        font-size: 0.82rem;
+    }
+}

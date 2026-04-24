@@ -195,6 +195,16 @@ function initFormEnhancements() {
         if (!submitButton) return;
         const phoneInput = form.querySelector('input[type="tel"][name="phone"]');
         const emailInput = form.querySelector('input[type="email"][name="email"]');
+        const statusMessage = form.querySelector(".form-status-message");
+
+        const updateFormStatus = (text = "", type = "success") => {
+            if (!statusMessage) return;
+            statusMessage.textContent = text;
+            statusMessage.classList.remove("is-success", "is-error", "is-visible");
+            if (!text) return;
+            statusMessage.classList.add("is-visible");
+            statusMessage.classList.add(type === "error" ? "is-error" : "is-success");
+        };
 
         const validatePhone = () => {
             if (!phoneInput) return;
@@ -228,9 +238,11 @@ function initFormEnhancements() {
 
             if (!form.checkValidity()) {
                 form.reportValidity();
+                updateFormStatus("Please check required fields and try again.", "error");
                 return;
             }
 
+            updateFormStatus("");
             const originalText = submitButton.textContent;
             submitButton.disabled = true;
             submitButton.textContent = "Request Sent";
@@ -239,6 +251,7 @@ function initFormEnhancements() {
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
                 form.reset();
+                updateFormStatus("Thank you. Your request was sent successfully.");
             }, 1800);
         });
     });
