@@ -118,7 +118,6 @@ function initServiceSidebarActiveLinks() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initServicePageFaqSingleOpen();
     initServicePageReveal();
     initServicePageHoverDepth();
     initServiceContactLinks();

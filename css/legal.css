@@ -513,3 +513,52 @@
         justify-content: center;
     }
 }
+
+/* ==========================================
+   LEGAL HERO COMPACT HARMONY
+========================================== */
+.legal-hero {
+    padding: clamp(13px, 2.3vw, 28px) 0 clamp(40px, 5.8vw, 80px);
+}
+
+.legal-hero-inner {
+    gap: clamp(16px, 2.2vw, 30px);
+    align-items: center;
+}
+
+.legal-hero-copy h1 {
+    max-width: 26ch;
+    font-size: clamp(1.9rem, 4.1vw, 3rem);
+    line-height: 1.08;
+}
+
+.legal-hero-text {
+    max-width: 62ch;
+    font-size: clamp(0.94rem, 1vw, 1.01rem);
+    line-height: 1.58;
+}
+
+.legal-hero-card {
+    padding: clamp(16px, 1.9vw, 22px);
+}
+
+@media (max-width: 767px) {
+    .legal-hero {
+        padding: 10px 0 42px;
+    }
+
+    .legal-hero-copy h1 {
+        font-size: clamp(1.66rem, 6.8vw, 2.12rem);
+        line-height: 1.12;
+        max-width: none;
+    }
+
+    .legal-hero-text {
+        font-size: 0.9rem;
+        line-height: 1.46;
+    }
+
+    .legal-hero-card {
+        padding: 14px;
+    }
+}

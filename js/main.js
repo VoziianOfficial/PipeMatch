@@ -360,6 +360,132 @@ function initHeadingRevealAnimation() {
     });
 }
 
+function initSmoothFaqAccordions() {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const faqLists = selectAll(".faq-list");
+    if (!faqLists.length) return;
+
+    faqLists.forEach((list) => {
+        const items = selectAll(".faq-item", list);
+        if (!items.length) return;
+
+        const bodyByItem = new Map();
+
+        items.forEach((item) => {
+            const body = item.querySelector("p");
+            if (!body) return;
+
+            bodyByItem.set(item, body);
+            body.style.overflow = "hidden";
+            body.style.height = item.open ? "auto" : "0px";
+            body.style.opacity = item.open ? "1" : "0";
+        });
+
+        const closeInstant = (item) => {
+            const body = bodyByItem.get(item);
+            if (!body) return;
+            item.open = false;
+            item.dataset.faqAnimating = "false";
+            body.style.height = "0px";
+            body.style.opacity = "0";
+        };
+
+        const openInstant = (item) => {
+            const body = bodyByItem.get(item);
+            if (!body) return;
+            item.open = true;
+            item.dataset.faqAnimating = "false";
+            body.style.height = "auto";
+            body.style.opacity = "1";
+        };
+
+        const animateClose = (item) => {
+            const body = bodyByItem.get(item);
+            if (!body || !item.open || item.dataset.faqAnimating === "true") return;
+
+            item.dataset.faqAnimating = "true";
+            const startHeight = body.scrollHeight;
+            body.style.height = `${startHeight}px`;
+            body.style.opacity = "1";
+
+            requestAnimationFrame(() => {
+                body.style.height = "0px";
+                body.style.opacity = "0";
+            });
+
+            const onCloseEnd = (event) => {
+                if (event.propertyName !== "height") return;
+                body.removeEventListener("transitionend", onCloseEnd);
+                item.open = false;
+                item.dataset.faqAnimating = "false";
+            };
+
+            body.addEventListener("transitionend", onCloseEnd);
+        };
+
+        const animateOpen = (item) => {
+            const body = bodyByItem.get(item);
+            if (!body || item.open || item.dataset.faqAnimating === "true") return;
+
+            item.dataset.faqAnimating = "true";
+            item.open = true;
+            body.style.height = "0px";
+            body.style.opacity = "0";
+
+            requestAnimationFrame(() => {
+                const targetHeight = body.scrollHeight;
+                body.style.height = `${targetHeight}px`;
+                body.style.opacity = "1";
+            });
+
+            const onOpenEnd = (event) => {
+                if (event.propertyName !== "height") return;
+                body.removeEventListener("transitionend", onOpenEnd);
+                body.style.height = "auto";
+                item.dataset.faqAnimating = "false";
+            };
+
+            body.addEventListener("transitionend", onOpenEnd);
+        };
+
+        items.forEach((item) => {
+            const summary = item.querySelector("summary");
+            if (!summary || !bodyByItem.has(item)) return;
+
+            summary.addEventListener("click", (event) => {
+                event.preventDefault();
+                if (item.dataset.faqAnimating === "true") return;
+
+                if (item.open) {
+                    if (prefersReducedMotion) {
+                        closeInstant(item);
+                    } else {
+                        animateClose(item);
+                    }
+                    return;
+                }
+
+                items.forEach((otherItem) => {
+                    if (otherItem === item) return;
+                    if (!bodyByItem.has(otherItem)) return;
+
+                    if (prefersReducedMotion) {
+                        closeInstant(otherItem);
+                    } else {
+                        animateClose(otherItem);
+                    }
+                });
+
+                if (prefersReducedMotion) {
+                    openInstant(item);
+                } else {
+                    animateOpen(item);
+                }
+            });
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     applySiteConfig();
     setCurrentYear();
@@ -373,4 +499,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initCardLinkFallbacks();
     initGlobalRevealAnimations();
     initHeadingRevealAnimation();
+    initSmoothFaqAccordions();
 });

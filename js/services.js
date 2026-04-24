@@ -145,7 +145,6 @@ function initServicesClientCounter() {
 
 document.addEventListener("DOMContentLoaded", () => {
     initServicesFiltering();
-    initServicesFaqSingleOpen();
     initServicesReveal();
     initServicesClientCounter();
 });

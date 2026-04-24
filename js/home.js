@@ -39,18 +39,123 @@ function initReviewsSlider() {
 }
 
 function initFaqSingleOpen() {
-    const faqItems = document.querySelectorAll(".faq-item");
+    const faqItems = [...document.querySelectorAll(".faq-item")];
     if (!faqItems.length) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const bodyByItem = new Map();
+
     faqItems.forEach((item) => {
-        item.addEventListener("toggle", () => {
-            if (!item.open) return;
+        const body = item.querySelector("p");
+        if (!body) return;
+
+        bodyByItem.set(item, body);
+        body.style.overflow = "hidden";
+        body.style.height = item.open ? "auto" : "0px";
+        body.style.opacity = item.open ? "1" : "0";
+    });
+
+    if (prefersReducedMotion) {
+        faqItems.forEach((item) => {
+            const summary = item.querySelector("summary");
+            if (!summary || !bodyByItem.has(item)) return;
+
+            summary.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                if (item.open) {
+                    item.open = false;
+                    bodyByItem.get(item).style.opacity = "0";
+                    bodyByItem.get(item).style.height = "0px";
+                    return;
+                }
+
+                faqItems.forEach((otherItem) => {
+                    if (otherItem === item || !bodyByItem.has(otherItem)) return;
+                    otherItem.open = false;
+                    bodyByItem.get(otherItem).style.opacity = "0";
+                    bodyByItem.get(otherItem).style.height = "0px";
+                });
+
+                item.open = true;
+                bodyByItem.get(item).style.height = "auto";
+                bodyByItem.get(item).style.opacity = "1";
+            });
+        });
+
+        return;
+    }
+
+    const animateClose = (item) => {
+        const body = bodyByItem.get(item);
+        if (!body || !item.open || item.dataset.faqAnimating === "true") return;
+
+        item.dataset.faqAnimating = "true";
+        const startHeight = body.scrollHeight;
+        body.style.height = `${startHeight}px`;
+        body.style.opacity = "1";
+
+        requestAnimationFrame(() => {
+            body.style.height = "0px";
+            body.style.opacity = "0";
+        });
+
+        const onCloseEnd = (event) => {
+            if (event.propertyName !== "height") return;
+            body.removeEventListener("transitionend", onCloseEnd);
+            item.open = false;
+            item.dataset.faqAnimating = "false";
+        };
+
+        body.addEventListener("transitionend", onCloseEnd);
+    };
+
+    const animateOpen = (item) => {
+        const body = bodyByItem.get(item);
+        if (!body || item.open || item.dataset.faqAnimating === "true") return;
+
+        item.dataset.faqAnimating = "true";
+        item.open = true;
+        body.style.height = "0px";
+        body.style.opacity = "0";
+
+        requestAnimationFrame(() => {
+            const targetHeight = body.scrollHeight;
+            body.style.height = `${targetHeight}px`;
+            body.style.opacity = "1";
+        });
+
+        const onOpenEnd = (event) => {
+            if (event.propertyName !== "height") return;
+            body.removeEventListener("transitionend", onOpenEnd);
+            body.style.height = "auto";
+            item.dataset.faqAnimating = "false";
+        };
+
+        body.addEventListener("transitionend", onOpenEnd);
+    };
+
+    faqItems.forEach((item) => {
+        const summary = item.querySelector("summary");
+        if (!summary || !bodyByItem.has(item)) return;
+
+        summary.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if (item.dataset.faqAnimating === "true") return;
+
+            if (item.open) {
+                animateClose(item);
+                return;
+            }
 
             faqItems.forEach((otherItem) => {
                 if (otherItem !== item) {
-                    otherItem.open = false;
+                    animateClose(otherItem);
                 }
             });
+
+            animateOpen(item);
         });
     });
 }
@@ -94,73 +199,12 @@ function initCoverageMap() {
     L.control.zoom({ position: "bottomright" }).addTo(map);
     // Attribution + scale controls are intentionally omitted for a cleaner UI.
 
-    const layers = {
-        standard: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 19,
-            attribution: "&copy; OpenStreetMap contributors"
-        }),
-        light: L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-            subdomains: "abcd",
-            maxZoom: 20,
-            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
-        }),
-        dark: L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-            subdomains: "abcd",
-            maxZoom: 20,
-            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
-        })
-    };
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
 
-    let activeLayer = null;
-    const buttons = [...document.querySelectorAll(".coverage-map-style-btn[data-coverage-map-style]")];
-
-    const getStoredStyle = () => {
-        try {
-            return localStorage.getItem("pipematch:homeMapStyle");
-        } catch {
-            return null;
-        }
-    };
-
-    const setStoredStyle = (style) => {
-        try {
-            localStorage.setItem("pipematch:homeMapStyle", style);
-        } catch {
-            /* ignore */
-        }
-    };
-
-    const updateButtons = (style) => {
-        buttons.forEach((btn) => {
-            const isActive = btn.dataset.coverageMapStyle === style;
-            btn.classList.toggle("is-active", isActive);
-            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-        });
-    };
-
-    const setStyle = (style) => {
-        const normalized = layers[style] ? style : "standard";
-
-        if (activeLayer) {
-            map.removeLayer(activeLayer);
-        }
-
-        activeLayer = layers[normalized];
-        activeLayer.addTo(map);
-
-        updateButtons(normalized);
-        setStoredStyle(normalized);
-
-        requestAnimationFrame(() => map.invalidateSize());
-    };
-
-    setStyle(getStoredStyle() || "standard");
-
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            setStyle(btn.dataset.coverageMapStyle);
-        });
-    });
+    requestAnimationFrame(() => map.invalidateSize());
 
     const marker = L.marker(center, {
         keyboard: false
@@ -329,7 +373,6 @@ function initHeadingMotion() {
 
 document.addEventListener("DOMContentLoaded", () => {
     initReviewsSlider();
-    initFaqSingleOpen();
     initServiceSearch();
     initCoverageMap();
     initRevealAnimations();

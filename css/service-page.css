@@ -53,11 +53,19 @@
 }
 
 .service-page-hero-text {
-    max-width: 720px;
+    max-width: 74ch;
     margin-bottom: 28px;
-    font-size: clamp(1rem, 1.35vw, 1.14rem);
-    line-height: 1.72;
+    font-size: clamp(1rem, 1.22vw, 1.1rem);
+    line-height: 1.66;
     color: rgba(255, 255, 255, 0.84);
+}
+
+.service-page-hero-copy .service-page-hero-text {
+    margin-bottom: 16px;
+}
+
+.service-page-hero-copy .service-page-hero-text:last-of-type {
+    margin-bottom: 24px;
 }
 
 .service-page-hero-actions {
@@ -130,13 +138,9 @@
     align-items: start;
 }
 
-.service-page-sidebar {
-    position: relative;
-}
-
 .service-page-sidebar-card {
     position: sticky;
-    top: calc(var(--header-height) + 96px);
+    top: calc(var(--header-height) + 24px);
     padding: 22px;
     border-radius: 28px;
     background:
@@ -183,7 +187,6 @@
         color var(--transition-base),
         border-color var(--transition-base),
         box-shadow var(--transition-base);
-        color: var(--color-white) !important;
 }
 
 .service-page-sidebar-links a::before {
@@ -228,11 +231,10 @@
 .service-page-sidebar-note p {
     margin: 0;
     line-height: 1.68;
-    color: var(--color-white) !important;
 }
 
-.rail-cta-box p{
-    color: var(--color-white) !important;
+.rail-cta-box p {
+    color: inherit;
 }
 
 .service-page-sidebar-card .rail-cta-box {
@@ -277,6 +279,7 @@
     display: grid;
     align-content: start;
     gap: 10px;
+    min-height: 226px;
     padding: 22px;
     border-radius: 26px;
     background: rgba(255, 255, 255, 0.80);
@@ -287,11 +290,13 @@
 .service-overview-card h3 {
     margin: 0;
     font-size: 1.15rem;
+    line-height: 1.24;
 }
 
 .service-overview-card p {
     margin: 0;
-    line-height: 1.68;
+    max-width: 60ch;
+    line-height: 1.62;
 }
 
 .service-factors-block {
@@ -314,6 +319,7 @@
     display: grid;
     align-content: start;
     gap: 10px;
+    min-height: 226px;
     padding: 24px;
     border-radius: 26px;
     background: rgba(255, 255, 255, 0.80);
@@ -333,11 +339,13 @@
 
 .service-factor-card h3 {
     margin: 0;
+    line-height: 1.24;
 }
 
 .service-factor-card p {
     margin: 0;
-    line-height: 1.7;
+    max-width: 60ch;
+    line-height: 1.62;
 }
 
 .service-checklist-block {
@@ -407,6 +415,7 @@
     display: grid;
     align-content: start;
     gap: 10px;
+    min-height: 226px;
     padding: 26px;
     border-radius: 28px;
     background:
@@ -427,11 +436,13 @@
 
 .service-step-card h3 {
     margin: 0;
+    padding-right: 54px;
 }
 
 .service-step-card p {
     margin: 0;
-    line-height: 1.7;
+    max-width: 60ch;
+    line-height: 1.62;
 }
 
 .service-page-faq .faq-list {
@@ -527,8 +538,8 @@
     }
 
     .service-page-sidebar-card {
-        position: relative;
-        top: 0;
+        position: sticky;
+        top: calc(var(--header-height) + 16px);
     }
 }
 
@@ -537,6 +548,11 @@
     .service-factors-grid,
     .service-steps-grid {
         grid-template-columns: 1fr;
+    }
+
+    .service-page-sidebar-card {
+        position: relative;
+        top: 0;
     }
 }
 
@@ -555,6 +571,7 @@
     .service-overview-card {
         padding: 22px;
         border-radius: 24px;
+        min-height: 0;
     }
 
     .service-visual-card {
@@ -598,6 +615,7 @@
     .service-overview-card {
         padding: 20px;
         border-radius: 22px;
+        min-height: 0;
     }
 
     .service-visual-card {
@@ -703,17 +721,26 @@
 .service-factor-card,
 .service-step-card,
 .service-overview-card {
-    min-height: 220px;
+    min-height: 226px;
 }
 
 .service-step-card .step-number {
-    background: transparent;
-    box-shadow: none;
-    color: rgba(110, 143, 202, 0.24);
-    min-width: auto;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    margin: 0;
+    padding: 5px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(120, 158, 219, 0.28);
+    background: rgba(10, 28, 58, 0.58);
+    color: rgba(199, 224, 255, 0.9);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    min-width: 0;
     height: auto;
-    padding: 0;
-    margin-left: auto;
+    box-shadow: none;
 }
 
 .service-page-faq .faq-item {
@@ -751,5 +778,70 @@
     .service-page-grid {
         grid-template-columns: 320px minmax(0, 980px);
         justify-content: center;
+    }
+}
+
+/* ==========================================
+   SERVICE HERO COMPACT HARMONY
+========================================== */
+.service-page-hero {
+    padding: clamp(14px, 2.4vw, 30px) 0 clamp(42px, 6vw, 84px);
+}
+
+.service-page-hero-inner {
+    gap: clamp(18px, 2.4vw, 32px);
+    align-items: center;
+}
+
+.service-page-hero-copy h1 {
+    max-width: 24ch;
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
+    line-height: 1.06;
+}
+
+.service-page-hero-text {
+    max-width: 72ch;
+    font-size: clamp(0.96rem, 1.02vw, 1.02rem);
+    line-height: 1.6;
+}
+
+.service-page-hero-actions {
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.service-page-hero-card {
+    padding: clamp(16px, 1.8vw, 22px);
+}
+
+@media (max-width: 767px) {
+    .service-page-hero {
+        padding: 11px 0 46px;
+    }
+
+    .service-page-hero-copy h1 {
+        font-size: clamp(1.74rem, 7.2vw, 2.22rem);
+        line-height: 1.1;
+        max-width: none;
+    }
+
+    .service-page-hero-text {
+        font-size: 0.92rem;
+        line-height: 1.52;
+    }
+
+    .service-page-hero-card {
+        padding: 14px;
+    }
+
+    .service-step-card .step-number {
+        top: 10px;
+        right: 10px;
+        font-size: 0.72rem;
+        padding: 4px 7px;
+    }
+
+    .service-step-card h3 {
+        padding-right: 48px;
     }
 }

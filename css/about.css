@@ -53,17 +53,57 @@
 }
 
 .about-hero-text {
-    max-width: 700px;
+    max-width: 74ch;
     margin-bottom: 28px;
-    font-size: clamp(1rem, 1.35vw, 1.14rem);
-    line-height: 1.72;
+    font-size: clamp(1rem, 1.18vw, 1.08rem);
+    line-height: 1.66;
     color: rgba(255, 255, 255, 0.84);
+}
+
+.about-hero-copy .about-hero-text {
+    margin-bottom: 18px;
+}
+
+.about-hero-copy .about-hero-text:last-of-type {
+    margin-bottom: 24px;
 }
 
 .about-hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
+}
+
+.about-hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    margin: 14px 0 22px;
+    padding: 0;
+    list-style: none;
+}
+
+.about-hero-points li {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(231, 211, 173, 0.14);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.92rem;
+    line-height: 1.1;
+}
+
+.about-hero-points li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-right: 10px;
+    border-radius: 999px;
+    background: rgba(76, 198, 235, 0.9);
+    box-shadow: 0 0 0 6px rgba(76, 198, 235, 0.14);
 }
 
 .about-hero-note {
@@ -132,6 +172,7 @@
 }
 
 .about-story-card {
+    position: relative;
     display: grid;
     align-content: start;
     gap: 10px;
@@ -153,12 +194,33 @@
     border-color: rgba(23, 107, 255, 0.16);
 }
 
+.about-story-card .step-number {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(11, 31, 58, 0.06);
+    border: 1px solid rgba(11, 31, 58, 0.10);
+    color: rgba(11, 31, 58, 0.72);
+    font-size: 0.78rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
+
 .about-story-card h3 {
     margin: 0;
+    padding-right: 64px;
+    line-height: 1.15;
 }
 
 .about-story-card p {
     margin: 0;
+    max-width: 62ch;
+    line-height: 1.55;
 }
 
 .about-story-card--dark {
@@ -170,7 +232,8 @@
 
 .about-story-card--dark .step-number {
     background: rgba(255, 255, 255, 0.10);
-    color: var(--color-primary-light);
+    border-color: rgba(255, 255, 255, 0.14);
+    color: rgba(231, 243, 255, 0.86);
 }
 
 .about-story-card--dark h3,
@@ -343,12 +406,30 @@
     border-color: rgba(76, 198, 235, 0.34);
 }
 
+.process-card .step-number {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(12, 31, 71, 0.68);
+    border: 1px solid rgba(120, 158, 219, 0.24);
+    color: rgba(231, 243, 255, 0.86);
+    font-size: 0.78rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
+
 .process-card h3 {
     margin: 0;
     color: #eef6ff;
     font-size: 1.28rem;
     line-height: 1.2;
     font-style: italic;
+    padding-right: 64px;
 }
 
 .process-card p {
@@ -476,6 +557,15 @@
 
     .about-hero-actions .btn {
         width: 100%;
+    }
+
+    .about-hero-points {
+        margin: 12px 0 18px;
+    }
+
+    .about-hero-points li {
+        width: 100%;
+        justify-content: flex-start;
     }
 
     .about-hero-note,
@@ -607,5 +697,59 @@
 
     .about-story-card--dark {
         grid-column: auto;
+    }
+}
+
+/* ==========================================
+   ABOUT HERO COMPACT HARMONY
+========================================== */
+.about-hero {
+    padding: clamp(14px, 2.4vw, 30px) 0 clamp(42px, 6vw, 84px);
+}
+
+.about-hero-inner {
+    gap: clamp(18px, 2.5vw, 34px);
+    align-items: center;
+}
+
+.about-hero-copy h1 {
+    max-width: 24ch;
+    font-size: clamp(2rem, 4.4vw, 3.3rem);
+    line-height: 1.06;
+}
+
+.about-hero-text {
+    max-width: 72ch;
+    font-size: clamp(0.96rem, 1.02vw, 1.04rem);
+    line-height: 1.6;
+}
+
+.about-hero-actions {
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.about-hero-note {
+    padding: clamp(18px, 2vw, 24px);
+}
+
+@media (max-width: 767px) {
+    .about-hero {
+        padding: 11px 0 48px;
+    }
+
+    .about-hero-copy h1 {
+        font-size: clamp(1.74rem, 7.4vw, 2.28rem);
+        line-height: 1.1;
+        max-width: none;
+    }
+
+    .about-hero-text {
+        font-size: 0.92rem;
+        line-height: 1.48;
+    }
+
+    .about-hero-note {
+        padding: 16px;
     }
 }

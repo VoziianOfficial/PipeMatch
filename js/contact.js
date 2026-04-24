@@ -124,73 +124,12 @@ function initContactMap() {
         .addTo(map);
     // Attribution + scale controls are intentionally omitted for a cleaner UI.
 
-    const layers = {
-        standard: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 19,
-            attribution: "&copy; OpenStreetMap contributors"
-        }),
-        light: L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-            subdomains: "abcd",
-            maxZoom: 20,
-            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
-        }),
-        dark: L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-            subdomains: "abcd",
-            maxZoom: 20,
-            attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
-        })
-    };
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
 
-    let activeLayer = null;
-
-    const buttons = [...document.querySelectorAll(".contact-map-style-btn[data-map-style]")];
-
-    const getStoredStyle = () => {
-        try {
-            return localStorage.getItem("pipematch:contactMapStyle");
-        } catch {
-            return null;
-        }
-    };
-
-    const setStoredStyle = (style) => {
-        try {
-            localStorage.setItem("pipematch:contactMapStyle", style);
-        } catch {
-        }
-    };
-
-    const updateButtons = (style) => {
-        buttons.forEach((btn) => {
-            const isActive = btn.dataset.mapStyle === style;
-            btn.classList.toggle("is-active", isActive);
-            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-        });
-    };
-
-    const setStyle = (style) => {
-        const normalized = layers[style] ? style : "standard";
-
-        if (activeLayer) {
-            map.removeLayer(activeLayer);
-        }
-
-        activeLayer = layers[normalized];
-        activeLayer.addTo(map);
-
-        updateButtons(normalized);
-        setStoredStyle(normalized);
-
-        requestAnimationFrame(() => map.invalidateSize());
-    };
-
-    setStyle(getStoredStyle() || "standard");
-
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            setStyle(btn.dataset.mapStyle);
-        });
-    });
+    requestAnimationFrame(() => map.invalidateSize());
 
     const marker = L.marker(center, {
         keyboard: false
@@ -209,7 +148,6 @@ function initContactMap() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initContactFaqSingleOpen();
     initContactReveal();
     initContactHoverDepth();
     initServicePrefillFromQuery();

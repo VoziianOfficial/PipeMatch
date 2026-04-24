@@ -213,17 +213,23 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    letter-spacing: -0.04em;
-    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
     color: var(--color-navy);
 }
 
+h1,
+h2 {
+    text-wrap: balance;
+}
+
 h1 {
-    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-size: clamp(2.2rem, 5.8vw, 4.4rem);
 }
 
 h2 {
-    font-size: clamp(2rem, 4.8vw, 3.8rem);
+    font-size: clamp(1.7rem, 3.8vw, 2.9rem);
 }
 
 h3 {
@@ -1818,7 +1824,6 @@ h6 {
 
 .input-shell,
 .rail-search input,
-.coverage-map-style-btn,
 .reviews-slider .swiper-pagination,
 .chip {
     clip-path: none;
@@ -1972,6 +1977,21 @@ h6 {
     width: 100%;
 }
 
+.faq-item p {
+    overflow: hidden;
+    height: auto;
+    opacity: 1;
+    padding: 6px 14px 14px;
+    transition: height 0.35s cubic-bezier(0.2, 0.75, 0.2, 1), opacity 0.25s ease;
+    will-change: height, opacity;
+}
+
+@media (max-width: 767px) {
+    .faq-item p {
+        padding: 5px 12px 12px;
+    }
+}
+
 .review-card p,
 .faq-item p,
 .legal-section p,
@@ -1979,6 +1999,84 @@ h6 {
 .service-step-card p,
 .service-factor-card p {
     text-wrap: pretty;
+}
+
+/* ==========================================
+   CARD TYPOGRAPHY (MORE READABLE)
+========================================== */
+:is(
+    .service-card-link,
+    .directory-card-link,
+    .comparison-card,
+    .editorial-panel-card,
+    .services-stat-card,
+    .services-sidebar-card,
+    .contact-hero-card,
+    .contact-info-card,
+    .contact-sidebar-panel,
+    .contact-map-wrap,
+    .about-hero-note,
+    .about-story-copy,
+    .about-story-card,
+    .about-model-wrap,
+    .model-point,
+    .about-benefits-panel-card,
+    .process-card,
+    .about-note-wrap,
+    .about-note-box,
+    .service-page-hero-card,
+    .service-page-sidebar-card,
+    .service-overview-block,
+    .service-factor-card,
+    .service-step-card,
+    .service-overview-card,
+    .service-checklist-panel,
+    .review-card,
+    .faq-item,
+    .legal-hero-card,
+    .legal-sidebar-card,
+    .legal-intro-card,
+    .legal-section,
+    .legal-bottom-note,
+    .coverage-card,
+    .step-card,
+    .visual-card,
+    .map-center-card,
+    .hero-form-card
+) {
+    font-family: var(--font-body);
+}
+
+:is(
+    .service-card-link,
+    .directory-card-link,
+    .comparison-card,
+    .editorial-panel-card,
+    .services-stat-card,
+    .services-sidebar-card,
+    .contact-hero-card,
+    .contact-info-card,
+    .about-hero-note,
+    .about-story-card,
+    .model-point,
+    .about-benefits-panel-card,
+    .process-card,
+    .service-page-hero-card,
+    .service-page-sidebar-card,
+    .service-overview-card,
+    .service-factor-card,
+    .service-step-card,
+    .service-checklist-panel,
+    .review-card,
+    .faq-item,
+    .legal-hero-card,
+    .legal-section,
+    .step-card,
+    .visual-card,
+    .coverage-card
+) :is(h2, h3, strong) {
+    font-family: var(--font-body);
+    letter-spacing: -0.01em;
 }
 
 @media (min-width: 1600px) {
