@@ -1966,3 +1966,7 @@ main::before,
         height: 44px !important;
     }
 }
+
+.hero-compare-h1 {
+    color: var(--color-white)!important;
+}

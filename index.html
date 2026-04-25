@@ -186,132 +186,64 @@
         </aside>
 
         <main id="main-content">
-            <section class="home-hero">
-                <div class="home-hero-bg" aria-hidden="true"></div>
-                <div class="home-hero-overlay" aria-hidden="true"></div>
-                <div class="home-hero-orb" aria-hidden="true"></div>
-                <div class="home-hero-orb home-hero-orb--two" aria-hidden="true"></div>
-                <div class="home-hero-line" aria-hidden="true"></div>
-
-                <div class="container hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">
-                            <span class="eyebrow-dot"></span>
-                            Independent plumbing matching platform
-                        </div>
-
-                        <h1>
-                            Compare local plumbing providers through a more refined, premium-first experience.
-                        </h1>
-
-                        <p class="hero-text">
-                            PipeMatch helps homeowners explore plumbing service categories, organize request details,
-                            and compare local provider options by timing, location, and project type without presenting
-                            itself as a direct contractor.
-                        </p>
-
-                        <div class="hero-badges" aria-label="Key benefits">
-                            <span><i class="fa-solid fa-check"></i> Compare local options</span>
-                            <span><i class="fa-solid fa-check"></i> Request quotes faster</span>
-                            <span><i class="fa-solid fa-check"></i> Start from the right service</span>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a href="services.html" class="btn btn-primary">
-                                Compare Local Providers
-                            </a>
-                            <a href="contact.html" class="btn btn-secondary">
-                                Request Quotes
-                            </a>
-                        </div>
-
-                        <p class="hero-disclaimer-note">
-                            PipeMatch is not a direct plumbing contractor. We help connect homeowners with independent
-                            local service providers and encourage verification of licensing and insurance before hiring.
-                        </p>
+        <section class="home-hero home-hero--estate">
+            <div class="home-hero-bg" aria-hidden="true"></div>
+            <div class="home-hero-overlay" aria-hidden="true"></div>
+        
+            <div class="container home-hero-estate-inner">
+                <div class="hero-estate-content">
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Independent plumbing matching platform
                     </div>
-
-                    <div class="hero-form-card">
-                        <div class="hero-form-card-top">
-                            <p class="form-kicker">Quick request</p>
-                            <h2>Tell us what you need</h2>
-                            <p>
-                                Submit a short request and explore provider matches based on your plumbing category,
-                                timing, and service area.
-                            </p>
-                        </div>
-
-                        <form class="compact-form" action="#" method="post">
-                            <div class="form-grid">
-                                <div class="form-field">
-                                    <label for="fullName">Full name</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-user" aria-hidden="true"></i>
-                                        <input type="text" id="fullName" name="fullName" placeholder="Your name"
-                                            aria-label="Full name" autocomplete="name" minlength="2" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="zipCode">ZIP code</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                        <input type="text" id="zipCode" name="zipCode" placeholder="ZIP code"
-                                            aria-label="ZIP code" autocomplete="postal-code" inputmode="numeric"
-                                            minlength="4" pattern="^[0-9\-\s]{4,10}$" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="serviceType">Service category</label>
-                                    <div class="input-shell input-shell--select">
-                                        <i class="fa-solid fa-wrench" aria-hidden="true"></i>
-                                        <select id="serviceType" name="serviceType" aria-label="Service category" required>
-                                            <option value="">Select service</option>
-                                            <option>Emergency Plumbing</option>
-                                            <option>Drain Cleaning</option>
-                                            <option>Water Heater Services</option>
-                                            <option>Leak Detection</option>
-                                            <option>Sewer Line Services</option>
-                                            <option>Fixture Installation</option>
-                                        </select>
-                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="timeline">Project timing</label>
-                                    <div class="input-shell input-shell--select">
-                                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                                        <select id="timeline" name="timeline" aria-label="Project timing" required>
-                                            <option value="">Select timing</option>
-                                            <option>As soon as possible</option>
-                                            <option>This week</option>
-                                            <option>This month</option>
-                                            <option>Planning ahead</option>
-                                        </select>
-                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="form-field form-field--full">
-                                    <label for="projectDetails">Project details</label>
-                                    <div class="input-shell input-shell--textarea">
-                                        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
-                                        <textarea id="projectDetails" name="projectDetails" rows="4"
-                                            placeholder="Briefly describe the plumbing issue or project"
-                                            aria-label="Project details" minlength="12" required></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Compare Provider Options
-                            </button>
-                        </form>
+        
+                    <h1 class="hero-compare-h1">Compare plumbing providers with a clearer premium request flow.</h1>
+        
+                    <p class="hero-text">
+                        PipeMatch helps homeowners organize plumbing needs, choose the right service category,
+                        and compare independent local provider options by timing, location, and project type.
+                    </p>
+        
+                    <div class="hero-estate-actions">
+                        <a href="services.html" class="btn btn-primary">
+                            Compare Providers
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            Request Quotes
+                        </a>
                     </div>
                 </div>
-            </section>
+        
+                <div class="hero-estate-bottom">
+                    <div class="hero-estate-card hero-estate-card--large">
+                        <span>01</span>
+                        <h3>Choose the right service</h3>
+                        <p>Start with emergency plumbing, drain cleaning, water heater service, leak detection, or fixture work.
+                        </p>
+                    </div>
+        
+                    <div class="hero-estate-card">
+                        <span>02</span>
+                        <h3>Share details</h3>
+                        <p>Add ZIP code, timing, and project notes.</p>
+                    </div>
+        
+                    <div class="hero-estate-card">
+                        <span>03</span>
+                        <h3>Compare options</h3>
+                        <p>Review local provider options with clearer context.</p>
+                    </div>
+        
+                    <div class="hero-estate-disclaimer">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            PipeMatch is not a direct plumbing contractor. Always verify licensing,
+                            insurance, pricing, and availability before hiring.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
             <section class="home-content-section">
                 <div class="container home-content-grid">
