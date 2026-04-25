@@ -229,98 +229,47 @@
                             </p>
                         </div>
 
-                        <form class="compact-form contact-page-form" action="#" method="post">
-                            <div class="form-grid">
-                                <div class="form-field">
-                                    <label for="contactFullName">Full name</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-user" aria-hidden="true"></i>
-                                        <input type="text" id="contactFullName" name="fullName"
-                                            placeholder="Your full name" aria-label="Full name" autocomplete="name"
-                                            minlength="2" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="contactZip">ZIP code</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                        <input type="text" id="contactZip" name="zipCode" placeholder="ZIP code"
-                                            aria-label="ZIP code" autocomplete="postal-code" inputmode="numeric"
-                                            minlength="4" pattern="^[0-9\-\s]{4,10}$" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="contactEmail">Email address</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                                        <input type="email" id="contactEmail" name="email" placeholder="Your email"
-                                            aria-label="Email address" autocomplete="email"
-                                            pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="contactPhone">Phone number</label>
-                                    <div class="input-shell">
-                                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                                        <input type="tel" id="contactPhone" name="phone" placeholder="Your phone number"
-                                            aria-label="Phone number" autocomplete="tel" minlength="7"
-                                            inputmode="tel" pattern="^\+?[0-9\s()\-]{7,20}$" required />
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="contactServiceType">Service category</label>
-                                    <div class="input-shell input-shell--select">
-                                        <i class="fa-solid fa-wrench" aria-hidden="true"></i>
-                                        <select id="contactServiceType" name="serviceType"
-                                            aria-label="Service category" required>
-                                            <option value="">Select service</option>
-                                            <option>Emergency Plumbing</option>
-                                            <option>Drain Cleaning</option>
-                                            <option>Water Heater Services</option>
-                                            <option>Leak Detection</option>
-                                            <option>Sewer Line Services</option>
-                                            <option>Fixture Installation</option>
-                                            <option>General Request</option>
-                                        </select>
-                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="form-field">
-                                    <label for="contactTimeline">Project timing</label>
-                                    <div class="input-shell input-shell--select">
-                                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                                        <select id="contactTimeline" name="timeline" aria-label="Project timing" required>
-                                            <option value="">Select timing</option>
-                                            <option>As soon</option>
-                                            <option>This week</option>
-                                            <option>This month</option>
-                                            <option>Plan Ahead</option>
-                                        </select>
-                                        <i class="fa-solid fa-chevron-down select-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="form-field form-field--full">
-                                    <label for="contactDetails">Project details</label>
-                                    <div class="input-shell input-shell--textarea">
-                                        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
-                                        <textarea id="contactDetails" name="projectDetails" rows="5"
-                                            placeholder="Briefly describe the issue, upgrade, or plumbing request"
-                                            aria-label="Project details" minlength="12" required></textarea>
-                                    </div>
-                                </div>
+                    <form class="compact-form contact-page-form contact-form-modern">
+                    
+                        <!-- STEP 1 -->
+                        <div class="form-step">
+                            <label>What do you need?</label>
+                            <div class="choice-grid">
+                                <button type="button" class="choice">Emergency</button>
+                                <button type="button" class="choice">Leak</button>
+                                <button type="button" class="choice">Drain</button>
+                                <button type="button" class="choice">Installation</button>
                             </div>
-
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Request Provider Options
-                            </button>
-                            <p class="form-status-message" id="contactFormStatus" role="status" aria-live="polite"></p>
-                        </form>
+                        </div>
+                    
+                        <!-- STEP 2 -->
+                        <div class="form-step">
+                            <label>How urgent?</label>
+                            <div class="choice-grid">
+                                <button type="button" class="choice">ASAP</button>
+                                <button type="button" class="choice">Today</button>
+                                <button type="button" class="choice">This week</button>
+                                <button type="button" class="choice">Flexible</button>
+                            </div>
+                        </div>
+                    
+                        <!-- STEP 3 -->
+                        <div class="form-step form-step--inline">
+                            <input type="text" placeholder="ZIP code" required>
+                            <input type="text" placeholder="Name" required>
+                        </div>
+                    
+                        <!-- STEP 4 -->
+                        <div class="form-step form-step--inline">
+                            <input type="tel" placeholder="Phone" required>
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Get Matches
+                        </button>
+                    
+                    </form>
                     </div>
 
                     <aside class="contact-sidebar">

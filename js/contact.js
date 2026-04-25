@@ -147,9 +147,28 @@ function initContactMap() {
     }).addTo(map);
 }
 
+function initContactChoices() {
+    const groups = document.querySelectorAll(".choice-grid");
+
+    if (!groups.length) return;
+
+    groups.forEach((group) => {
+        const choices = group.querySelectorAll(".choice");
+
+        choices.forEach((choice) => {
+            choice.addEventListener("click", () => {
+                choices.forEach((btn) => btn.classList.remove("active"));
+                choice.classList.add("active");
+            });
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initContactReveal();
     initContactHoverDepth();
     initServicePrefillFromQuery();
+    initContactFaqSingleOpen();
+    initContactChoices();
     initContactMap();
 });

@@ -687,20 +687,40 @@ function initHeadingRevealAnimation() {
 function initSmoothFaqAccordions() {
     const items = document.querySelectorAll(".faq-item");
 
+    if (!items.length) return;
+
     items.forEach((item) => {
-        const btn = item.querySelector(".faq-question");
+        const btn = item.querySelector(".faq-question, summary");
         const content = item.querySelector(".faq-answer");
+
+        if (!btn) return;
+
+        if (!content) {
+            item.addEventListener("toggle", () => {
+                if (!item.open) return;
+
+                items.forEach((otherItem) => {
+                    if (otherItem !== item && otherItem.tagName.toLowerCase() === "details") {
+                        otherItem.open = false;
+                    }
+                });
+            });
+
+            return;
+        }
 
         btn.addEventListener("click", () => {
             const isOpen = item.classList.contains("is-open");
 
-            // закрываем все
             items.forEach((i) => {
                 if (i === item) return;
 
                 const c = i.querySelector(".faq-answer");
                 i.classList.remove("is-open");
-                c.style.height = "0px";
+
+                if (c) {
+                    c.style.height = "0px";
+                }
             });
 
             if (isOpen) {
@@ -715,7 +735,6 @@ function initSmoothFaqAccordions() {
             }
 
             item.classList.add("is-open");
-
             content.style.height = "0px";
 
             requestAnimationFrame(() => {
