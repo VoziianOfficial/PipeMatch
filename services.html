@@ -205,39 +205,21 @@
 
             <section class="services-directory-section premium-services-directory" id="service-directory">
                 <div class="container services-layout">
-                    <aside class="services-sidebar">
-                        <div class="services-sidebar-card">
-                            <p class="service-rail-label">Refine your start</p>
-                            <h2>Search services</h2>
-
+                    <aside class="services-filter">
+                        <div class="services-filter-card">
                             <div class="rail-search services-search">
                                 <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                                <input type="search" id="servicesSearchInput" placeholder="Search by service name"
+                                <input type="search" id="servicesSearchInput" placeholder="Search service"
                                     aria-label="Search plumbing services" />
                             </div>
 
-                            <div class="rail-filter-group services-chip-group">
+                            <div class="services-filter-buttons">
                                 <button type="button" class="chip is-active" data-filter="all">All</button>
                                 <button type="button" class="chip" data-filter="urgent">Urgent</button>
-                                <button type="button" class="chip" data-filter="water">Water systems</button>
-                                <button type="button" class="chip" data-filter="water">Leak issues</button>
-                                <button type="button" class="chip" data-filter="drain">Drain & sewer</button>
+                                <button type="button" class="chip" data-filter="water">Water</button>
+                                <button type="button" class="chip" data-filter="water">Leaks</button>
+                                <button type="button" class="chip" data-filter="drain">Drain</button>
                                 <button type="button" class="chip" data-filter="fixtures">Fixtures</button>
-                            </div>
-
-                            <div class="services-sidebar-info">
-                                <h3>How to use this page</h3>
-                                <p>
-                                    Pick a category first, then open the service page to review scope, timing, and fit.
-                                </p>
-                            </div>
-
-                            <div class="rail-cta-box">
-                                <p>Prefer to start by phone?</p>
-                                <a href="tel:+18004172038" class="btn btn-dark" data-phone-link>
-                                    <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-                                    <span data-phone-display>Call Now</span>
-                                </a>
                             </div>
                         </div>
                     </aside>
@@ -255,93 +237,116 @@
                             </div>
                         </section>
 
-                    <section class="services-card-grid premium-directory-grid" id="servicesGrid">
-                        <article class="directory-card" data-category="urgent">
-                            <a href="emergency-plumbing.html" class="directory-card-link" aria-label="Emergency Plumbing">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/emergency-plumbing-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                                    <h3>Emergency Plumbing</h3>
-                                    <p>Burst pipes, active leaks, backups, or water damage risk. Best when you need fast help.</p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    
-                        <article class="directory-card" data-category="drain">
-                            <a href="drain-cleaning.html" class="directory-card-link" aria-label="Drain Cleaning">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/drain-cleaning-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-arrows-spin"></i></span>
-                                    <h3>Drain Cleaning</h3>
-                                    <p>Clogs and slow drains in sinks, tubs, toilets, or main lines. Compare clearing vs. repair.</p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    
-                        <article class="directory-card" data-category="water">
-                            <a href="water-heater-services.html" class="directory-card-link" aria-label="Water Heater Services">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/water-heater-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-droplet"></i></span>
-                                    <h3>Water Services</h3>
-                                    <p>No hot water, inconsistent temperature, or replacement planning. Includes repair and upgrades.</p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    
-                        <article class="directory-card" data-category="water">
-                            <a href="leak-detection.html" class="directory-card-link" aria-label="Leak Detection">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/leak-detection-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-droplet"></i></span>
-                                    <h3>Leak Detection</h3>
-                                    <p>Stains, moisture, high water bills, or suspected hidden leaks. Focused on finding the source.</p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    
-                        <article class="directory-card" data-category="drain">
-                            <a href="sewer-line-services.html" class="directory-card-link" aria-label="Sewer Line Services">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/sewer-line-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-magnet"></i></span>
-                                    <h3>Sewer Line Services</h3>
-                                    <p>Recurring backups, odors, or inspection and repair planning. Compare scope, access, and methods.</p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    
-                        <article class="directory-card" data-category="fixtures">
-                            <a href="fixture-installation.html" class="directory-card-link" aria-label="Fixture Installation">
-                                <div class="directory-card-media"
-                                    style="background-image: url('./assets/images/services/fixture-installation-directory.jpg');"></div>
-                                <div class="directory-card-content">
-                                    <span class="service-icon"><i class="fa-solid fa-faucet"></i></span>
-                                    <h3>Fixture Installation</h3>
-                                    <p>Installs and replacements for faucets, toilets, sinks, and shower fixtures. Covers fit and finish.
-                                    </p>
-                                    <span class="service-card-arrow">Explore services <i class="fa-solid fa-arrow-right"></i></span>
-                                </div>
-                            </a>
-                        </article>
-                    </section>
+                        <section class="services-card-grid premium-directory-grid" id="servicesGrid">
+                            <article class="directory-card" data-category="urgent">
+                                <a href="emergency-plumbing.html" class="directory-card-link"
+                                    aria-label="Emergency Plumbing">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/emergency-plumbing-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                        <h3>Emergency Plumbing</h3>
+                                        <p>Burst pipes, active leaks, backups, or water damage risk. Best when you need
+                                            fast help.</p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="directory-card" data-category="drain">
+                                <a href="drain-cleaning.html" class="directory-card-link" aria-label="Drain Cleaning">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/drain-cleaning-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-arrows-spin"></i></span>
+                                        <h3>Drain Cleaning</h3>
+                                        <p>Clogs and slow drains in sinks, tubs, toilets, or main lines. Compare
+                                            clearing vs. repair.</p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="directory-card" data-category="water">
+                                <a href="water-heater-services.html" class="directory-card-link"
+                                    aria-label="Water Heater Services">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/water-heater-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-droplet"></i></span>
+                                        <h3>Water Services</h3>
+                                        <p>No hot water, inconsistent temperature, or replacement planning. Includes
+                                            repair and upgrades.</p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="directory-card" data-category="water">
+                                <a href="leak-detection.html" class="directory-card-link" aria-label="Leak Detection">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/leak-detection-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-droplet"></i></span>
+                                        <h3>Leak Detection</h3>
+                                        <p>Stains, moisture, high water bills, or suspected hidden leaks. Focused on
+                                            finding the source.</p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="directory-card" data-category="drain">
+                                <a href="sewer-line-services.html" class="directory-card-link"
+                                    aria-label="Sewer Line Services">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/sewer-line-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-magnet"></i></span>
+                                        <h3>Sewer Line Services</h3>
+                                        <p>Recurring backups, odors, or inspection and repair planning. Compare scope,
+                                            access, and methods.</p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="directory-card" data-category="fixtures">
+                                <a href="fixture-installation.html" class="directory-card-link"
+                                    aria-label="Fixture Installation">
+                                    <div class="directory-card-media"
+                                        style="background-image: url('./assets/images/services/fixture-installation-directory.jpg');">
+                                    </div>
+                                    <div class="directory-card-content">
+                                        <span class="service-icon"><i class="fa-solid fa-faucet"></i></span>
+                                        <h3>Fixture Installation</h3>
+                                        <p>Installs and replacements for faucets, toilets, sinks, and shower fixtures.
+                                            Covers fit and finish.
+                                        </p>
+                                        <span class="service-card-arrow">Explore services <i
+                                                class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </a>
+                            </article>
+                        </section>
 
                         <section class="services-comparison-block">
                             <div class="section-intro">
                                 <p class="section-kicker">Choosing a category</p>
                                 <h2>What homeowners often compare before selecting a provider</h2>
                                 <p>
-                                    These four signals usually decide which providers are a good fit before you even talk
+                                    These four signals usually decide which providers are a good fit before you even
+                                    talk
                                     price.
                                 </p>
                                 <p>
@@ -349,7 +354,8 @@
                                     The goal is to reduce guesswork, not to force a perfect diagnosis upfront.
                                 </p>
                                 <p>
-                                    For faster replies, include a ZIP code, timing, access notes (slab, crawlspace, tight
+                                    For faster replies, include a ZIP code, timing, access notes (slab, crawlspace,
+                                    tight
                                     cabinets), and one clear sentence about symptoms or the end goal.
                                 </p>
                                 <p>
@@ -373,7 +379,8 @@
                                     <h3>System type</h3>
                                     <p>
                                         Water heaters, drains, fixtures, and buried lines need different tools and
-                                        experience. Mention what you have, what is happening, and any known model or age.
+                                        experience. Mention what you have, what is happening, and any known model or
+                                        age.
                                     </p>
                                 </article>
 
@@ -431,7 +438,8 @@
                                     <span class="mini-label">Important note</span>
                                     <h3>Homeowners should verify contractor qualifications independently.</h3>
                                     <p>
-                                        Before hiring, confirm licensing, insurance, scope, and availability directly with
+                                        Before hiring, confirm licensing, insurance, scope, and availability directly
+                                        with
                                         the provider.
                                     </p>
                                 </div>
@@ -447,70 +455,70 @@
                             </div>
                         </section>
 
-                <section class="services-help-section">
-                    <div class="services-help-header">
-                        <p class="section-kicker">Help & Guidance</p>
-                        <h2>Find the right plumbing solution</h2>
-                        <p>
-                            Whether you need repairs, upgrades, or routine maintenance,
-                            we help you explore categories and compare providers with confidence.
-                        </p>
-                    </div>
-                
-                    <div class="services-help-grid">
-                        <div class="help-card help-card--light">
-                            <span class="help-icon">
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                            </span>
-                
-                            <h3>Explore plumbing service categories</h3>
-                            <p>Browse common plumbing services and learn what each one includes.</p>
-                
-                            <ul class="help-list">
-                                <li><i class="fa-solid fa-droplet"></i> Emergency Plumbing</li>
-                                <li><i class="fa-solid fa-arrows-spin"></i> Drain Cleaning</li>
-                                <li><i class="fa-solid fa-temperature-half"></i> Water Heater Services</li>
-                                <li><i class="fa-solid fa-droplet"></i> Leak Detection</li>
-                                <li><i class="fa-solid fa-faucet"></i> Fixture Installation</li>
-                            </ul>
-                
-                            <a href="services.html" class="btn btn-dark">
-                                categories
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                
-                        <div class="help-image">
-                            <img src="./assets/images/services/help-1.jpg" alt="Plumbing repair" />
-                        </div>
-                
-                        <div class="help-card help-card--dark">
-                            <span class="help-icon">
-                                <i class="fa-solid fa-scale-balanced"></i>
-                            </span>
-                
-                            <h3>Compare plumbing providers</h3>
-                            <p>Compare local providers based on reviews, pricing, services, and more.</p>
-                
-                            <ul class="help-list">
-                                <li>Side-by-side comparisons</li>
-                                <li>Verified reviews</li>
-                                <li>Transparent pricing</li>
-                                <li>Response time insights</li>
-                                <li>License & insurance info</li>
-                            </ul>
-                
-                            <a href="contact.html" class="btn btn-secondary">
-                                providers
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                
-                        <div class="help-image">
-                            <img src="./assets/images/services/help-2.jpg" alt="Plumber working" />
-                        </div>
-                    </div>
-                </section>
+                        <section class="services-help-section">
+                            <div class="services-help-header">
+                                <p class="section-kicker">Help & Guidance</p>
+                                <h2>Find the right plumbing solution</h2>
+                                <p>
+                                    Whether you need repairs, upgrades, or routine maintenance,
+                                    we help you explore categories and compare providers with confidence.
+                                </p>
+                            </div>
+
+                            <div class="services-help-grid">
+                                <div class="help-card help-card--light">
+                                    <span class="help-icon">
+                                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    </span>
+
+                                    <h3>Explore plumbing service categories</h3>
+                                    <p>Browse common plumbing services and learn what each one includes.</p>
+
+                                    <ul class="help-list">
+                                        <li><i class="fa-solid fa-droplet"></i> Emergency Plumbing</li>
+                                        <li><i class="fa-solid fa-arrows-spin"></i> Drain Cleaning</li>
+                                        <li><i class="fa-solid fa-temperature-half"></i> Water Heater Services</li>
+                                        <li><i class="fa-solid fa-droplet"></i> Leak Detection</li>
+                                        <li><i class="fa-solid fa-faucet"></i> Fixture Installation</li>
+                                    </ul>
+
+                                    <a href="services.html" class="btn btn-dark">
+                                        categories
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+
+                                <div class="help-image">
+                                    <img src="./assets/images/services/help-1.jpg" alt="Plumbing repair" />
+                                </div>
+
+                                <div class="help-card help-card--dark">
+                                    <span class="help-icon">
+                                        <i class="fa-solid fa-scale-balanced"></i>
+                                    </span>
+
+                                    <h3>Compare plumbing providers</h3>
+                                    <p>Compare local providers based on reviews, pricing, services, and more.</p>
+
+                                    <ul class="help-list">
+                                        <li>Side-by-side comparisons</li>
+                                        <li>Verified reviews</li>
+                                        <li>Transparent pricing</li>
+                                        <li>Response time insights</li>
+                                        <li>License & insurance info</li>
+                                    </ul>
+
+                                    <a href="contact.html" class="btn btn-secondary">
+                                        providers
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+
+                                <div class="help-image">
+                                    <img src="./assets/images/services/help-2.jpg" alt="Plumber working" />
+                                </div>
+                            </div>
+                        </section>
 
                         <section class="services-cta-block">
                             <div class="cta-strip">
