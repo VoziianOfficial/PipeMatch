@@ -408,7 +408,7 @@
 
 .comparison-card h3 {
     margin: 0;
-    color: #eef6ff;
+    color: #f4f5f6;
     padding-right: 64px;
     font-size: clamp(1.25rem, 2vw, 1.6rem);
     line-height: 1.12;
@@ -465,7 +465,7 @@
 
 .editorial-panel-card h3 {
     margin: 12px 0 12px;
-    color: #eaf4ff;
+    color: #f4f5f6;
     font-size: clamp(2rem, 3.2vw, 2.7rem);
     line-height: 1.04;
     font-style: italic;
@@ -502,13 +502,13 @@
 }
 
 .services-faq-block .faq-item[open] summary::after {
-    background: #4cc6eb;
+    background: #9aa2ad;
     color: #0a2842;
     border-color: transparent;
 }
 
 .services-faq-block .faq-item p {
-    color: #9eb4d4;
+    color: #aeb5be;
     line-height: 1.64;
 }
 
@@ -755,4 +755,132 @@
     .comparison-card h3 {
         min-height: 0;
     }
+}
+
+/* ==========================================
+   SERVICES FINAL GREY OVERRIDE — REMOVE ALL BLUE
+========================================== */
+
+.services-hero-bg {
+    background:
+        linear-gradient(112deg, rgba(23, 25, 28, 0.94) 0%, rgba(47, 52, 58, 0.76) 44%, rgba(74, 80, 86, 0.62) 100%),
+        url("../assets/images/services/services-hero-bg.jpg") center/cover no-repeat !important;
+}
+
+.services-hero-overlay {
+    background:
+        radial-gradient(circle at 16% 12%, rgba(174, 181, 189, 0.16), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(74, 80, 86, 0.36), transparent 34%),
+        linear-gradient(180deg, rgba(23, 25, 28, 0.08) 0%, rgba(23, 25, 28, 0.24) 100%) !important;
+}
+
+.services-mini-counter,
+.services-stat-card,
+.services-sidebar-card,
+.comparison-card,
+.editorial-panel-card,
+.services-faq-block .faq-item {
+    background: linear-gradient(180deg, rgba(52, 58, 64, 0.92) 0%, rgba(23, 25, 28, 0.96) 100%) !important;
+    border-color: rgba(174, 181, 189, 0.22) !important;
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.26) !important;
+}
+
+.services-stat-card:hover,
+.comparison-card:hover,
+.editorial-panel-card:hover {
+    border-color: rgba(217, 221, 226, 0.34) !important;
+    box-shadow: 0 28px 68px rgba(0, 0, 0, 0.32) !important;
+}
+
+.services-search input {
+    background: rgba(74, 80, 86, 0.6) !important;
+    border-color: rgba(174, 181, 189, 0.26) !important;
+    color: #e3e6e9 !important;
+}
+
+.services-sidebar-info {
+    border-top-color: rgba(174, 181, 189, 0.18) !important;
+}
+
+.services-sidebar .chip {
+    background: rgba(74, 80, 86, 0.72) !important;
+    border-color: rgba(174, 181, 189, 0.34) !important;
+    color: #e3e6e9 !important;
+}
+
+.services-sidebar .chip:hover,
+.services-sidebar .chip.is-active {
+    background: rgba(116, 124, 133, 0.62) !important;
+    color: #ffffff !important;
+}
+
+.services-sidebar .btn.btn-dark {
+    background: linear-gradient(135deg, #4a5056 0%, #17191c 100%) !important;
+    border-color: rgba(174, 181, 189, 0.28) !important;
+    color: #ffffff !important;
+}
+
+.directory-card-link {
+    border-color: rgba(174, 181, 189, 0.22) !important;
+}
+
+.directory-card-overlay {
+    background:
+        linear-gradient(180deg, rgba(23, 25, 28, 0.18) 0%, rgba(23, 25, 28, 0.48) 42%, rgba(23, 25, 28, 0.95) 100%) !important;
+}
+
+.directory-tag {
+    background: rgba(74, 80, 86, 0.72) !important;
+    border-color: rgba(174, 181, 189, 0.24) !important;
+    color: #d5d9dd !important;
+}
+
+.comparison-card .step-number {
+    background: rgba(74, 80, 86, 0.58) !important;
+    border-color: rgba(174, 181, 189, 0.26) !important;
+    color: rgba(227, 230, 233, 0.86) !important;
+}
+
+.services-faq-block .faq-item summary::after {
+    background: rgba(74, 80, 86, 0.9) !important;
+    border-color: rgba(174, 181, 189, 0.28) !important;
+    color: #d5d9dd !important;
+}
+
+.services-faq-block .faq-item[open] summary::after {
+    background: #d5d9dd !important;
+    color: #17191c !important;
+}
+
+.services-cta-block .cta-strip {
+    background:
+        linear-gradient(108deg, rgba(23, 25, 28, 0.9) 0%, rgba(47, 52, 58, 0.64) 54%, rgba(23, 25, 28, 0.72) 100%),
+        url("../assets/images/services/services-hero-bg.jpg") center/cover no-repeat !important;
+    border-color: rgba(174, 181, 189, 0.22) !important;
+}
+
+.services-hero-copy h1,
+.services-mini-counter strong,
+.services-stat-card strong,
+.services-sidebar-card h2,
+.services-sidebar-info h3,
+.comparison-card h3,
+.editorial-panel-card h3,
+.services-faq-block .faq-item summary {
+    color: #f4f5f6 !important;
+}
+
+.services-hero-text,
+.services-mini-counter p,
+.services-stat-card p,
+.services-sidebar-info p,
+.comparison-card p,
+.editorial-panel-card p,
+.services-faq-block .faq-item p,
+.directory-card-content p {
+    color: #c9ced5 !important;
+}
+
+.directory-card-content h3 {
+    color: #ffffff !important;
 }
