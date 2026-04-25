@@ -684,6 +684,53 @@ function initHeadingRevealAnimation() {
     });
 }
 
+function initSmoothFaqAccordions() {
+    const items = document.querySelectorAll(".faq-item");
+
+    items.forEach((item) => {
+        const btn = item.querySelector(".faq-question");
+        const content = item.querySelector(".faq-answer");
+
+        btn.addEventListener("click", () => {
+            const isOpen = item.classList.contains("is-open");
+
+            // закрываем все
+            items.forEach((i) => {
+                if (i === item) return;
+
+                const c = i.querySelector(".faq-answer");
+                i.classList.remove("is-open");
+                c.style.height = "0px";
+            });
+
+            if (isOpen) {
+                content.style.height = content.scrollHeight + "px";
+
+                requestAnimationFrame(() => {
+                    content.style.height = "0px";
+                });
+
+                item.classList.remove("is-open");
+                return;
+            }
+
+            item.classList.add("is-open");
+
+            content.style.height = "0px";
+
+            requestAnimationFrame(() => {
+                content.style.height = content.scrollHeight + "px";
+            });
+        });
+
+        content.addEventListener("transitionend", () => {
+            if (item.classList.contains("is-open")) {
+                content.style.height = "auto";
+            }
+        });
+    });
+}
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -699,6 +746,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initCardLinkFallbacks();
     initGlobalRevealAnimations();
     initHeadingRevealAnimation();
+    initSmoothFaqAccordions();
     initComparisonGridSlider();
     initAboutProcessSlider();
 });
