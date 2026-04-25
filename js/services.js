@@ -1,47 +1,28 @@
 function initServicesFiltering() {
     const searchInput = document.querySelector("#servicesSearchInput");
-    const filterButtons = document.querySelectorAll(".services-chip-group .chip");
-    const cards = document.querySelectorAll(".directory-card");
+    const filterButtons = document.querySelectorAll(
+        ".services-filter-buttons .chip, .services-chip-group .chip"
+    );
+    const cards = document.querySelectorAll("#servicesGrid .directory-card");
 
     if (!cards.length) return;
 
     let activeFilter = "all";
     let searchQuery = "";
 
-    const matchesFilter = (card, filter) => {
-        if (filter === "all") return true;
-        return card.dataset.category === filter;
-    };
-
-    const matchesSearch = (card, query) => {
-        if (!query) return true;
-
-        const text = card.textContent.toLowerCase().trim();
-        return text.includes(query);
-    };
-
     const updateCards = () => {
-        const visibleCards = [];
-
         cards.forEach((card) => {
-            const visibleByFilter = matchesFilter(card, activeFilter);
-            const visibleBySearch = matchesSearch(card, searchQuery);
-            const shouldShow = visibleByFilter && visibleBySearch;
+            const category = card.dataset.category || "";
+            const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+            const text = card.querySelector("p")?.textContent.toLowerCase() || "";
 
-            card.classList.toggle("is-hidden", !shouldShow);
-            if (shouldShow) visibleCards.push(card);
-        });
+            const matchesFilter = activeFilter === "all" || category === activeFilter;
+            const matchesSearch =
+                !searchQuery ||
+                title.includes(searchQuery) ||
+                text.includes(searchQuery);
 
-        visibleCards.forEach((card, index) => {
-            const isDesktop = window.matchMedia("(min-width: 1025px)").matches;
-            card.style.opacity = "0";
-            card.style.transform = isDesktop ? "translateX(22px)" : "translateY(16px)";
-            card.style.transition = `opacity 0.42s ease ${index * 0.08}s, transform 0.42s ease ${index * 0.08}s`;
-
-            requestAnimationFrame(() => {
-                card.style.opacity = "1";
-                card.style.transform = "translateX(0)";
-            });
+            card.classList.toggle("is-hidden", !matchesFilter || !matchesSearch);
         });
     };
 
@@ -105,9 +86,7 @@ function initServicesReveal() {
                 obs.unobserve(entry.target);
             });
         },
-        {
-            threshold: 0.12
-        }
+        { threshold: 0.12 }
     );
 
     cards.forEach((card) => observer.observe(card));
@@ -135,9 +114,7 @@ function initServicesClientCounter() {
         const value = Math.round(rawTarget * eased);
         counter.textContent = value.toLocaleString("en-US");
 
-        if (progress < 1) {
-            requestAnimationFrame(tick);
-        }
+        if (progress < 1) requestAnimationFrame(tick);
     };
 
     requestAnimationFrame(tick);
@@ -145,6 +122,7 @@ function initServicesClientCounter() {
 
 document.addEventListener("DOMContentLoaded", () => {
     initServicesFiltering();
+    initServicesFaqSingleOpen();
     initServicesReveal();
     initServicesClientCounter();
 });
