@@ -2131,3 +2131,314 @@ main::before,
 .premium-service-card>a {
     width: 100%;
 }
+
+/* FIX: желтые звезды в отзывах */
+.section-block--reviews .review-stars i,
+.section-block--reviews .review-stars svg {
+    color: #f5c542 !important;
+    fill: #f5c542 !important;
+}
+
+.service-rail-label{
+    color: #8a929a !important;
+}
+
+/* ================= PREMIUM COVERAGE SECTION ================= */
+
+.premium-coverage .coverage-card {
+    display: grid !important;
+    grid-template-columns: 0.92fr 1.08fr !important;
+    min-height: 720px;
+    overflow: hidden;
+    border-radius: 34px !important;
+    background: #f8f9fa !important;
+    border: 1px solid rgba(18, 20, 24, 0.08) !important;
+    box-shadow: 0 34px 100px rgba(18, 20, 24, 0.1) !important;
+}
+
+.premium-coverage .coverage-copy {
+    padding: clamp(42px, 5vw, 64px);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.96), transparent 34%),
+        linear-gradient(180deg, #fbfcfd 0%, #f1f3f5 100%);
+}
+
+.premium-coverage .section-kicker {
+    margin-bottom: 42px;
+}
+
+.premium-coverage .coverage-copy h2 {
+    max-width: 540px;
+    margin: 0 0 28px;
+    font-size: clamp(2.7rem, 5vw, 5rem);
+    line-height: 1.06;
+    letter-spacing: -0.07em;
+    color: #17191c !important;
+}
+
+.premium-coverage .coverage-copy>p:not(.section-kicker) {
+    max-width: 520px;
+    margin-bottom: 34px;
+    color: #707882;
+    font-size: 1.12rem;
+    line-height: 1.7;
+}
+
+.premium-coverage .coverage-points {
+    display: grid;
+    gap: 12px;
+}
+
+.premium-coverage .coverage-points a {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    min-height: 92px;
+    padding: 16px 22px 16px 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 14px 32px rgba(18, 20, 24, 0.06);
+}
+
+.premium-coverage .coverage-points a>span {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #e9ebee;
+    color: #4a5056;
+    font-size: 1.35rem;
+}
+
+.premium-coverage .coverage-points strong {
+    display: block;
+    margin-bottom: 2px;
+    color: #17191c;
+    font-size: 1.04rem;
+}
+
+.premium-coverage .coverage-points small {
+    display: block;
+    color: #707882;
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.premium-coverage .coverage-points a>i {
+    color: #4a5056;
+    font-size: 1.25rem;
+}
+
+.premium-coverage .coverage-map-box {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    background: #eef1f4;
+}
+
+.premium-coverage .coverage-map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    filter: grayscale(1) contrast(0.82) brightness(1.12);
+    opacity: 0.62;
+}
+
+.premium-coverage .coverage-map-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.05), transparent 20%),
+        linear-gradient(90deg, rgba(248, 249, 250, 0.2), rgba(248, 249, 250, 0.54));
+}
+
+.premium-coverage .map-center-card {
+    position: absolute;
+    left: 10%;
+    bottom: 76px;
+    z-index: 5;
+    width: min(430px, 80%);
+    padding: 34px;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 28px 70px rgba(18, 20, 24, 0.13);
+    backdrop-filter: blur(18px);
+}
+
+.premium-coverage .map-center-card span {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    color: #7a828b;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.premium-coverage .map-center-card span i {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #edeff1;
+    color: #4a5056;
+    font-size: 1rem;
+}
+
+.premium-coverage .map-center-card strong {
+    display: block;
+    margin-bottom: 14px;
+    color: #17191c;
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    line-height: 1.15;
+}
+
+.premium-coverage .map-center-card p {
+    max-width: 320px;
+    margin: 0 0 24px;
+    color: #707882;
+    font-size: 1.03rem;
+    line-height: 1.55;
+}
+
+.premium-coverage .map-open-link {
+    min-height: 58px;
+    padding: 16px 24px;
+    gap: 12px;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #4a5056 0%, #17191c 100%) !important;
+    box-shadow: 0 18px 36px rgba(18, 20, 24, 0.2) !important;
+}
+
+@media (max-width: 1100px) {
+    .premium-coverage .coverage-card {
+        grid-template-columns: 1fr !important;
+    }
+
+    .premium-coverage .coverage-map-box {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 640px) {
+    .premium-coverage .coverage-card {
+        min-height: 0;
+        border-radius: 24px !important;
+    }
+
+    .premium-coverage .coverage-copy {
+        padding: 30px 18px;
+    }
+
+    .premium-coverage .coverage-copy h2 {
+        font-size: clamp(2.2rem, 11vw, 3.1rem);
+    }
+
+    .premium-coverage .coverage-points a {
+        grid-template-columns: 52px 1fr;
+        padding: 14px;
+    }
+
+    .premium-coverage .coverage-points a>i {
+        display: none;
+    }
+
+    .premium-coverage .coverage-map-box {
+        min-height: 460px;
+    }
+
+    .premium-coverage .map-center-card {
+        left: 18px;
+        right: 18px;
+        bottom: 26px;
+        width: auto;
+        padding: 24px;
+    }
+}
+
+/* ===== COVERAGE COMPACT REWORK ===== */
+
+.premium-coverage .coverage-card {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+}
+
+/* верх — текст */
+.premium-coverage .coverage-copy {
+    padding: clamp(28px, 4vw, 48px) !important;
+}
+
+/* уменьшаем заголовок */
+.premium-coverage .coverage-copy h2 {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    max-width: 100%;
+}
+
+/* карточки компактнее */
+.premium-coverage .coverage-points a {
+    min-height: 72px !important;
+    padding: 12px 16px !important;
+    grid-template-columns: 52px 1fr auto !important;
+}
+
+/* блок карты */
+.premium-coverage .coverage-map-box {
+    position: relative;
+    min-height: 420px !important;
+    border-top: 1px solid rgba(18, 20, 24, 0.08);
+}
+
+/* карта чуть мягче */
+.premium-coverage .coverage-map {
+    opacity: 0.55 !important;
+    filter: grayscale(1) contrast(0.9) brightness(1.08);
+}
+
+/* карточка НАВЕРХУ */
+.premium-coverage .map-center-card {
+    top: 24px !important;
+    bottom: auto !important;
+    left: 24px !important;
+
+    width: min(360px, 90%) !important;
+    padding: 22px !important;
+
+    border-radius: 16px !important;
+}
+
+/* текст внутри компактнее */
+.premium-coverage .map-center-card strong {
+    font-size: 1.3rem !important;
+}
+
+.premium-coverage .map-center-card p {
+    font-size: 0.95rem !important;
+    margin-bottom: 16px !important;
+}
+
+/* кнопка меньше */
+.premium-coverage .map-open-link {
+    min-height: 46px !important;
+    padding: 10px 16px !important;
+    font-size: 0.85rem;
+}
+
+/* мобилка — карточка по центру */
+@media (max-width: 640px) {
+    .premium-coverage .map-center-card {
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: calc(100% - 24px) !important;
+    }
+}
