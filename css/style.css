@@ -1970,3 +1970,47 @@ main::before,
 .hero-compare-h1 {
     color: var(--color-white)!important;
 }
+
+/* ===== CLEAN PERFECT CARDS ===== */
+
+.home-hero--estate .hero-estate-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.home-hero--estate .hero-estate-card,
+.home-hero--estate .hero-estate-disclaimer {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border-radius: 18px;
+}
+
+.home-hero--estate .hero-estate-card * {
+    margin: 0;
+}
+
+.home-hero--estate .hero-estate-card h3,
+.home-hero--estate .hero-estate-disclaimer h3 {
+    margin-bottom: 8px;
+}
+
+.home-hero--estate .hero-estate-card p,
+.home-hero--estate .hero-estate-disclaimer p {
+    margin-top: auto;
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+    .home-hero--estate .hero-estate-bottom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .home-hero--estate .hero-estate-bottom {
+        grid-template-columns: 1fr;
+    }
+}
