@@ -2104,3 +2104,30 @@ main::before,
         transform: none;
     }
 }
+
+/* FIX: одинаковое выравнивание premium cards */
+.premium-service-card a {
+    height: 100%;
+}
+
+.premium-service-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.premium-service-body p {
+    margin-bottom: 0;
+}
+
+.premium-service-footer {
+    margin-top: auto;
+}
+
+.premium-service-card {
+    display: flex;
+}
+
+.premium-service-card>a {
+    width: 100%;
+}
