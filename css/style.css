@@ -2442,3 +2442,208 @@ main::before,
         width: calc(100% - 24px) !important;
     }
 }
+
+/* ===== PREMIUM FAQ ===== */
+
+.premium-faq {
+    max-width: 1040px;
+    margin-inline: auto;
+}
+
+.premium-faq .faq-head {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.premium-faq .section-kicker {
+    margin-bottom: 20px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #e8eaed;
+    color: #4a5056 !important;
+    letter-spacing: 0.12em;
+}
+
+.faq-kicker-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+}
+
+.premium-faq .faq-head h2 {
+    max-width: 780px;
+    margin: 0 auto 18px;
+    font-size: clamp(2.2rem, 4.8vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.06em;
+}
+
+.premium-faq .faq-head>p:not(.section-kicker) {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #707882;
+    font-size: 1.12rem;
+}
+
+.premium-faq .faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+.premium-faq .faq-item {
+    overflow: hidden;
+    border-radius: 16px !important;
+    border: 1px solid rgba(18, 20, 24, 0.1) !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    box-shadow: 0 14px 38px rgba(18, 20, 24, 0.06) !important;
+}
+
+.premium-faq .faq-item summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: 58px 1fr 44px;
+    align-items: center;
+    gap: 18px;
+    min-height: 82px;
+    padding: 18px 24px;
+    color: #17191c !important;
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.premium-faq .faq-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #eceff1;
+    color: #4a5056;
+}
+
+.premium-faq .faq-item summary::after {
+    content: "+";
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #eceff1 !important;
+    color: #17191c !important;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border: 0 !important;
+}
+
+.premium-faq .faq-item[open] summary::after {
+    content: "−";
+}
+
+.premium-faq .faq-item p {
+    max-width: none;
+    margin: 0;
+    padding: 0 76px 28px 100px;
+    color: #707882 !important;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.faq-support-card {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    margin-top: 24px;
+    padding: 18px 22px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(18, 20, 24, 0.1);
+    box-shadow: 0 14px 38px rgba(18, 20, 24, 0.06);
+}
+
+.faq-support-icon {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background: linear-gradient(135deg, #747c85, #343a40);
+    font-size: 1.25rem;
+}
+
+.faq-support-card h3 {
+    margin: 0 0 4px;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.faq-support-card p {
+    margin: 0;
+    color: #707882;
+}
+
+.faq-support-card a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 56px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    color: #ffffff !important;
+    font-weight: 800;
+    background: linear-gradient(135deg, #343a40, #17191c);
+}
+
+@media (max-width: 700px) {
+    .premium-faq .faq-item summary {
+        grid-template-columns: 46px 1fr 36px;
+        gap: 12px;
+        padding: 16px;
+        font-size: 1.05rem;
+    }
+
+    .premium-faq .faq-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+   .premium-faq .faq-item p {
+       margin: 0;
+       padding: 0 18px 22px 74px;
+       font-size: 0.95rem;
+   }
+
+    .faq-support-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .faq-support-icon {
+        margin-inline: auto;
+    }
+}
+
+.faq-item summary {
+    display: grid !important;
+    grid-template-columns: 52px 1fr 46px !important;
+    align-items: center !important;
+    gap: 18px !important;
+}
+
+.faq-item summary::after {
+    width: 46px !important;
+    height: 46px !important;
+    display: grid !important;
+    place-items: center !important;
+    justify-self: end !important;
+    line-height: 1 !important;
+    font-size: 1.35rem !important;
+    border-radius: 50% !important;
+}
+
+.faq-item p {
+    margin-bottom: 0 !important;
+}

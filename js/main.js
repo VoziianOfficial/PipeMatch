@@ -582,7 +582,6 @@ function initGlobalRevealAnimations() {
         .service-overview-card,
         .service-visual-card,
         .review-card,
-        .faq-item,
         .legal-section,
         .legal-intro-card,
         .contact-info-card,
@@ -685,171 +684,7 @@ function initHeadingRevealAnimation() {
     });
 }
 
-function initSmoothFaqAccordions() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const faqLists = selectAll(".faq-list");
-    if (!faqLists.length) return;
 
-    faqLists.forEach((list) => {
-        const items = selectAll(".faq-item", list);
-        if (!items.length) return;
-
-        const stateByItem = new Map();
-
-        items.forEach((item) => {
-            const panel = [...item.children].find((child) => child.tagName !== "SUMMARY");
-            if (!panel) return;
-
-            const state = {
-                panel,
-                isAnimating: false,
-                cleanupTransitionEnd: null
-            };
-
-            stateByItem.set(item, state);
-            panel.style.overflow = "hidden";
-            panel.style.transition = "height 0.44s cubic-bezier(0.22, 0.72, 0.16, 1), opacity 0.26s ease";
-            panel.style.willChange = "height, opacity";
-            panel.style.height = item.open ? "auto" : "0px";
-            panel.style.opacity = item.open ? "1" : "0";
-        });
-
-        const clearTransitionHandler = (state) => {
-            if (typeof state.cleanupTransitionEnd === "function") {
-                state.cleanupTransitionEnd();
-                state.cleanupTransitionEnd = null;
-            }
-        };
-
-        const setClosedInstant = (item) => {
-            const state = stateByItem.get(item);
-            if (!state) return;
-
-            clearTransitionHandler(state);
-            state.isAnimating = false;
-            item.open = false;
-            state.panel.style.height = "0px";
-            state.panel.style.opacity = "0";
-        };
-
-        const setOpenInstant = (item) => {
-            const state = stateByItem.get(item);
-            if (!state) return;
-
-            clearTransitionHandler(state);
-            state.isAnimating = false;
-            item.open = true;
-            state.panel.style.height = "auto";
-            state.panel.style.opacity = "1";
-        };
-
-        const animateToClosed = (item) => {
-            const state = stateByItem.get(item);
-            if (!state || !item.open) return;
-
-            clearTransitionHandler(state);
-            state.isAnimating = true;
-
-            const startHeight = Math.max(state.panel.getBoundingClientRect().height, state.panel.scrollHeight);
-            state.panel.style.height = `${startHeight}px`;
-            state.panel.style.opacity = "1";
-
-            requestAnimationFrame(() => {
-                state.panel.style.height = "0px";
-                state.panel.style.opacity = "0";
-            });
-
-            const onEnd = (event) => {
-                if (event.propertyName !== "height") return;
-
-                state.panel.removeEventListener("transitionend", onEnd);
-                state.cleanupTransitionEnd = null;
-                state.isAnimating = false;
-                item.open = false;
-            };
-
-            state.cleanupTransitionEnd = () => {
-                state.panel.removeEventListener("transitionend", onEnd);
-            };
-
-            state.panel.addEventListener("transitionend", onEnd);
-        };
-
-        const animateToOpen = (item) => {
-            const state = stateByItem.get(item);
-            if (!state || item.open) return;
-
-            clearTransitionHandler(state);
-            state.isAnimating = true;
-
-            item.open = true;
-            state.panel.style.height = "0px";
-            state.panel.style.opacity = "0";
-
-            requestAnimationFrame(() => {
-                const targetHeight = state.panel.scrollHeight;
-                state.panel.style.height = `${targetHeight}px`;
-                state.panel.style.opacity = "1";
-            });
-
-            const onEnd = (event) => {
-                if (event.propertyName !== "height") return;
-
-                state.panel.removeEventListener("transitionend", onEnd);
-                state.cleanupTransitionEnd = null;
-                state.isAnimating = false;
-                state.panel.style.height = "auto";
-            };
-
-            state.cleanupTransitionEnd = () => {
-                state.panel.removeEventListener("transitionend", onEnd);
-            };
-
-            state.panel.addEventListener("transitionend", onEnd);
-        };
-
-        items.forEach((item) => {
-            const summary = item.querySelector("summary");
-            if (!summary || !stateByItem.has(item)) return;
-
-            summary.addEventListener("click", (event) => {
-                event.preventDefault();
-
-                const state = stateByItem.get(item);
-                if (!state) return;
-                if (state.isAnimating) return;
-
-                if (item.open) {
-                    if (prefersReducedMotion) {
-                        setClosedInstant(item);
-                    } else {
-                        animateToClosed(item);
-                    }
-                    return;
-                }
-
-                items.forEach((otherItem) => {
-                    if (otherItem === item) return;
-                    if (!stateByItem.has(otherItem)) return;
-
-                    if (prefersReducedMotion) {
-                        setClosedInstant(otherItem);
-                    } else {
-                        animateToClosed(otherItem);
-                    }
-                });
-
-                if (prefersReducedMotion) {
-                    setOpenInstant(item);
-                } else {
-                    requestAnimationFrame(() => {
-                        animateToOpen(item);
-                    });
-                }
-            });
-        });
-    });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
     applySiteConfig();
@@ -864,7 +699,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initCardLinkFallbacks();
     initGlobalRevealAnimations();
     initHeadingRevealAnimation();
-    initSmoothFaqAccordions();
     initComparisonGridSlider();
     initAboutProcessSlider();
 });
