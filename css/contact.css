@@ -1147,3 +1147,8 @@ body[data-page="contact"] .contact-hero-side a {
 .form-status-message.is-error {
     color: #d8b6b6 !important;
 }
+
+
+.services-color{
+    color: #c9ced5 !important;
+}
