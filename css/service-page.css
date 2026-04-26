@@ -1633,3 +1633,11 @@
         padding: 0 16px 16px;
     }
 }
+
+/* Hero titles on all service pages */
+.service-clean-hero h1,
+.service-clean-copy h1,
+.service-page-hero h1,
+.service-page-hero-copy h1 {
+    color: #ffffff !important;
+}
