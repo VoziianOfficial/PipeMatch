@@ -1134,3 +1134,50 @@
     }
 }
 
+/* ===== FINAL FIX: CONTACT FAQ ARROW ===== */
+
+.contact-faq-list .contact-faq-card summary {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    list-style: none !important;
+}
+
+.contact-faq-list .contact-faq-card summary::-webkit-details-marker {
+    display: none !important;
+}
+
+.contact-faq-list .contact-faq-card summary::marker {
+    content: "" !important;
+    display: none !important;
+}
+
+/* убираем старую стрелку ↘ */
+.contact-faq-list .contact-faq-card summary::after {
+    content: "+" !important;
+    display: grid !important;
+    place-items: center !important;
+
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+
+    border-radius: 50% !important;
+    background: #17191c !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    transform: none !important;
+}
+
+.contact-faq-list .contact-faq-card[open] summary::after {
+    content: "−" !important;
+    transform: none !important;
+    background: #747c85 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
