@@ -2734,3 +2734,13 @@ main::before,
         font-size: 0.95rem;
     }
 }
+
+/* ================= HIDE HEAVY SECTIONS ON TABLET & MOBILE ================= */
+
+@media (max-width: 1024px) {
+
+    .services-comparison-block,
+    .about-process-section {
+        display: none !important;
+    }
+}
