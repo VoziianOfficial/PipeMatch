@@ -186,7 +186,7 @@
 .contact-form-wrap .section-intro p:not(.section-kicker) {
     max-width: 560px;
     margin-inline: auto;
-    color: #707882;
+    color:var(--color-text)!important;
     line-height: 1.55;
 }
 
@@ -646,7 +646,7 @@
     }
 }
 
-/* ===== CONTACT FORM EXTRA COMPACT ===== */
+
 
 .contact-main-grid {
     grid-template-columns: minmax(0, 680px) minmax(260px, 330px);
@@ -711,7 +711,7 @@
     }
 }
 
-/* ===== MODERN COMPACT FORM ===== */
+
 
 .contact-form-modern {
     display: grid;
@@ -731,7 +731,7 @@
     letter-spacing: 0.06em;
 }
 
-/* INLINE INPUTS */
+
 .form-step--inline {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -752,7 +752,7 @@
     border-color: #17191c;
 }
 
-/* CHOICES */
+
 
 .choice-grid {
     display: grid;
@@ -792,7 +792,7 @@
     position: relative;
 }
 
-/* чек иконка */
+
 .choice.active::after {
     content: "✔";
     position: absolute;
@@ -803,14 +803,13 @@
     color: #17191c;
 }
 
-/* BUTTON */
 
 .contact-form-modern .btn {
     margin-top: 6px;
     height: 44px;
 }
 
-/* MOBILE */
+
 
 @media (max-width: 600px) {
     .form-step--inline {
@@ -818,7 +817,6 @@
     }
 }
 
-/* ===== CONTACT FAQ FULL REDESIGN ===== */
 
 .contact-faq-redesign {
     padding: clamp(38px, 5vw, 70px) 0;
@@ -976,4 +974,67 @@
         padding: 0 16px 18px 70px;
         font-size: 0.92rem;
     }
+}
+
+
+.contact-form-wrap {
+    color: #17191c;
+}
+
+
+.contact-form-wrap input,
+.contact-form-wrap textarea,
+.contact-form-wrap select {
+    color: #17191c !important;
+    -webkit-text-fill-color: #17191c !important;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+.contact-form-wrap input::placeholder,
+.contact-form-wrap textarea::placeholder {
+    color: #7a828b !important;
+}
+
+
+.contact-form-wrap .input-shell>i,
+.contact-form-wrap .select-icon {
+    color: #747c85 !important;
+}
+
+
+.contact-form-wrap .input-shell svg {
+    stroke: #747c85 !important;
+}
+
+
+.contact-form-wrap .input-shell i svg {
+    color: #747c85 !important;
+}
+
+
+.contact-form-wrap button,
+.contact-form-wrap .btn {
+    color: #000000 !important;
+}
+
+
+.contact-form-wrap a,
+.contact-form-wrap a:visited,
+.contact-form-wrap a:active {
+    color: #17191c !important;
+}
+
+
+.contact-form-wrap input::-webkit-contacts-auto-fill-button,
+.contact-form-wrap input::-webkit-credentials-auto-fill-button {
+    display: none !important;
+}
+
+
+.contact-form-wrap input:-webkit-autofill,
+.contact-form-wrap textarea:-webkit-autofill {
+    -webkit-text-fill-color: #17191c !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
 }

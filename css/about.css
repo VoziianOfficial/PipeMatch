@@ -620,9 +620,6 @@
     }
 }
 
-/* ==========================================
-   ABOUT READABILITY / STORY LAYOUT TUNING
-========================================== */
 @media (min-width: 1151px) {
     .about-story-grid {
         grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
@@ -708,9 +705,7 @@
     }
 }
 
-/* ==========================================
-   ABOUT HERO COMPACT HARMONY
-========================================== */
+
 .about-hero {
     padding: clamp(14px, 2.4vw, 30px) 0 clamp(42px, 6vw, 84px);
 }
@@ -762,9 +757,6 @@
     }
 }
 
-/* ==========================================
-   PROCESS CARD TEXT BALANCE
-========================================== */
 .about-process-grid {
     align-items: stretch;
 }

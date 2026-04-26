@@ -1054,9 +1054,6 @@
     }
 }
 
-/* ==========================================
-   SERVICE PAGE FINAL GREY OVERRIDE — REMOVE ALL BLUE
-========================================== */
 
 .service-page-hero-bg {
     background:
@@ -1549,7 +1546,7 @@
     }
 }
 
-/* ===== SERVICE ACCORDION ===== */
+
 
 .service-accordion {
     padding: clamp(28px, 4vw, 42px);
@@ -1562,7 +1559,6 @@
     margin: 0 auto;
 }
 
-/* ITEM */
 
 .service-accordion-item {
     border-radius: 20px;
@@ -1573,7 +1569,7 @@
     transition: all 0.25s ease;
 }
 
-/* SUMMARY */
+
 
 .service-accordion-item summary {
     list-style: none;
@@ -1587,12 +1583,10 @@
     font-size: 0.95rem;
 }
 
-/* убрать стрелку дефолт */
+
 .service-accordion-item summary::-webkit-details-marker {
     display: none;
 }
-
-/* ICON */
 
 .service-accordion-item i {
     font-size: 0.8rem;
@@ -1600,7 +1594,7 @@
     transition: transform 0.3s ease;
 }
 
-/* CONTENT */
+
 
 .service-accordion-item p {
     padding: 0 22px 18px;
@@ -1609,7 +1603,7 @@
     line-height: 1.55;
 }
 
-/* OPEN STATE */
+
 
 .service-accordion-item[open] {
     box-shadow: 0 22px 48px rgba(18, 20, 24, 0.1);
@@ -1618,16 +1612,14 @@
 
 .service-accordion-item[open] i {
     transform: rotate(45deg);
-    /* превращает + в x */
+ 
 }
-
-/* HOVER */
 
 .service-accordion-item:hover {
     transform: translateY(-2px);
 }
 
-/* MOBILE */
+
 
 @media (max-width: 600px) {
     .service-accordion-item summary {
@@ -1640,7 +1632,7 @@
     }
 }
 
-/* Hero titles on all service pages */
+
 .service-clean-hero h1,
 .service-clean-copy h1,
 .service-page-hero h1,
