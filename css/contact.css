@@ -1039,34 +1039,97 @@
     box-shadow: 0 0 0 1000px #ffffff inset !important;
 }
 
-/* ===== CONTACT FAQ MOBILE ICON FIX ===== */
+/* ===== HARD MOBILE FIX: CONTACT FORM + CONTACT FAQ ===== */
 
-.contact-faq-list details summary {
-    list-style: none !important;
-}
+@media (max-width: 768px) {
 
-.contact-faq-list details summary::-webkit-details-marker {
-    display: none !important;
-}
+    /* убираем дефолтный синий стиль iOS у кнопок/инпутов */
+    .contact-form-wrap button,
+    .contact-form-wrap input,
+    .contact-form-wrap textarea,
+    .contact-form-wrap select,
+    .contact-form-wrap .btn {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        color: #17191c !important;
+        -webkit-text-fill-color: #17191c !important;
+        opacity: 1 !important;
+        box-shadow: none;
+    }
 
-.contact-faq-list details summary::marker {
-    content: "" !important;
-}
+    .contact-form-wrap .btn,
+    .contact-form-wrap button[type="submit"],
+    .contact-form-wrap .btn-primary {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        background: linear-gradient(135deg, #4a5056 0%, #17191c 100%) !important;
+        border: 1px solid rgba(23, 25, 28, 0.18) !important;
+        border-radius: 999px !important;
+    }
 
-.contact-faq-list .faq-item summary::after {
-    content: "+" !important;
-    font-family: var(--font-body) !important;
-    color: #17191c !important;
-    background: #eceff1 !important;
-}
+    .contact-form-wrap .input-shell i,
+    .contact-form-wrap .select-icon,
+    .contact-form-wrap label,
+    .contact-form-wrap .form-kicker {
+        color: #17191c !important;
+        -webkit-text-fill-color: #17191c !important;
+    }
 
-.contact-faq-list .faq-item[open] summary::after {
-    content: "−" !important;
-}
+    .contact-form-wrap input::placeholder,
+    .contact-form-wrap textarea::placeholder {
+        color: #747c85 !important;
+        -webkit-text-fill-color: #747c85 !important;
+    }
 
-.contact-faq-list .faq-item summary i,
-.contact-faq-list .faq-item summary svg {
-    color: #747c85 !important;
-    fill: none !important;
-    stroke: #747c85 !important;
+    /* полностью убираем дефолтные стрелки details в FAQ */
+    .contact-faq-list details,
+    .contact-faq-list summary {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+    }
+
+    .contact-faq-list summary {
+        list-style: none !important;
+    }
+
+    .contact-faq-list summary::-webkit-details-marker {
+        display: none !important;
+        content: "" !important;
+    }
+
+    .contact-faq-list summary::marker {
+        display: none !important;
+        content: "" !important;
+    }
+
+    /* наша иконка + / − */
+    .contact-faq-list .faq-item summary::after {
+        content: "+" !important;
+        display: grid !important;
+        place-items: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 50% !important;
+        background: #eceff1 !important;
+        color: #17191c !important;
+        -webkit-text-fill-color: #17191c !important;
+        font-size: 1.35rem !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        border: 0 !important;
+    }
+
+    .contact-faq-list .faq-item[open] summary::after {
+        content: "−" !important;
+    }
+
+    .contact-faq-list .faq-item summary {
+        color: #17191c !important;
+        -webkit-text-fill-color: #17191c !important;
+    }
+
+    .contact-faq-list .faq-item p {
+        color: #565d66 !important;
+        -webkit-text-fill-color: #565d66 !important;
+    }
 }
