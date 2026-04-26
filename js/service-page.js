@@ -103,17 +103,20 @@ function initServiceContactLinks() {
 
 function initServiceSidebarActiveLinks() {
     const currentPage = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".service-page-sidebar-links a");
+
+    const links = document.querySelectorAll(`
+        .service-page-sidebar-links a,
+        .service-page-floating-nav a,
+        .service-clean-nav a
+    `);
 
     if (!links.length || !currentPage) return;
 
     links.forEach((link) => {
         const href = link.getAttribute("href");
-        if (href === currentPage) {
-            link.classList.add("is-active");
-        } else {
-            link.classList.remove("is-active");
-        }
+        const linkPage = href ? href.split("/").pop() : "";
+
+        link.classList.toggle("is-active", linkPage === currentPage);
     });
 }
 
