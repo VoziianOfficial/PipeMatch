@@ -1038,3 +1038,35 @@
     -webkit-text-fill-color: #17191c !important;
     box-shadow: 0 0 0 1000px #ffffff inset !important;
 }
+
+/* ===== CONTACT FAQ MOBILE ICON FIX ===== */
+
+.contact-faq-list details summary {
+    list-style: none !important;
+}
+
+.contact-faq-list details summary::-webkit-details-marker {
+    display: none !important;
+}
+
+.contact-faq-list details summary::marker {
+    content: "" !important;
+}
+
+.contact-faq-list .faq-item summary::after {
+    content: "+" !important;
+    font-family: var(--font-body) !important;
+    color: #17191c !important;
+    background: #eceff1 !important;
+}
+
+.contact-faq-list .faq-item[open] summary::after {
+    content: "−" !important;
+}
+
+.contact-faq-list .faq-item summary i,
+.contact-faq-list .faq-item summary svg {
+    color: #747c85 !important;
+    fill: none !important;
+    stroke: #747c85 !important;
+}
