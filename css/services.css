@@ -1594,3 +1594,161 @@
         line-height: 1.62 !important;
     }
 }
+
+
+/* ==========================================
+   SERVICES BRIEF STRIP — COMPACT DESIGN
+========================================== */
+
+.services-brief-strip {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr) auto;
+    gap: clamp(18px, 3vw, 34px);
+    align-items: center;
+    margin: clamp(28px, 4vw, 48px) 0;
+    padding: clamp(22px, 3vw, 34px);
+    min-height: 230px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #f4f5f6;
+    border: 1px solid rgba(18, 20, 24, 0.08);
+}
+
+.services-brief-strip::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: min(32%, 360px);
+    background:
+        linear-gradient(90deg, rgba(244, 245, 246, 1) 0%, rgba(244, 245, 246, 0.22) 48%, rgba(244, 245, 246, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.services-brief-copy {
+    position: relative;
+    z-index: 3;
+    max-width: 560px;
+}
+
+.services-brief-copy h2 {
+    max-width: 520px;
+    margin: 0 0 10px;
+    color: #17191c;
+    font-size: clamp(1.7rem, 3vw, 3rem);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+}
+
+.services-brief-copy p:not(.section-kicker) {
+    max-width: 500px;
+    margin: 0;
+    color: #5f6871;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.services-brief-points {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+}
+
+.services-brief-points span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 38px;
+    color: #343a40;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.services-brief-points strong {
+    color: #9aa2ad;
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.services-brief-action {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: #17191c;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.services-brief-action:hover {
+    transform: translateY(-2px);
+    background: #343a40;
+}
+
+.services-brief-photo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: min(30%, 330px);
+    background:
+        linear-gradient(90deg, rgba(244, 245, 246, 0.12), rgba(23, 25, 28, 0.16)),
+        url("../assets/images/services/help-2.jpg") center / cover no-repeat;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.9;
+}
+
+@media (max-width: 980px) {
+    .services-brief-strip {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-right: clamp(22px, 3vw, 34px);
+    }
+
+    .services-brief-strip::before,
+    .services-brief-photo {
+        display: none;
+    }
+
+    .services-brief-points {
+        max-width: 520px;
+    }
+
+    .services-brief-action {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 560px) {
+    .services-brief-strip {
+        border-radius: 22px;
+        padding: 22px;
+    }
+
+    .services-brief-copy h2 {
+        font-size: clamp(1.65rem, 8vw, 2.35rem);
+    }
+
+    .services-brief-points {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .services-brief-action {
+        width: 100%;
+    }
+}
