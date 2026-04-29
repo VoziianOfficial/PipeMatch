@@ -2714,9 +2714,6 @@
    CLEAN POPULAR SERVICES
 ================================ */
 
-.services-clean {
-    padding: clamp(28px, 5vw, 56px) 0;
-}
 
 .services-clean-head {
     max-width: 720px;
@@ -2986,5 +2983,162 @@
         margin-top: 18px;
         opacity: 1;
         transform: none;
+    }
+}
+
+
+/* ===============================
+   HOW IT WORKS — CARD PHOTOS
+================================ */
+
+.section-block--contrast .step-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    border-radius: 24px;
+    padding: 28px;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+/* overlay для читаемости текста */
+.section-block--contrast .step-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(23, 25, 28, 0.35) 0%,
+            rgba(23, 25, 28, 0.78) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* чтобы текст был поверх overlay */
+.section-block--contrast .step-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* 1 карточка */
+.section-block--contrast .step-card:nth-child(1) {
+    background:
+        linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
+        url("../assets/images/home/drain-cleaning-card.jpg") center / cover no-repeat !important;
+}
+
+/* 2 карточка */
+.section-block--contrast .step-card:nth-child(2) {
+    background:
+        linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
+        url("../assets/images/home/water-heater-card.jpg") center / cover no-repeat !important;
+}
+
+/* 3 карточка */
+.section-block--contrast .step-card:nth-child(3) {
+    background:
+        linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
+        url("../assets/images/home/emergency-plumbing-card.jpg") center / cover no-repeat !important;
+}
+
+.section-block--contrast .step-card h3 {
+    color: #fff !important;
+}
+
+.section-block--contrast .step-card p {
+    color: rgba(255, 255, 255, 0.76) !important;
+}
+
+.section-block--contrast .step-number {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* ===============================
+   HOW IT WORKS — TEXT BALANCE FIX
+================================ */
+
+.section-block--contrast .steps-grid {
+    align-items: stretch;
+}
+
+.section-block--contrast .step-card {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 320px;
+    padding: 82px 26px 28px !important;
+}
+
+/* номер поднимаем вверх */
+.section-block--contrast .step-number {
+    position: absolute !important;
+    top: 18px !important;
+    right: 18px !important;
+    margin: 0 !important;
+
+    width: auto;
+    min-width: 52px;
+    height: 34px;
+    padding: 0 13px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.82rem !important;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
+}
+
+/* заголовки выравниваем по высоте */
+.section-block--contrast .step-card h3 {
+    min-height: 2.35em;
+    margin: 0 0 12px !important;
+
+    display: flex;
+    align-items: flex-end;
+
+    font-size: clamp(1.35rem, 2vw, 1.8rem) !important;
+    line-height: 1.15 !important;
+}
+
+/* тексту даём одинаковое место */
+.section-block--contrast .step-card p {
+    min-height: 5em;
+    margin: 0 !important;
+
+    font-size: 0.96rem !important;
+    line-height: 1.55 !important;
+}
+
+/* на мобилке компактнее */
+@media (max-width: 767px) {
+    .section-block--contrast .step-card {
+        min-height: 270px;
+        padding: 70px 20px 22px !important;
+    }
+
+    .section-block--contrast .step-number {
+        top: 16px !important;
+        right: 16px !important;
+        min-width: 48px;
+        height: 32px;
+        font-size: 0.76rem !important;
+    }
+
+    .section-block--contrast .step-card h3 {
+        min-height: auto;
+        font-size: 1.25rem !important;
+    }
+
+    .section-block--contrast .step-card p {
+        min-height: auto;
+        font-size: 0.92rem !important;
     }
 }
