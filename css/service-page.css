@@ -1622,3 +1622,1350 @@
                 linear-gradient(135deg, rgba(52, 58, 64, 0.65) 0%, rgba(23, 25, 28, 0.75) 100%);
     pointer-events: none;
 }
+
+
+
+/* =====================================================
+   COMPACT SERVICE SIGNAL STRIP
+   clean / unusual / not bulky
+===================================================== */
+
+.service-signal-strip {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 34px);
+    align-items: stretch;
+    padding: clamp(18px, 3vw, 28px);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 18px 48px rgba(18, 20, 24, 0.07);
+}
+
+.service-signal-media {
+    position: relative;
+    min-height: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg,
+            rgba(23, 25, 28, 0.08) 0%,
+            rgba(23, 25, 28, 0.62) 100%),
+        url("../assets/images/service-pages/sewer-line-services-hero.jpg") center / cover no-repeat;
+}
+
+.service-signal-media span {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    padding: 9px 14px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(23, 25, 28, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+.service-signal-content {
+    display: grid;
+    align-content: center;
+    gap: clamp(22px, 3vw, 34px);
+}
+
+.service-signal-head {
+    max-width: 760px;
+}
+
+.service-signal-head h2 {
+    max-width: 720px;
+    margin: 12px 0 12px;
+    font-size: clamp(2rem, 3.8vw, 3.45rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+    color: #17191c;
+}
+
+.service-signal-head p:not(.section-kicker) {
+    max-width: 590px;
+    margin: 0;
+    color: #687079;
+    font-size: 1rem;
+    line-height: 1.62;
+}
+
+.service-signal-list {
+    display: grid;
+    border-top: 1px solid rgba(18, 20, 24, 0.12);
+}
+
+.service-signal-list article {
+    display: grid;
+    grid-template-columns: 54px minmax(170px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(14px, 2vw, 22px);
+    align-items: center;
+    min-height: 76px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(18, 20, 24, 0.1);
+    transition:
+        padding-left 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+}
+
+.service-signal-list article span {
+    color: #8a929a;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.service-signal-list article h3 {
+    margin: 0;
+    color: #17191c;
+    font-size: clamp(1.08rem, 1.5vw, 1.34rem);
+    line-height: 1.12;
+}
+
+.service-signal-list article p {
+    margin: 0;
+    color: #687079;
+    font-size: 0.95rem;
+    line-height: 1.48;
+}
+
+.service-signal-list article:hover {
+    padding-left: 12px;
+    border-color: rgba(99, 116, 107, 0.28);
+    background: linear-gradient(90deg,
+            rgba(99, 116, 107, 0.09),
+            transparent 68%);
+}
+
+.service-signal-list article:hover h3 {
+    color: #63746b;
+}
+
+.service-signal-list article:hover span {
+    color: #46564e;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+    .service-signal-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .service-signal-media {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 640px) {
+    .service-signal-strip {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .service-signal-media {
+        min-height: 180px;
+        border-radius: 18px;
+    }
+
+    .service-signal-head h2 {
+        font-size: clamp(1.75rem, 8vw, 2.45rem);
+        line-height: 1.08;
+    }
+
+    .service-signal-list article {
+        grid-template-columns: 42px 1fr;
+        gap: 10px 14px;
+        min-height: auto;
+        padding: 15px 0;
+    }
+
+    .service-signal-list article p {
+        grid-column: 2 / -1;
+    }
+}
+
+
+/* ================= DRAIN COMPACT SECTION ================= */
+
+.drain-compact-section {
+    --drain-compact-bg: none;
+    position: relative;
+    padding: clamp(34px, 5vw, 64px) 0;
+    background:
+        linear-gradient(180deg, rgba(18, 20, 24, 0.55), rgba(18, 20, 24, 0.28)),
+        var(--drain-compact-bg) center / cover no-repeat;
+}
+
+.drain-compact-card {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: clamp(18px, 3vw, 34px);
+    padding: clamp(14px, 2vw, 20px);
+    border: 1px solid rgba(31, 36, 40, 0.1);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 18px 50px rgba(18, 24, 30, 0.07);
+}
+
+.drain-compact-content h2 {
+    max-width: 520px;
+    margin: 8px 0 10px;
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    color: #202327;
+}
+
+.drain-compact-content p {
+    max-width: 560px;
+    margin: 0;
+    color: rgba(32, 35, 39, 0.64);
+    line-height: 1.65;
+}
+
+.drain-compact-list {
+    display: grid;
+    gap: 10px;
+    min-width: 210px;
+}
+
+.drain-compact-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(32, 35, 39, 0.055);
+    color: #202327;
+    font-size: 0.88rem;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+.drain-compact-list i,
+.drain-compact-list svg {
+    width: 16px;
+    height: 16px;
+    color: #202327;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .drain-compact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .drain-compact-list {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+    .drain-compact-card {
+        grid-template-columns: 1fr;
+        border-radius: 24px;
+    }
+
+    .drain-compact-content h2 {
+        font-size: 1.85rem;
+    }
+
+    .drain-compact-list {
+        display: grid;
+    }
+
+    .drain-compact-list span {
+        white-space: normal;
+    }
+}
+
+
+/* =====================================================
+   EMERGENCY PAGE ONLY — OVERVIEW EDITORIAL
+===================================================== */
+
+.emergency-overview-editorial {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 34px);
+    align-items: stretch;
+    padding: clamp(18px, 3vw, 28px);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 18px 48px rgba(18, 20, 24, 0.07);
+}
+
+.emergency-overview-photo {
+    position: relative;
+    min-height: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg,
+            rgba(23, 25, 28, 0.08) 0%,
+            rgba(23, 25, 28, 0.62) 100%),
+        url("../assets/images/service-pages/fixture-installation-hero.jpg") center / cover no-repeat;
+}
+
+.emergency-overview-photo span {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(23, 25, 28, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+.emergency-overview-content {
+    display: grid;
+    align-content: center;
+    gap: clamp(22px, 3vw, 34px);
+}
+
+.emergency-overview-head {
+    max-width: 760px;
+}
+
+.emergency-overview-head h2 {
+    max-width: 720px;
+    margin: 12px 0 12px;
+    font-size: clamp(2rem, 3.8vw, 3.45rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+    color: #17191c;
+}
+
+.emergency-overview-head p:not(.section-kicker) {
+    max-width: 590px;
+    margin: 0;
+    color: #687079;
+    font-size: 1rem;
+    line-height: 1.62;
+}
+
+.emergency-overview-list {
+    display: grid;
+    border-top: 1px solid rgba(18, 20, 24, 0.12);
+}
+
+.emergency-overview-list article {
+    display: grid;
+    grid-template-columns: 54px minmax(170px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(14px, 2vw, 22px);
+    align-items: center;
+    min-height: 76px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(18, 20, 24, 0.1);
+    transition:
+        padding-left 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+}
+
+.emergency-overview-list article span {
+    color: #8a929a;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.emergency-overview-list article h3 {
+    margin: 0;
+    color: #17191c;
+    font-size: clamp(1.08rem, 1.5vw, 1.34rem);
+    line-height: 1.12;
+}
+
+.emergency-overview-list article p {
+    margin: 0;
+    color: #687079;
+    font-size: 0.95rem;
+    line-height: 1.48;
+}
+
+.emergency-overview-list article:hover {
+    padding-left: 12px;
+    border-color: rgba(99, 116, 107, 0.28);
+    background: linear-gradient(90deg,
+            rgba(99, 116, 107, 0.09),
+            transparent 68%);
+}
+
+.emergency-overview-list article:hover h3 {
+    color: #63746b;
+}
+
+.emergency-overview-list article:hover span {
+    color: #46564e;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+    .emergency-overview-editorial {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-overview-photo {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 640px) {
+    .emergency-overview-editorial {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .emergency-overview-photo {
+        min-height: 180px;
+        border-radius: 18px;
+    }
+
+    .emergency-overview-head h2 {
+        font-size: clamp(1.75rem, 8vw, 2.45rem);
+        line-height: 1.08;
+    }
+
+    .emergency-overview-list article {
+        grid-template-columns: 42px 1fr;
+        gap: 10px 14px;
+        min-height: auto;
+        padding: 15px 0;
+    }
+
+    .emergency-overview-list article p {
+        grid-column: 2 / -1;
+    }
+}
+
+/* =====================================================
+   WATER HEATER PAGE ONLY — CONTEXT PANEL
+===================================================== */
+
+.heater-context-panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(240px, 0.38fr) minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 34px);
+    align-items: stretch;
+    padding: clamp(18px, 3vw, 30px);
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 243, 245, 0.96) 100%);
+    border: 1px solid rgba(18, 20, 24, 0.09);
+    box-shadow: 0 22px 60px rgba(18, 20, 24, 0.08);
+    overflow: hidden;
+}
+
+.heater-context-panel::before {
+    content: "";
+    position: absolute;
+    right: 28px;
+    top: 28px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 116, 107, 0.16), transparent 68%);
+    pointer-events: none;
+}
+
+.heater-context-image {
+    position: relative;
+    min-height: 360px;
+    border-radius: 24px;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg,
+            rgba(23, 25, 28, 0.04) 0%,
+            rgba(23, 25, 28, 0.22) 42%,
+            rgba(23, 25, 28, 0.72) 100%),
+        url("../assets/images/service-pages/water-heater-services-visual.jpg") center / cover no-repeat;
+}
+
+.heater-context-image::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    pointer-events: none;
+}
+
+.heater-context-image span {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    display: inline-flex;
+    width: fit-content;
+    min-height: 38px;
+    align-items: center;
+    padding: 9px 14px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    background: rgba(23, 25, 28, 0.44);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+.heater-context-body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: center;
+    gap: clamp(24px, 3vw, 38px);
+}
+
+.heater-context-head {
+    max-width: 780px;
+}
+
+.heater-context-head h2 {
+    max-width: 760px;
+    margin: 12px 0 14px;
+    color: #17191c;
+    font-size: clamp(2rem, 3.8vw, 3.55rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+}
+
+.heater-context-head p:not(.section-kicker) {
+    max-width: 620px;
+    margin: 0;
+    color: #687079;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+/* checklist как “температурная шкала” */
+
+.heater-context-checks {
+    position: relative;
+    display: grid;
+    gap: 12px;
+    padding-left: 22px;
+}
+
+.heater-context-checks::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(180deg,
+            #c8b9a6 0%,
+            #63746b 48%,
+            #17191c 100%);
+}
+
+.heater-check-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(140px, 0.34fr) minmax(0, 1fr);
+    gap: clamp(14px, 2vw, 22px);
+    align-items: center;
+    min-height: 72px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    transition:
+        transform 0.32s ease,
+        background 0.32s ease,
+        border-color 0.32s ease,
+        box-shadow 0.32s ease;
+}
+
+.heater-check-item::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #63746b;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 6px rgba(99, 116, 107, 0.12);
+}
+
+.heater-check-item span {
+    color: #17191c;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.4vw, 1.22rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.heater-check-item p {
+    margin: 0;
+    color: #687079;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.heater-check-item:hover {
+    transform: translateX(8px);
+    background: rgba(99, 116, 107, 0.1);
+    border-color: rgba(99, 116, 107, 0.28);
+    box-shadow: 0 16px 34px rgba(99, 116, 107, 0.14);
+}
+
+.heater-check-item:hover span {
+    color: #63746b;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+    .heater-context-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .heater-context-image {
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 640px) {
+    .heater-context-panel {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .heater-context-image {
+        min-height: 180px;
+        border-radius: 18px;
+    }
+
+    .heater-context-head h2 {
+        font-size: clamp(1.75rem, 8vw, 2.45rem);
+        line-height: 1.08;
+    }
+
+    .heater-context-checks {
+        padding-left: 18px;
+    }
+
+    .heater-check-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        min-height: auto;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .heater-check-item::before {
+        left: -21px;
+    }
+
+    .heater-check-item:hover {
+        transform: translateY(-3px);
+    }
+}
+
+
+
+/* ================= FIXTURE BRIEF SECTION ================= */
+
+.fixture-brief-section {
+    padding: clamp(36px, 5vw, 72px) 0;
+}
+
+.fixture-brief-card {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr) 260px;
+    gap: clamp(16px, 2.5vw, 28px);
+    align-items: center;
+    padding: clamp(14px, 2vw, 20px);
+    border: 1px solid rgba(27, 31, 35, 0.08);
+    border-radius: 28px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 239, 0.9));
+    box-shadow: 0 20px 50px rgba(17, 24, 39, 0.06);
+    overflow: hidden;
+}
+
+.fixture-brief-media {
+    min-height: 220px;
+    border-radius: 22px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.fixture-brief-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16, 19, 22, 0.04), rgba(16, 19, 22, 0.16));
+    border-radius: inherit;
+}
+
+.fixture-brief-main {
+    padding: 4px 0;
+}
+
+.fixture-brief-main h2 {
+    margin: 8px 0 12px;
+    max-width: 560px;
+    font-size: clamp(1.7rem, 3vw, 2.8rem);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+    color: #202327;
+}
+
+.fixture-brief-main p {
+    max-width: 560px;
+    margin: 0;
+    color: rgba(32, 35, 39, 0.66);
+    line-height: 1.68;
+    font-size: 0.98rem;
+}
+
+.fixture-brief-side {
+    display: grid;
+    gap: 10px;
+}
+
+.fixture-brief-side article {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    border: 1px solid rgba(27, 31, 35, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        background 0.28s ease;
+}
+
+.fixture-brief-side article:hover {
+    transform: translateY(-3px);
+    border-color: rgba(27, 31, 35, 0.16);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 14px 28px rgba(17, 24, 39, 0.06);
+}
+
+.fixture-brief-side i,
+.fixture-brief-side svg {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(32, 35, 39, 0.06);
+    color: #202327;
+}
+
+.fixture-brief-side span {
+    color: #202327;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+    .fixture-brief-card {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .fixture-brief-side {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fixture-brief-side article {
+        min-height: 100%;
+        align-items: flex-start;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .fixture-brief-section {
+        padding: 40px 0;
+    }
+
+    .fixture-brief-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 12px;
+        border-radius: 24px;
+    }
+
+    .fixture-brief-media {
+        min-height: 190px;
+        border-radius: 18px;
+    }
+
+    .fixture-brief-main h2 {
+        font-size: 1.95rem;
+        margin-bottom: 10px;
+    }
+
+    .fixture-brief-side {
+        grid-template-columns: 1fr;
+    }
+
+    .fixture-brief-side article {
+        padding: 12px 13px;
+        border-radius: 16px;
+    }
+}
+
+
+/* =====================================================
+   WATER HEATER ONLY — SERVICE LABEL SECTION
+   unusual / compact / no cards
+===================================================== */
+
+.heater-service-label {
+    position: relative;
+    display: grid;
+    grid-template-columns: 86px minmax(0, 0.95fr) minmax(320px, 0.8fr);
+    gap: clamp(18px, 3vw, 38px);
+    align-items: stretch;
+    min-height: 390px;
+    padding: clamp(20px, 3.5vw, 42px);
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(248, 249, 250, 0.96) 0%, rgba(235, 238, 240, 0.94) 100%);
+    border: 1px solid rgba(18, 20, 24, 0.09);
+    box-shadow: 0 24px 70px rgba(18, 20, 24, 0.08);
+}
+
+.heater-label-bg {
+    position: absolute;
+    inset: 0 0 0 auto;
+    z-index: -2;
+    width: 48%;
+    background:
+        linear-gradient(90deg,
+            rgba(248, 249, 250, 1) 0%,
+            rgba(248, 249, 250, 0.82) 28%,
+            rgba(23, 25, 28, 0.34) 100%),
+        url("../assets/images/service-pages/water-heater-services-visual.jpg") center / cover no-repeat;
+    opacity: 0.9;
+}
+
+.heater-service-label::before {
+    content: "";
+    position: absolute;
+    left: clamp(20px, 3.5vw, 42px);
+    right: clamp(20px, 3.5vw, 42px);
+    top: clamp(20px, 3.5vw, 42px);
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(23, 25, 28, 0.2),
+            rgba(99, 116, 107, 0.36),
+            transparent);
+    pointer-events: none;
+}
+
+.heater-service-label::after {
+    content: "";
+    position: absolute;
+    left: clamp(20px, 3.5vw, 42px);
+    right: clamp(20px, 3.5vw, 42px);
+    bottom: clamp(20px, 3.5vw, 42px);
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(99, 116, 107, 0.3),
+            rgba(23, 25, 28, 0.16));
+    pointer-events: none;
+}
+
+/* vertical label */
+
+.heater-label-side {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(23, 25, 28, 0.1);
+}
+
+.heater-label-side span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: rgba(23, 25, 28, 0.3);
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+/* main copy */
+
+.heater-label-main {
+    display: grid;
+    align-content: center;
+    max-width: 760px;
+    padding-block: clamp(22px, 4vw, 48px);
+}
+
+.heater-label-main .section-kicker {
+    margin-bottom: 16px;
+}
+
+.heater-label-main h2 {
+    max-width: 780px;
+    margin: 0 0 18px;
+    color: #17191c;
+    font-size: clamp(2rem, 4.2vw, 4.3rem);
+    line-height: 0.98;
+    letter-spacing: -0.07em;
+}
+
+.heater-label-main p:not(.section-kicker) {
+    max-width: 600px;
+    margin: 0;
+    color: #5f6871;
+    font-size: clamp(0.96rem, 1.08vw, 1.05rem);
+    line-height: 1.68;
+}
+
+/* spec lines */
+
+.heater-label-specs {
+    position: relative;
+    display: grid;
+    align-content: center;
+    gap: 0;
+    padding-block: clamp(22px, 4vw, 48px);
+}
+
+.heater-spec-line {
+    display: grid;
+    grid-template-columns: 42px minmax(90px, 0.42fr) minmax(0, 1fr);
+    gap: 14px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(23, 25, 28, 0.12);
+    transition:
+        padding-left 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+}
+
+.heater-spec-line:first-child {
+    border-top: 1px solid rgba(23, 25, 28, 0.12);
+}
+
+.heater-spec-line span {
+    color: #8a929a;
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.heater-spec-line strong {
+    color: #17191c;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.35vw, 1.22rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.heater-spec-line p {
+    margin: 0;
+    color: #17191c;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.heater-spec-line:hover {
+    padding-left: 12px;
+    border-color: rgba(99, 116, 107, 0.34);
+    background: linear-gradient(90deg,
+            rgba(99, 116, 107, 0.1),
+            transparent 74%);
+}
+
+.heater-spec-line:hover span,
+.heater-spec-line:hover strong {
+    color: #63746b;
+}
+
+/* responsive */
+
+@media (max-width: 980px) {
+    .heater-service-label {
+        grid-template-columns: 62px minmax(0, 1fr);
+    }
+
+    .heater-label-bg {
+        width: 100%;
+        opacity: 0.18;
+        filter: grayscale(1);
+    }
+
+    .heater-label-specs {
+        grid-column: 2 / -1;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .heater-service-label {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        min-height: auto;
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .heater-label-bg {
+        width: 100%;
+        opacity: 0.12;
+    }
+
+    .heater-label-side {
+        justify-content: flex-start;
+        border-right: 0;
+        border-bottom: 1px solid rgba(23, 25, 28, 0.1);
+        padding-bottom: 12px;
+    }
+
+    .heater-label-side span {
+        writing-mode: initial;
+        transform: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+    }
+
+    .heater-label-main {
+        padding-block: 0;
+    }
+
+    .heater-label-main h2 {
+        font-size: clamp(1.85rem, 9vw, 2.65rem);
+        line-height: 1.05;
+    }
+
+    .heater-label-specs {
+        grid-column: auto;
+        padding-block: 0;
+    }
+
+    .heater-spec-line {
+        grid-template-columns: 36px 1fr;
+        gap: 8px 12px;
+        padding: 15px 0;
+    }
+
+    .heater-spec-line p {
+        grid-column: 2 / -1;
+    }
+
+    .heater-spec-line:hover {
+        padding-left: 0;
+    }
+}
+/* =====================================================
+   LEAK DETECTION ONLY — SCAN BRIEF SECTION
+   compact / unusual / not card-based
+===================================================== */
+
+.leak-scan-brief {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.46fr);
+    align-items: stretch;
+    min-height: 390px;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(239, 242, 241, 0.98) 100%);
+    border: 1px solid rgba(18, 20, 24, 0.09);
+    box-shadow: 0 24px 70px rgba(18, 20, 24, 0.08);
+}
+
+.leak-scan-brief::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(99, 116, 107, 0.055) 0,
+            rgba(99, 116, 107, 0.055) 1px,
+            transparent 1px,
+            transparent 72px);
+    pointer-events: none;
+}
+
+.leak-scan-content {
+    position: relative;
+    display: grid;
+    align-content: center;
+    padding: clamp(24px, 4vw, 48px);
+}
+
+.leak-scan-content::after {
+    content: "";
+    position: absolute;
+    left: clamp(24px, 4vw, 48px);
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(99, 116, 107, 0.28),
+            transparent 72%);
+    pointer-events: none;
+}
+
+.leak-scan-content h2 {
+    max-width: 760px;
+    margin: 14px 0 16px;
+    color: #17191c;
+    font-size: clamp(2rem, 4vw, 4.05rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+}
+
+.leak-scan-content>p:not(.section-kicker) {
+    max-width: 600px;
+    margin: 0;
+    color: #5f6871;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.leak-scan-notes {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 0;
+    max-width: 760px;
+    margin-top: clamp(24px, 3vw, 36px);
+    border-top: 1px solid rgba(18, 20, 24, 0.12);
+}
+
+.leak-scan-notes article {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(18, 20, 24, 0.1);
+    transition:
+        padding-left 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease;
+}
+
+.leak-scan-notes article span {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #63746b;
+    background: rgba(99, 116, 107, 0.1);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.leak-scan-notes article strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #17191c;
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 1.45vw, 1.26rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.leak-scan-notes article p {
+    margin: 0;
+    max-width: 52ch;
+    color: #687079;
+    font-size: 0.94rem;
+    line-height: 1.46;
+}
+
+.leak-scan-notes article:hover {
+    padding-left: 12px;
+    border-color: rgba(99, 116, 107, 0.3);
+    background: linear-gradient(90deg,
+            rgba(99, 116, 107, 0.09),
+            transparent 72%);
+}
+
+.leak-scan-notes article:hover span {
+    color: #ffffff;
+    background: #63746b;
+}
+
+.leak-scan-notes article:hover strong {
+    color: #63746b;
+}
+
+/* photo stripe */
+
+.leak-scan-visual {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+    background:
+        linear-gradient(180deg,
+            rgba(23, 25, 28, 0.04) 0%,
+            rgba(23, 25, 28, 0.34) 46%,
+            rgba(23, 25, 28, 0.78) 100%),
+        url("../assets/images/service-pages/leak-detection-visual.jpg") center / cover no-repeat;
+}
+
+.leak-scan-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(180deg,
+            rgba(255, 255, 255, 0.08) 0,
+            rgba(255, 255, 255, 0.08) 1px,
+            transparent 1px,
+            transparent 18px);
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+.leak-scan-visual::after {
+    content: "";
+    position: absolute;
+    left: 22%;
+    right: 18%;
+    top: 48%;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow:
+        0 0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 28px rgba(255, 255, 255, 0.42);
+}
+
+.leak-scan-visual span {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(23, 25, 28, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+    .leak-scan-brief {
+        grid-template-columns: 1fr;
+    }
+
+    .leak-scan-visual {
+        min-height: 220px;
+        clip-path: none;
+        order: -1;
+    }
+
+    .leak-scan-content::after {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .leak-scan-brief {
+        border-radius: 22px;
+    }
+
+    .leak-scan-content {
+        padding: 20px;
+    }
+
+    .leak-scan-content h2 {
+        font-size: clamp(1.8rem, 9vw, 2.55rem);
+        line-height: 1.06;
+    }
+
+    .leak-scan-visual {
+        min-height: 180px;
+    }
+
+    .leak-scan-notes {
+        margin-top: 22px;
+    }
+
+    .leak-scan-notes article {
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        padding: 14px 0;
+    }
+
+    .leak-scan-notes article:hover {
+        padding-left: 0;
+    }
+}
