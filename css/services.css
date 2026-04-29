@@ -1531,3 +1531,66 @@
         line-height: 1.5 !important;
     }
 }
+
+/* ==========================================
+   TABLET: MAKE BLUEPRINT SECTION MORE VISIBLE
+========================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .services-comparison-block.comparison-blueprint {
+        padding: 58px 0 !important;
+        margin-bottom: 58px !important;
+    }
+
+    .comparison-blueprint-head {
+        margin-bottom: 48px !important;
+    }
+
+    .comparison-blueprint-head h2 {
+        max-width: 900px !important;
+        font-size: clamp(2.6rem, 6.2vw, 4.2rem) !important;
+        line-height: 1.02 !important;
+    }
+
+    .comparison-blueprint-head p:not(.section-kicker) {
+        max-width: 720px !important;
+        font-size: 1.05rem !important;
+        line-height: 1.68 !important;
+    }
+
+    .comparison-blueprint-route {
+        gap: 36px !important;
+    }
+
+    .blueprint-point {
+        grid-template-columns: 88px minmax(0, 1fr) !important;
+        gap: 24px !important;
+        min-height: 118px;
+    }
+
+    .blueprint-node {
+        width: 76px !important;
+        height: 76px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .comparison-blueprint-route::before {
+        left: 38px !important;
+        width: 2px !important;
+    }
+
+    .blueprint-point::before {
+        left: 38px !important;
+        width: 48px !important;
+    }
+
+    .blueprint-point h3 {
+        font-size: clamp(1.75rem, 3.3vw, 2.35rem) !important;
+    }
+
+    .blueprint-point p {
+        max-width: 620px !important;
+        font-size: 1rem !important;
+        line-height: 1.62 !important;
+    }
+}
