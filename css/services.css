@@ -1139,3 +1139,268 @@
         padding-left: 10px;
     }
 }
+
+
+
+/* ==========================================
+   IMAGE DIRECTORY CARDS
+========================================== */
+
+.services-card-grid--image {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.services-card-grid--image .directory-card {
+    min-width: 0;
+}
+
+.services-card-grid--image .directory-card-link {
+    position: relative;
+    min-height: 420px;
+    border-radius: 24px;
+    overflow: hidden;
+    display: block;
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 18px 44px rgba(18, 20, 24, 0.10);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    background: #17191c;
+}
+
+.services-card-grid--image .directory-card-link:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 64px rgba(18, 20, 24, 0.16);
+}
+
+.services-card-grid--image .directory-card-media {
+    position: absolute;
+    inset: 0;
+    min-height: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.7s ease;
+}
+
+.services-card-grid--image .directory-card-link:hover .directory-card-media {
+    transform: scale(1.06);
+}
+
+.services-card-grid--image .directory-card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            rgba(17, 18, 20, 0.04) 0%,
+            rgba(17, 18, 20, 0.10) 30%,
+            rgba(17, 18, 20, 0.30) 58%,
+            rgba(17, 18, 20, 0.82) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.services-card-grid--image .directory-card-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 22px;
+    background: none;
+}
+
+.services-card-grid--image .directory-card-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.services-card-grid--image .directory-card-content h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    max-width: 18ch;
+}
+
+.services-card-grid--image .service-icon,
+.services-card-grid--image .directory-card-content p {
+    display: none !important;
+}
+
+.services-card-grid--image .service-card-arrow {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.services-card-grid--image .service-card-arrow i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.services-card-grid--image .directory-card-link:hover .service-card-arrow {
+    background: #ffffff;
+    color: #17191c;
+    border-color: #ffffff;
+    transform: translateX(2px);
+}
+
+/* responsive */
+
+@media (max-width: 1100px) {
+    .services-hero-panel {
+        display: none;
+    }
+
+    .services-directory-swiper {
+        position: relative;
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr) 44px;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .services-directory-track {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 2px 12px;
+        scroll-snap-type: x mandatory;
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .services-directory-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-directory-track .directory-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+        scroll-snap-align: start;
+    }
+
+    .services-directory-nav {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        border: 1px solid rgba(18, 20, 24, 0.12);
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 14px 28px rgba(18, 20, 24, 0.10);
+        color: #17191c;
+        display: inline-grid;
+        place-items: center;
+        cursor: pointer;
+        transition: transform var(--transition-fast), background-color var(--transition-fast);
+        touch-action: manipulation;
+    }
+
+    .services-directory-nav:hover {
+        transform: translateY(-1px);
+        background: #ffffff;
+    }
+
+    .services-directory-nav:active {
+        transform: translateY(0);
+    }
+
+    .services-directory-nav:focus-visible {
+        outline: 2px solid rgba(23, 25, 28, 0.35);
+        outline-offset: 2px;
+    }
+
+    .services-card-grid--image {
+        display: block;
+    }
+
+    .services-card-grid--image .directory-card-link {
+        min-height: 320px;
+        border-radius: 22px;
+    }
+
+    .services-card-grid--image .directory-card-content {
+        padding: 18px;
+    }
+
+    .services-card-grid--image .service-card-arrow {
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
+        flex-basis: 44px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-directory-swiper {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .services-directory-nav {
+        display: none;
+    }
+
+    .services-directory-track .directory-card {
+        flex-basis: 100%;
+    }
+
+    .services-card-grid--image .directory-card-link {
+        min-height: 260px;
+        border-radius: 18px;
+    }
+
+    .services-card-grid--image .directory-card-content {
+        padding: 16px;
+    }
+
+    .services-card-grid--image .directory-card-content h3 {
+        font-size: 1.08rem;
+        max-width: 18ch;
+    }
+
+    .services-card-grid--image .service-card-arrow {
+        width: 40px;
+        height: 40px;
+        min-height: 40px;
+        flex-basis: 40px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .services-card-grid--image {
+        gap: 14px;
+    }
+
+    .services-card-grid--image .directory-card-link {
+        min-height: 230px;
+    }
+
+    .services-card-grid--image .directory-card-content {
+        padding: 14px;
+    }
+}
