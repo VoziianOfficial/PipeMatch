@@ -969,3 +969,173 @@
     }
 }
 
+/* ==========================================
+   COMPARISON RIBBON — COMPACT PHOTO SECTION
+========================================== */
+
+.comparison-ribbon {
+    position: relative;
+    min-height: 460px;
+    padding: clamp(30px, 4vw, 54px);
+    border-radius: 32px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #17191c;
+    border: 1px solid rgba(18, 20, 24, 0.08);
+    box-shadow: 0 24px 70px rgba(18, 20, 24, 0.12);
+}
+
+.comparison-ribbon-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(90deg,
+            rgba(23, 25, 28, 0.88) 0%,
+            rgba(23, 25, 28, 0.68) 46%,
+            rgba(23, 25, 28, 0.34) 100%),
+        url("../assets/images/services/fixture-installation-directory.jpg") center / cover no-repeat;
+}
+
+.comparison-ribbon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.18)),
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.12), transparent 28%);
+    pointer-events: none;
+}
+
+.comparison-ribbon-head {
+    max-width: 980px;
+    margin-bottom: clamp(38px, 5vw, 72px);
+}
+
+.comparison-ribbon-head .section-kicker {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.comparison-ribbon-head h2 {
+    max-width: 900px;
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: clamp(2.15rem, 4.7vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+}
+
+.comparison-ribbon-head p {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+    line-height: 1.62;
+}
+
+.comparison-ribbon-track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.comparison-ribbon-item {
+    min-height: 142px;
+    padding: 22px 20px;
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    transition:
+        background-color 0.28s ease,
+        padding-left 0.28s ease;
+}
+
+.comparison-ribbon-item:last-child {
+    border-right: 0;
+}
+
+.comparison-ribbon-item span {
+    display: block;
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.48);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.comparison-ribbon-item h3 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: clamp(1.12rem, 1.7vw, 1.45rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.comparison-ribbon-item p {
+    max-width: 28ch;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 0.9rem;
+    line-height: 1.48;
+}
+
+.comparison-ribbon-item:hover {
+    padding-left: 28px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.comparison-ribbon-item:hover span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 980px) {
+    .comparison-ribbon-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .comparison-ribbon-item:nth-child(2) {
+        border-right: 0;
+    }
+
+    .comparison-ribbon-item:nth-child(1),
+    .comparison-ribbon-item:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+}
+
+@media (max-width: 640px) {
+    .comparison-ribbon {
+        min-height: auto;
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .comparison-ribbon-head {
+        margin-bottom: 30px;
+    }
+
+    .comparison-ribbon-head h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 1.04;
+    }
+
+    .comparison-ribbon-track {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-ribbon-item {
+        min-height: auto;
+        padding: 18px 0;
+        border-right: 0;
+    }
+
+    .comparison-ribbon-item:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .comparison-ribbon-item:hover {
+        padding-left: 10px;
+    }
+}
