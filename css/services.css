@@ -1404,3 +1404,130 @@
         padding: 14px;
     }
 }
+
+
+/* ==========================================
+   FIX: SHOW COMPARISON BLUEPRINT ON TABLET / MOBILE
+========================================== */
+
+.services-comparison-block.comparison-blueprint {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+    .services-comparison-block.comparison-blueprint {
+        display: block !important;
+        padding: 42px 0 !important;
+        margin-bottom: 42px !important;
+    }
+
+    .comparison-blueprint-head {
+        display: block !important;
+        max-width: none !important;
+        width: 100% !important;
+        margin-bottom: 34px !important;
+    }
+
+    .comparison-blueprint-route {
+        display: grid !important;
+        gap: 26px !important;
+    }
+
+    .blueprint-point {
+        display: grid !important;
+        grid-template-columns: 72px minmax(0, 1fr) !important;
+        gap: 18px !important;
+        align-items: start !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .blueprint-node {
+        grid-column: 1 !important;
+        width: 62px !important;
+        height: 62px !important;
+    }
+
+    .blueprint-point--left>div,
+    .blueprint-point--right>div {
+        grid-column: 2 !important;
+        padding: 0 !important;
+        text-align: left !important;
+        justify-self: stretch !important;
+    }
+
+    .comparison-blueprint-route::before {
+        left: 31px !important;
+    }
+
+    .blueprint-point::before {
+        left: 31px !important;
+        width: 36px !important;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .services-comparison-block.comparison-blueprint {
+        display: block !important;
+        padding: 34px 0 !important;
+        margin-bottom: 34px !important;
+    }
+
+    .comparison-blueprint::before {
+        display: none !important;
+    }
+
+    .comparison-blueprint-head h2 {
+        font-size: clamp(2rem, 9vw, 3rem) !important;
+        line-height: 1.05 !important;
+    }
+
+    .comparison-blueprint-head p:not(.section-kicker) {
+        font-size: 0.94rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .comparison-blueprint-route {
+        display: grid !important;
+        gap: 24px !important;
+    }
+
+    .blueprint-point {
+        display: grid !important;
+        grid-template-columns: 54px minmax(0, 1fr) !important;
+        gap: 14px !important;
+    }
+
+    .blueprint-node {
+        width: 54px !important;
+        height: 54px !important;
+        font-size: 0.74rem !important;
+    }
+
+    .comparison-blueprint-route::before {
+        left: 27px !important;
+    }
+
+    .blueprint-point::before {
+        left: 27px !important;
+        width: 24px !important;
+    }
+
+    .blueprint-point h3 {
+        font-size: 1.35rem !important;
+    }
+
+    .blueprint-point p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+}
