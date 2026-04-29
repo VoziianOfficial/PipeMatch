@@ -768,4 +768,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initSmoothFaqAccordions();
     initComparisonGridSlider();
     initAboutProcessSlider();
+
+    if (window.lucide?.createIcons) {
+        window.lucide.createIcons();
+    }
 });

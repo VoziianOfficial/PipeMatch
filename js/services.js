@@ -160,14 +160,14 @@ function initServicesDirectorySwiper() {
         prevButton.type = "button";
         prevButton.setAttribute("aria-label", "Previous categories");
         prevButton.dataset.swiperPrev = "";
-        prevButton.innerHTML = '<i class="fa-solid fa-arrow-left" aria-hidden="true"></i>';
+        prevButton.innerHTML = '<i data-lucide="arrow-left"></i>';
 
         nextButton = document.createElement("button");
         nextButton.className = "services-directory-nav services-directory-nav--next";
         nextButton.type = "button";
         nextButton.setAttribute("aria-label", "Next categories");
         nextButton.dataset.swiperNext = "";
-        nextButton.innerHTML = '<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+        nextButton.innerHTML = '<i data-lucide="arrow-right"></i>';
 
         track = document.createElement("div");
         track.className = "services-directory-track";
@@ -182,6 +182,10 @@ function initServicesDirectorySwiper() {
         wrapper.appendChild(track);
         wrapper.appendChild(nextButton);
         gridSection.appendChild(wrapper);
+
+        if (window.lucide?.createIcons) {
+            window.lucide.createIcons();
+        }
     };
 
     const unwrap = () => {

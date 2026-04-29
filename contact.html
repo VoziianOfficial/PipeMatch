@@ -20,11 +20,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         crossorigin="anonymous" />
 
     <link rel="stylesheet" href="./css/style.css" />
@@ -64,13 +60,13 @@
 
                 <div class="header-actions">
                     <a class="header-phone-btn" href="tel:+18004172038" aria-label="Call now" data-phone-link>
-                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <i data-lucide="phone-call"></i>
                         <span data-phone-display>Call Now</span>
                     </a>
 
                     <div class="mobile-callbar">
                         <a href="tel:+18004172038" class="mobile-callbar-link" aria-label="Call now" data-phone-link>
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <i data-lucide="phone"></i>
                             <span data-phone-display>Call Now</span>
                         </a>
                     </div>
@@ -105,7 +101,7 @@
                     </a>
 
                     <button class="mobile-menu-close" type="button" aria-label="Close menu">
-                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        <i data-lucide="x"></i>
                     </button>
                 </div>
 
@@ -130,18 +126,18 @@
                             <option value="sewer-line-services.html">Sewer Line Services</option>
                             <option value="fixture-installation.html">Fixture Installation</option>
                         </select>
-                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        <i data-lucide="chevron-down"></i>
                     </div>
                 </div>
 
                 <div class="mobile-contact-card">
                     <p class="mobile-contact-label">Need help now?</p>
                     <a href="tel:+18004172038" class="mobile-contact-phone" data-phone-link>
-                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <i data-lucide="phone-call"></i>
                         <span data-phone-display>Call Now</span>
                     </a>
                     <a href="mailto:support@pipematch.com" class="mobile-contact-email" data-email>
-                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <i data-lucide="mail"></i>
                         <span>support@pipematch.com</span>
                     </a>
                 </div>
@@ -231,19 +227,19 @@
                             <a href="tel:+18004172038">
                                 <span>Call</span>
                                 <strong>Start by phone</strong>
-                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i data-lucide="arrow-right"></i>
                             </a>
         
                             <a href="mailto:support@pipematch.com">
                                 <span>Email</span>
                                 <strong>support@pipematch.com</strong>
-                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i data-lucide="arrow-right"></i>
                             </a>
         
                             <a href="services.html">
                                 <span>Categories</span>
                                 <strong>View plumbing services</strong>
-                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i data-lucide="arrow-right"></i>
                             </a>
                         </div>
         
@@ -283,7 +279,7 @@
         
                         <button type="submit" class="contact-clean-submit">
                             Get Matches
-                            <i class="fa-solid fa-arrow-right-long"></i>
+                            <i data-lucide="arrow-right"></i>
                         </button>
                     </form>
         
@@ -304,9 +300,9 @@
                             </p>
 
                             <div class="coverage-points">
-                                <span><i class="fa-solid fa-location-crosshairs"></i> ZIP-based request flow</span>
-                                <span><i class="fa-solid fa-dollar-sign"></i> Quote-oriented process</span>
-                                <span><i class="fa-solid fa-house"></i> Residential plumbing focus</span>
+                                <span><i data-lucide="locate-fixed"></i> ZIP-based request flow</span>
+                                <span><i data-lucide="dollar-sign"></i> Quote-oriented process</span>
+                                <span><i data-lucide="house"></i> Residential plumbing focus</span>
                             </div>
                         </div>
 
@@ -431,11 +427,11 @@
 
                     <div class="footer-contact">
                         <a href="tel:+18004172038" data-phone-link>
-                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                            <i data-lucide="phone-call"></i>
                             <span data-phone-display>Call Now</span>
                         </a>
                         <a href="mailto:support@pipematch.com" data-email>
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <i data-lucide="mail"></i>
                             <span>support@pipematch.com</span>
                         </a>
                     </div>
@@ -520,6 +516,8 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/contact.js"></script>
 </body>

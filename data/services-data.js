@@ -6,7 +6,7 @@ export const servicesData = [
             "Compare local providers for urgent plumbing issues such as burst pipes, backups, or sudden water problems.",
         heroTag: "Fast response options",
         image: "./assets/images/services/emergency-plumbing-directory.jpg",
-        icon: "fa-screwdriver-wrench"
+        icon: "wrench"
     },
     {
         slug: "drain-cleaning",
@@ -15,7 +15,7 @@ export const servicesData = [
             "Explore local companies offering drain clearing and clog-related plumbing support for kitchens, bathrooms, and main lines.",
         heroTag: "Clog and flow solutions",
         image: "./assets/images/services/drain-cleaning-directory.jpg",
-        icon: "fa-water"
+        icon: "droplet"
     },
     {
         slug: "water-heater-services",
@@ -24,7 +24,7 @@ export const servicesData = [
             "Compare providers for water heater replacement, repair, inspections, and maintenance options in your area.",
         heroTag: "Hot water system options",
         image: "./assets/images/service-pages/water-heater-services-hero.jpg",
-        icon: "fa-temperature-half"
+        icon: "thermometer"
     },
     {
         slug: "leak-detection",
@@ -33,7 +33,7 @@ export const servicesData = [
             "Connect with plumbing companies that offer leak identification services for walls, ceilings, slabs, and underground lines.",
         heroTag: "Find hidden water issues",
         image: "./assets/images/service-pages/fixture-installation-hero.jpg",
-        icon: "fa-droplet"
+        icon: "droplet"
     },
     {
         slug: "sewer-line-services",
@@ -42,7 +42,7 @@ export const servicesData = [
             "Review local sewer line service options for inspections, repairs, and replacement-related project needs.",
         heroTag: "Underground line support",
         image: "./assets/images/service-pages/sewer-line-services-hero.jpg",
-        icon: "fa-road"
+        icon: "route"
     },
     {
         slug: "fixture-installation",
@@ -51,6 +51,6 @@ export const servicesData = [
             "Compare providers for sinks, faucets, toilets, and other plumbing fixture installation requests.",
         heroTag: "Kitchen and bath upgrades",
         image: "./assets/images/services/fixture-installation-directory.jpg",
-        icon: "fa-faucet"
+        icon: "faucet"
     }
 ];

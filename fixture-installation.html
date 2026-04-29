@@ -20,11 +20,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="./css/style.css" />
+<link rel="stylesheet" href="./css/style.css" />
 
 </head>
 
@@ -64,13 +60,13 @@
 
                 <div class="header-actions">
                     <a class="header-phone-btn" href="tel:+18004172038" aria-label="Call now" data-phone-link>
-                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <i data-lucide="phone-call"></i>
                         <span data-phone-display>Call Now</span>
                     </a>
 
                     <div class="mobile-callbar">
                         <a href="tel:+18004172038" class="mobile-callbar-link" aria-label="Call now" data-phone-link>
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <i data-lucide="phone"></i>
                             <span data-phone-display>Call Now</span>
                         </a>
                     </div>
@@ -108,7 +104,7 @@
                     </a>
 
                     <button class="mobile-menu-close" type="button" aria-label="Close menu">
-                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        <i data-lucide="x"></i>
                     </button>
                 </div>
 
@@ -133,18 +129,18 @@
                             <option value="sewer-line-services.html">Sewer Line Services</option>
                             <option value="fixture-installation.html">Fixture Installation</option>
                         </select>
-                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        <i data-lucide="chevron-down"></i>
                     </div>
                 </div>
 
                 <div class="mobile-contact-card">
                     <p class="mobile-contact-label">Need help now?</p>
                     <a href="tel:+18004172038" class="mobile-contact-phone" data-phone-link>
-                        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                        <i data-lucide="phone-call"></i>
                         <span data-phone-display>Call Now</span>
                     </a>
                     <a href="mailto:support@pipematch.com" class="mobile-contact-email" data-email>
-                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <i data-lucide="mail"></i>
                         <span>support@pipematch.com</span>
                     </a>
                 </div>
@@ -241,11 +237,11 @@
                             </div>
     
                             <ul class="service-clean-list">
-                                <li><i class="fa-solid fa-check"></i> Fixture type and location</li>
-                                <li><i class="fa-solid fa-check"></i> Replacement or new upgrade</li>
-                                <li><i class="fa-solid fa-check"></i> Product already selected or not</li>
-                                <li><i class="fa-solid fa-check"></i> Current plumbing access</li>
-                                <li><i class="fa-solid fa-check"></i> ZIP code and preferred timing</li>
+                                <li><i data-lucide="check"></i> Fixture type and location</li>
+                                <li><i data-lucide="check"></i> Replacement or new upgrade</li>
+                                <li><i data-lucide="check"></i> Product already selected or not</li>
+                                <li><i data-lucide="check"></i> Current plumbing access</li>
+                                <li><i data-lucide="check"></i> ZIP code and preferred timing</li>
                             </ul>
                         </div>
                     </section>
@@ -260,7 +256,7 @@
                             <details class="service-accordion-item" open>
                                 <summary>
                                     <span>Fixture compatibility</span>
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i data-lucide="plus"></i>
                                 </summary>
                                 <p>
                                     The new fixture should match the existing plumbing setup, available space,
@@ -271,7 +267,7 @@
                             <details class="service-accordion-item">
                                 <summary>
                                     <span>Replacement vs. upgrade</span>
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i data-lucide="plus"></i>
                                 </summary>
                                 <p>
                                     A direct replacement is usually simpler than an upgrade that changes fixture style,
@@ -282,7 +278,7 @@
                             <details class="service-accordion-item">
                                 <summary>
                                     <span>Room access and finish</span>
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i data-lucide="plus"></i>
                                 </summary>
                                 <p>
                                     Cabinets, walls, tile, tight spaces, shutoff access, and finish details can affect
@@ -293,7 +289,7 @@
                             <details class="service-accordion-item">
                                 <summary>
                                     <span>Scope and expectations</span>
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i data-lucide="plus"></i>
                                 </summary>
                                 <p>
                                     Confirm what is included: removal of old fixture, installation, connection checks,
@@ -403,11 +399,11 @@
 
                     <div class="footer-contact">
                         <a href="tel:+18004172038" data-phone-link>
-                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                            <i data-lucide="phone-call"></i>
                             <span data-phone-display>Call Now</span>
                         </a>
                         <a href="mailto:support@pipematch.com" data-email>
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <i data-lucide="mail"></i>
                             <span>support@pipematch.com</span>
                         </a>
                     </div>
@@ -531,6 +527,8 @@
     ]
   }
   </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
 
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/service-page.js"></script>
