@@ -116,8 +116,6 @@
     line-height: 1.25;
 }
 
-/* DIRECTORY */
-
 .services-directory-section {
     position: relative;
     padding: clamp(22px, 3vw, 39px) 0;
@@ -130,8 +128,6 @@
     align-items: start;
     overflow: visible;
 }
-
-/* NEW STICKY FILTER */
 
 .services-filter {
     position: sticky;
@@ -206,8 +202,6 @@
     color: #ffffff;
 }
 
-/* MAIN */
-
 .services-main {
     min-width: 0;
 }
@@ -222,8 +216,6 @@
     line-height: 1.12;
     letter-spacing: -0.015em;
 }
-
-/* CARDS */
 
 .services-card-grid,
 .premium-directory-grid {
@@ -335,8 +327,6 @@
     font-size: 1rem;
 }
 
-/* COMPARISON */
-
 .services-comparison-block,
 .services-editorial-block,
 .services-faq-block,
@@ -417,8 +407,6 @@
     max-width: 58ch;
 }
 
-/* EDITORIAL */
-
 .services-editorial-block {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -463,8 +451,6 @@
     margin: 0;
     color: #c9ced5;
 }
-
-/* HELP SECTION */
 
 .services-help-section {
     width: 100%;
@@ -588,8 +574,6 @@
     object-fit: cover;
 }
 
-/* CTA */
-
 .services-cta-block {
     clear: both;
     position: relative;
@@ -610,8 +594,6 @@
     line-height: 1.12;
     letter-spacing: -0.015em;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1200px) {
 
@@ -706,7 +688,6 @@
     }
 }
 
-/* Center section intro content */
 .services-main .section-intro {
     max-width: 820px;
     margin-inline: auto;
@@ -721,11 +702,6 @@
 .services-main .section-intro p:not(.section-kicker) {
     max-width: 680px;
 }
-
-
-/* ===============================
-   COMPARISON BLUEPRINT ROUTE
-================================ */
 
 .comparison-blueprint {
     position: relative;
@@ -969,10 +945,6 @@
     }
 }
 
-/* ==========================================
-   COMPARISON RIBBON — COMPACT PHOTO SECTION
-========================================== */
-
 .comparison-ribbon {
     position: relative;
     min-height: 460px;
@@ -1140,12 +1112,6 @@
     }
 }
 
-
-
-/* ==========================================
-   IMAGE DIRECTORY CARDS
-========================================== */
-
 .services-card-grid--image {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1266,8 +1232,6 @@
     border-color: #ffffff;
     transform: translateX(2px);
 }
-
-/* responsive */
 
 @media (max-width: 1100px) {
     .services-hero-panel {
@@ -1405,11 +1369,6 @@
     }
 }
 
-
-/* ==========================================
-   FIX: SHOW COMPARISON BLUEPRINT ON TABLET / MOBILE
-========================================== */
-
 .services-comparison-block.comparison-blueprint {
     display: block !important;
     visibility: visible !important;
@@ -1422,7 +1381,6 @@
     margin-bottom: 0 !important;
 }
 
-/* tablet */
 @media (max-width: 1024px) {
     .services-comparison-block.comparison-blueprint {
         display: block !important;
@@ -1475,7 +1433,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .services-comparison-block.comparison-blueprint {
         display: block !important;
@@ -1533,10 +1490,6 @@
     }
 }
 
-/* ==========================================
-   TABLET: MAKE BLUEPRINT SECTION MORE VISIBLE
-========================================== */
-
 @media (min-width: 768px) and (max-width: 1024px) {
     .services-comparison-block.comparison-blueprint {
     }
@@ -1593,11 +1546,6 @@
         line-height: 1.62 !important;
     }
 }
-
-
-/* ==========================================
-   SERVICES BRIEF STRIP — COMPACT DESIGN
-========================================== */
 
 .services-brief-strip {
     position: relative;
@@ -1752,11 +1700,6 @@
     }
 }
 
-/* ==========================================
-   SERVICES BRIEF STRIP — BETTER TABLET / MOBILE
-========================================== */
-
-/* tablet */
 @media (min-width: 768px) and (max-width: 980px) {
     .services-brief-strip {
         display: grid;
@@ -1819,7 +1762,6 @@
     }
 }
 
-/* mobile */
 @media (max-width: 767px) {
     .services-brief-strip {
         display: block;
@@ -1897,10 +1839,6 @@
         border-right: 0;
     }
 }
-
-/* ==========================================
-   SERVICES BRIEF STRIP — COMPACT MOBILE VERSION
-========================================== */
 
 @media (max-width: 767px) {
     .services-brief-strip {
@@ -1986,10 +1924,6 @@
         font-size: 0.9rem;
     }
 }
-
-/* ==========================================
-   TABLET: BRIEF BUTTON TOP RIGHT
-========================================== */
 
 @media (min-width: 768px) and (max-width: 980px) {
     .services-brief-strip {

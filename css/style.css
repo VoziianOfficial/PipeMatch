@@ -78,10 +78,6 @@
     --z-cookie: 1200;
 }
 
-/* =========================
-   RESET / BASE
-========================= */
-
 *,
 *::before,
 *::after {
@@ -310,10 +306,6 @@ main section,
     max-width: 720px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
 .btn,
 .header-phone-btn,
 .mobile-callbar-link,
@@ -361,8 +353,18 @@ main section,
 }
 
 .btn i,
+.btn .lucide,
 .header-phone-btn i,
+.header-phone-btn .lucide,
 .mobile-callbar-link i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    flex: 0 0 auto;
+}
+
+.mobile-callbar-link .lucide {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -434,10 +436,6 @@ main section,
     transform: translateY(-1px);
     filter: brightness(1.03);
 }
-
-/* =========================
-   HEADER
-========================= */
 
 .site-header {
     position: sticky !important;
@@ -634,10 +632,6 @@ main section,
     white-space: nowrap;
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
-
 .mobile-menu {
     position: fixed;
     inset: 0;
@@ -818,10 +812,6 @@ main section,
     text-decoration: underline;
     text-underline-offset: 4px;
 }
-
-/* =========================
-   FORM / INPUTS
-========================= */
 
 .compact-form,
 .service-rail-form {
@@ -1010,10 +1000,6 @@ main section,
     font-weight: 700;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 .site-footer {
     position: relative;
     margin-top: var(--section-space);
@@ -1124,10 +1110,6 @@ main section,
     color: rgba(255, 255, 255, 0.58);
 }
 
-/* =========================
-   COOKIE
-========================= */
-
 .cookie-banner {
     position: fixed;
     left: 24px;
@@ -1193,10 +1175,6 @@ main section,
     gap: 12px;
 }
 
-/* =========================
-   MISC
-========================= */
-
 .chip {
     display: inline-flex;
     align-items: center;
@@ -1259,10 +1237,6 @@ summary::-webkit-details-marker {
     text-align: center;
 }
 
-/* =========================
-   HOME HERO CARD FIX
-========================= */
-
 .hero-compare-h1 {
     color: var(--color-white) !important;
 }
@@ -1301,11 +1275,6 @@ summary::-webkit-details-marker {
 .home-hero--estate .hero-estate-disclaimer p {
     margin-top: auto;
 }
-
-/* =========================
-   HOME CONTENT LAYOUT
-   Search stays separate. Premium section does not squeeze.
-========================= */
 
 .home-content-section {
     position: relative;
@@ -1396,10 +1365,6 @@ summary::-webkit-details-marker {
 .select-icon {
     color: #747c85 !important;
 }
-
-/* =========================
-   PREMIUM POPULAR SERVICES
-========================= */
 
 .premium-services {
     width: 100% !important;
@@ -1674,10 +1639,6 @@ summary::-webkit-details-marker {
     font-weight: 800;
 }
 
-/* =========================
-   IMPORTED FILE OVERRIDES
-========================= */
-
 .service-card-link,
 .directory-card-link,
 .review-card,
@@ -1740,10 +1701,6 @@ main::before,
     animation: none !important;
     box-shadow: none !important;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 1200px) {
     .footer-grid {
@@ -2123,7 +2080,6 @@ main::before,
     }
 }
 
-/* FIX: одинаковое выравнивание premium cards */
 .premium-service-card a {
     height: 100%;
 }
@@ -2150,7 +2106,6 @@ main::before,
     width: 100%;
 }
 
-/* FIX: желтые звезды в отзывах */
 .section-block--reviews .review-stars i,
 .section-block--reviews .review-stars svg {
     color: #f5c542 !important;
@@ -2160,8 +2115,6 @@ main::before,
 .service-rail-label{
     color: #8a929a !important;
 }
-
-/* ================= PREMIUM COVERAGE SECTION ================= */
 
 .premium-coverage .coverage-card {
     display: grid !important;
@@ -2385,45 +2338,37 @@ main::before,
     }
 }
 
-/* ===== COVERAGE COMPACT REWORK ===== */
-
 .premium-coverage .coverage-card {
     grid-template-columns: 1fr !important;
     min-height: auto !important;
 }
 
-/* верх — текст */
 .premium-coverage .coverage-copy {
     padding: clamp(28px, 4vw, 48px) !important;
 }
 
-/* уменьшаем заголовок */
 .premium-coverage .coverage-copy h2 {
     font-size: clamp(2rem, 4vw, 3rem) !important;
     max-width: 100%;
 }
 
-/* карточки компактнее */
 .premium-coverage .coverage-points a {
     min-height: 72px !important;
     padding: 12px 16px !important;
     grid-template-columns: 52px 1fr auto !important;
 }
 
-/* блок карты */
 .premium-coverage .coverage-map-box {
     position: relative;
     min-height: 420px !important;
     border-top: 1px solid rgba(18, 20, 24, 0.08);
 }
 
-/* карта чуть мягче */
 .premium-coverage .coverage-map {
     opacity: 0.55 !important;
     filter: grayscale(1) contrast(0.9) brightness(1.08);
 }
 
-/* карточка НАВЕРХУ */
 .premium-coverage .map-center-card {
     top: 24px !important;
     bottom: auto !important;
@@ -2435,7 +2380,6 @@ main::before,
     border-radius: 16px !important;
 }
 
-/* текст внутри компактнее */
 .premium-coverage .map-center-card strong {
     font-size: 1.3rem !important;
 }
@@ -2445,14 +2389,12 @@ main::before,
     margin-bottom: 16px !important;
 }
 
-/* кнопка меньше */
 .premium-coverage .map-open-link {
     min-height: 46px !important;
     padding: 10px 16px !important;
     font-size: 0.85rem;
 }
 
-/* мобилка — карточка по центру */
 @media (max-width: 640px) {
     .premium-coverage .map-center-card {
         left: 50% !important;
@@ -2460,8 +2402,6 @@ main::before,
         width: calc(100% - 24px) !important;
     }
 }
-
-/* ===== PREMIUM FAQ ===== */
 
 .premium-faq {
     max-width: 1040px;
@@ -2666,8 +2606,6 @@ main::before,
     margin-bottom: 0 !important;
 }
 
-/* ===== FAQ NEW BUTTON ACCORDION ===== */
-
 .premium-faq .faq-item {
     overflow: hidden !important;
 }
@@ -2753,8 +2691,6 @@ main::before,
     }
 }
 
-/* ================= HIDE HEAVY SECTIONS ON TABLET & MOBILE ================= */
-
 @media (max-width: 1024px) {
 
     .services-comparison-block,
@@ -2762,12 +2698,6 @@ main::before,
         display: none !important;
     }
 }
-
-
-/* =====================================================
-   PIPEMATCH REAL HOVER UPDATE
-   Works with your actual HTML classes
-===================================================== */
 
 :root {
     --pm-hover: #63746b;
@@ -2778,10 +2708,6 @@ main::before,
     --pm-hover-shadow: 0 26px 70px rgba(99, 116, 107, 0.22);
     --pm-dark-shadow: 0 28px 80px rgba(18, 20, 24, 0.28);
 }
-
-/* ===============================
-   1. LOGO FIX — квадрат тоже меняется
-================================ */
 
 .brand-mark {
     background: transparent !important;
@@ -2806,12 +2732,10 @@ main::before,
     filter: drop-shadow(0 16px 26px rgba(99, 116, 107, 0.38));
 }
 
-/* вот это красит именно квадрат */
 .brand:hover .brand-mark svg rect {
     fill: #63746b !important;
 }
 
-/* вот это красит ключ/иконку внутри */
 .brand:hover .brand-mark svg path {
     fill: #ffffff !important;
 }
@@ -2824,15 +2748,10 @@ main::before,
     color: #46564e !important;
 }
 
-/* footer logo */
 .brand--footer:hover .brand-name,
 .brand--footer:hover .brand-tag {
     color: #c8b9a6 !important;
 }
-
-/* ===============================
-   2. HEADER NAV
-================================ */
 
 .desktop-nav-list a:hover,
 .desktop-nav-list a.is-active {
@@ -2847,10 +2766,6 @@ main::before,
     background: linear-gradient(135deg, #63746b 0%, #17191c 100%) !important;
     transform: translateX(6px) !important;
 }
-
-/* ===============================
-   3. BUTTONS — заметнее
-================================ */
 
 .btn,
 .header-phone-btn,
@@ -2905,10 +2820,6 @@ main::before,
     transform: translateX(6px) !important;
 }
 
-/* ===============================
-   4. HERO BOTTOM CARDS
-================================ */
-
 .hero-estate-card,
 .hero-estate-disclaimer {
     transition:
@@ -2934,10 +2845,6 @@ main::before,
 .hero-estate-card:hover span {
     color: #ffffff !important;
 }
-
-/* ===============================
-   5. SERVICES INDEX SECTION
-================================ */
 
 .services-index {
     transition:
@@ -2975,10 +2882,6 @@ main::before,
     color: #ffffff !important;
 }
 
-/* ===============================
-   6. STEP CARDS
-================================ */
-
 .step-card {
     transition:
         transform 0.38s ease,
@@ -3005,10 +2908,6 @@ main::before,
     color: #63746b !important;
     box-shadow: 0 14px 30px rgba(255, 255, 255, 0.22) !important;
 }
-
-/* ===============================
-   WOW HOVERS (CARDS / HEADINGS / ICONS)
-================================ */
 
 :where(
         .directory-card-link,
@@ -3123,10 +3022,6 @@ main::before,
     }
 }
 
-/* ===============================
-   7. SERVICES CLEAN ROWS
-================================ */
-
 .services-clean-row {
     transition:
         padding-left 0.3s ease,
@@ -3158,10 +3053,6 @@ main::before,
     transform: translateX(8px) !important;
 }
 
-/* ===============================
-   8. REVIEW CARDS
-================================ */
-
 .review-card {
     transition:
         transform 0.38s ease,
@@ -3187,10 +3078,6 @@ main::before,
     stroke: #f5c542 !important;
     transform: scale(1.08) !important;
 }
-
-/* ===============================
-   9. COVERAGE CARDS / MAP CARD
-================================ */
 
 .premium-coverage .coverage-points a,
 .map-center-card {
@@ -3231,10 +3118,6 @@ main::before,
     transform: translateY(-6px) !important;
 }
 
-/* ===============================
-   10. FAQ
-================================ */
-
 .faq-item,
 .faq-support-card {
     transition:
@@ -3265,10 +3148,6 @@ main::before,
     transform: rotate(45deg) scale(1.06) !important;
 }
 
-/* ===============================
-   11. CTA STRIP
-================================ */
-
 .cta-strip {
     transition:
         transform 0.4s ease,
@@ -3286,10 +3165,6 @@ main::before,
 .cta-strip:hover h2 {
     color: #ffffff !important;
 }
-
-/* ===============================
-   12. SERVICE RAIL
-================================ */
 
 .rail-links a {
     transition:
@@ -3311,10 +3186,6 @@ main::before,
     box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.16) !important;
 }
 
-/* ===============================
-   13. ALL LUCIDE ICONS
-================================ */
-
 svg.lucide,
 [data-lucide],
 i {
@@ -3325,7 +3196,6 @@ i {
         transform 0.35s ease !important;
 }
 
-/* hover icons inside links/cards */
 a:hover svg.lucide,
 button:hover svg.lucide,
 .services-index-item:hover svg,
@@ -3335,10 +3205,6 @@ button:hover svg.lucide,
 .footer-contact a:hover svg {
     stroke: currentColor !important;
 }
-
-/* ===============================
-   14. FOOTER LINKS
-================================ */
 
 .footer-links-block a,
 .footer-contact a,
@@ -3354,10 +3220,6 @@ button:hover svg.lucide,
     color: #c8b9a6 !important;
     transform: translateX(6px) !important;
 }
-
-/* ===============================
-   15. MOBILE — no wild hover
-================================ */
 
 @media (hover: none) and (pointer: coarse) {
 

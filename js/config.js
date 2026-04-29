@@ -1,6 +1,8 @@
 export const siteConfig = {
     companyName: "PipeMatch",
     companyId: "PM-48291",
+    brandTag: "Compare local plumbing providers",
+    footerTag: "Independent provider matching platform",
     phoneDisplay: "Call Now",
     phoneNumber: "+1 (800) 417-2038",
     phoneHref: "tel:+18004172038",

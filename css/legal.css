@@ -52,8 +52,6 @@
     text-wrap: balance;
 }
 
-
-
 .legal-hero-text {
     max-width: 760px;
     margin: 0;
@@ -425,9 +423,6 @@
     }
 }
 
-/* ==========================================
-   LEGAL DARK REFERENCE OVERRIDE
-========================================== */
 .legal-hero-bg {
     background:
         linear-gradient(112deg, rgba(2, 8, 24, 0.94) 0%, rgba(2, 8, 24, 0.76) 44%, rgba(2, 8, 24, 0.62) 100%),
@@ -514,9 +509,6 @@
     }
 }
 
-/* ==========================================
-   LEGAL HERO COMPACT HARMONY
-========================================== */
 .legal-hero {
     padding: clamp(13px, 2.3vw, 28px) 0 clamp(40px, 5.8vw, 80px);
 }
@@ -562,9 +554,6 @@
         padding: 14px;
     }
 }
-/* ==========================================
-   LEGAL FINAL GREY OVERRIDE — REMOVE ALL BLUE
-========================================== */
 
 .legal-hero-bg {
     background:
@@ -661,8 +650,6 @@
 .legal-bottom-note a {
     color: #e3e6e9 !important;
 }
-
-/* ================= LEGAL CLEAN REDESIGN ================= */
 
 .legal-clean-hero {
     position: relative;

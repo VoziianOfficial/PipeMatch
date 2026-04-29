@@ -122,7 +122,7 @@ function initContactMap() {
             position: "bottomright"
         })
         .addTo(map);
-    // Attribution + scale controls are intentionally omitted for a cleaner UI.
+    
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,

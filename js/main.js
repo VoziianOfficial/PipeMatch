@@ -10,6 +10,96 @@ const setTextForElements = (selector, value) => {
     });
 };
 
+const escapeHtml = (value = "") =>
+    String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+function renderLinkList(listElement, links = [], currentPage = "") {
+    if (!listElement) return;
+    listElement.innerHTML = links
+        .map(({ label, href }) => {
+            const safeHref = escapeHtml(href);
+            const safeLabel = escapeHtml(label);
+            const isActive = href === currentPage ? ' class="is-active"' : "";
+            return `<li><a href="${safeHref}"${isActive}>${safeLabel}</a></li>`;
+        })
+        .join("");
+}
+
+function applyNavigationFromConfig() {
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    const desktopNav = select(".desktop-nav-list");
+    const mobileNav = select(".mobile-nav-list");
+    renderLinkList(desktopNav, siteConfig.navLinks, currentPage);
+    renderLinkList(mobileNav, siteConfig.navLinks, currentPage);
+}
+
+function applyFooterLinksFromConfig() {
+    const footerBlocks = selectAll(".footer-links-block");
+    if (!footerBlocks.length) return;
+
+    footerBlocks.forEach((block) => {
+        const title = block.querySelector("h2")?.textContent?.trim().toLowerCase() || "";
+        const list = block.querySelector("ul");
+        if (!list) return;
+
+        if (title === "navigation") {
+            renderLinkList(list, siteConfig.navLinks);
+        }
+
+        if (title === "services") {
+            renderLinkList(list, siteConfig.serviceLinks);
+        }
+
+        if (title === "legal") {
+            renderLinkList(list, siteConfig.legalLinks);
+        }
+    });
+}
+
+function applyMobileServicesDropdownFromConfig() {
+    const selectElement = select("#mobileServicesSelect");
+    if (!selectElement) return;
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const placeholderLabel = selectElement.querySelector("option")?.textContent?.trim() || "Choose a service";
+
+    const optionsHtml = [
+        `<option value="">${escapeHtml(placeholderLabel)}</option>`,
+        ...siteConfig.serviceLinks.map(
+            (link) => `<option value="${escapeHtml(link.href)}">${escapeHtml(link.label)}</option>`
+        ),
+    ].join("");
+
+    selectElement.innerHTML = optionsHtml;
+
+    const matchingOption = [...selectElement.options].find((option) => (option.value || "").trim() === currentPage);
+    if (matchingOption) {
+        selectElement.value = matchingOption.value;
+    }
+}
+
+function applyContactSubjectsFromConfig() {
+    const subjectSelects = selectAll('select[name="subject"], select#subject, select#contactSubject');
+    if (!subjectSelects.length) return;
+
+    const optionsHtml = siteConfig.contactFormSubjects
+        .map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)
+        .join("");
+
+    subjectSelects.forEach((selectElement) => {
+        const first = selectElement.querySelector("option");
+        const keepFirstEmpty = first && !(first.value || "").trim();
+        const prefix = keepFirstEmpty ? first.outerHTML : "";
+        selectElement.innerHTML = prefix + optionsHtml;
+    });
+}
+
 function applySiteConfig() {
     setTextForElements("[data-company-name]", siteConfig.companyName);
     setTextForElements("[data-company-id]", siteConfig.companyId);
@@ -45,6 +135,15 @@ function applySiteConfig() {
             link.textContent = siteConfig.email;
         }
     });
+
+    setTextForElements(".brand-name", siteConfig.companyName);
+    setTextForElements(".brand-tag", siteConfig.brandTag);
+    setTextForElements(".brand--footer .brand-tag", siteConfig.footerTag);
+
+    applyNavigationFromConfig();
+    applyFooterLinksFromConfig();
+    applyMobileServicesDropdownFromConfig();
+    applyContactSubjectsFromConfig();
 }
 
 function setCurrentYear() {
@@ -76,7 +175,7 @@ function initPageLoadFadeIn() {
     const main = select("main");
     if (!main) return;
 
-    // Fade in on initial load/reload without transform to avoid clashing with other animations.
+    
     main.style.opacity = "0";
     main.style.transition = "opacity 0.75s ease";
     main.style.willChange = "opacity";
@@ -168,7 +267,7 @@ function initMobileServicesSelect() {
         if (!targetUrl) return;
         if (targetUrl === currentPage) return;
 
-        // Let native select close first to avoid flicker on iOS/Android before navigation.
+        
         window.requestAnimationFrame(() => {
             window.location.href = targetUrl;
         });
@@ -749,8 +848,6 @@ function initSmoothFaqAccordions() {
         });
     });
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     applySiteConfig();

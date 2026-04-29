@@ -22,8 +22,6 @@
     transition: transform var(--transition-slow);
 }
 
-
-
 .home-hero-overlay {
     inset: 0;
     background:
@@ -1306,9 +1304,6 @@
     }
 }
 
-/* ==========================================
-   HOME REFERENCE OVERRIDE (DARK PREMIUM)
-========================================== */
 .home-hero {
     padding: clamp(42px, 6vw, 72px) 0 clamp(62px, 8vw, 108px);
 }
@@ -1924,9 +1919,6 @@
     }
 }
 
-/* ==========================================
-   HOME DESKTOP/MOBILE LAYOUT FIXES
-========================================== */
 .section-block--popular-services {
     overflow: clip;
 }
@@ -2027,9 +2019,6 @@
     }
 }
 
-/* ==========================================
-   HOME COMPACT BALANCE TUNING
-========================================== */
 .home-main-content .section-intro h2,
 .split-feature-copy h2,
 .coverage-copy h2,
@@ -2271,9 +2260,6 @@
     }
 }
 
-/* ==========================================
-   HOME HERO COMPACT HARMONY
-========================================== */
 .home-hero {
     padding: clamp(14px, 2.3vw, 28px) 0 clamp(44px, 6vw, 84px);
 }
@@ -2288,7 +2274,7 @@
 }
 
 .hero-copy h1 {
-    /* max-width: 24ch; */
+    
     font-size: clamp(2.1rem, 4.9vw, 3.9rem);
     line-height: 1.04;
 }
@@ -2333,11 +2319,6 @@
         margin-bottom: 16px;
     }
 }
-
-
-/* ==========================================
-   HOME FINAL GREY OVERRIDE — REMOVE ALL BLUE
-========================================== */
 
 .home-hero-bg {
     background:
@@ -2508,8 +2489,6 @@
         radial-gradient(circle at 78% 28%, rgba(116, 124, 133, 0.16), transparent 52%),
         linear-gradient(180deg, rgba(23, 25, 28, 0.2) 0%, rgba(23, 25, 28, 0.08) 28%, rgba(23, 25, 28, 0.34) 100%) !important;
 }
-
-/* ================= NEW HERO STRUCTURE ================= */
 
 .home-hero--estate {
     position: relative;
@@ -2686,7 +2665,6 @@
     }
 }
 
-/* FIX HERO ESTATE FULL WIDTH */
 .home-hero--estate .hero-estate-content {
     width: 100% !important;
     max-width: none !important;
@@ -2709,11 +2687,6 @@
 .home-hero--estate .hero-estate-actions {
     margin-top: 24px;
 }
-
-/* ===============================
-   CLEAN POPULAR SERVICES
-================================ */
-
 
 .services-clean-head {
     max-width: 720px;
@@ -2819,12 +2792,6 @@
         flex-direction: column;
     }
 }
-
-
-
-/* ===============================
-   SERVICES INDEX — AUTHOR STYLE
-================================ */
 
 .services-index {
     position: relative;
@@ -2986,11 +2953,6 @@
     }
 }
 
-
-/* ===============================
-   HOW IT WORKS — CARD PHOTOS
-================================ */
-
 .section-block--contrast .step-card {
     position: relative;
     overflow: hidden;
@@ -3003,7 +2965,6 @@
     border: 1px solid rgba(255, 255, 255, 0.16) !important;
 }
 
-/* overlay для читаемости текста */
 .section-block--contrast .step-card::after {
     content: "";
     position: absolute;
@@ -3015,27 +2976,23 @@
     pointer-events: none;
 }
 
-/* чтобы текст был поверх overlay */
 .section-block--contrast .step-card>* {
     position: relative;
     z-index: 1;
 }
 
-/* 1 карточка */
 .section-block--contrast .step-card:nth-child(1) {
     background:
         linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
         url("../assets/images/home/drain-cleaning-card.jpg") center / cover no-repeat !important;
 }
 
-/* 2 карточка */
 .section-block--contrast .step-card:nth-child(2) {
     background:
         linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
         url("../assets/images/home/water-heater-card.jpg") center / cover no-repeat !important;
 }
 
-/* 3 карточка */
 .section-block--contrast .step-card:nth-child(3) {
     background:
         linear-gradient(rgba(23, 25, 28, 0.25), rgba(23, 25, 28, 0.72)),
@@ -3057,10 +3014,6 @@
     backdrop-filter: blur(10px);
 }
 
-/* ===============================
-   HOW IT WORKS — TEXT BALANCE FIX
-================================ */
-
 .section-block--contrast .steps-grid {
     align-items: stretch;
 }
@@ -3074,7 +3027,6 @@
     padding: 82px 26px 28px !important;
 }
 
-/* номер поднимаем вверх */
 .section-block--contrast .step-number {
     position: absolute !important;
     top: 18px !important;
@@ -3096,7 +3048,6 @@
     border-radius: 999px;
 }
 
-/* заголовки выравниваем по высоте */
 .section-block--contrast .step-card h3 {
     min-height: 2.35em;
     margin: 0 0 12px !important;
@@ -3108,7 +3059,6 @@
     line-height: 1.15 !important;
 }
 
-/* тексту даём одинаковое место */
 .section-block--contrast .step-card p {
     min-height: 5em;
     margin: 0 !important;
@@ -3117,7 +3067,6 @@
     line-height: 1.55 !important;
 }
 
-/* на мобилке компактнее */
 @media (max-width: 767px) {
     .section-block--contrast .step-card {
         min-height: 270px;

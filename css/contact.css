@@ -646,8 +646,6 @@
     }
 }
 
-
-
 .contact-main-grid {
     grid-template-columns: minmax(0, 680px) minmax(260px, 330px);
     justify-content: center;
@@ -711,8 +709,6 @@
     }
 }
 
-
-
 .contact-form-modern {
     display: grid;
     gap: 14px;
@@ -730,7 +726,6 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
-
 
 .form-step--inline {
     grid-template-columns: repeat(2, 1fr);
@@ -751,8 +746,6 @@
     background: #ffffff;
     border-color: #17191c;
 }
-
-
 
 .choice-grid {
     display: grid;
@@ -792,7 +785,6 @@
     position: relative;
 }
 
-
 .choice.active::after {
     content: "✔";
     position: absolute;
@@ -803,20 +795,16 @@
     color: #17191c;
 }
 
-
 .contact-form-modern .btn {
     margin-top: 6px;
     height: 44px;
 }
-
-
 
 @media (max-width: 600px) {
     .form-step--inline {
         grid-template-columns: 1fr;
     }
 }
-
 
 .contact-faq-redesign {
     padding: clamp(38px, 5vw, 70px) 0;
@@ -976,11 +964,9 @@
     }
 }
 
-
 .contact-form-wrap {
     color: #17191c;
 }
-
 
 .contact-form-wrap input,
 .contact-form-wrap textarea,
@@ -991,34 +977,28 @@
     -webkit-appearance: none;
 }
 
-
 .contact-form-wrap input::placeholder,
 .contact-form-wrap textarea::placeholder {
     color: #7a828b !important;
 }
-
 
 .contact-form-wrap .input-shell>i,
 .contact-form-wrap .select-icon {
     color: #747c85 !important;
 }
 
-
 .contact-form-wrap .input-shell svg {
     stroke: #747c85 !important;
 }
-
 
 .contact-form-wrap .input-shell i svg {
     color: #747c85 !important;
 }
 
-
 .contact-form-wrap button,
 .contact-form-wrap .btn {
     color: #000000 !important;
 }
-
 
 .contact-form-wrap a,
 .contact-form-wrap a:visited,
@@ -1026,12 +1006,10 @@
     color: #17191c !important;
 }
 
-
 .contact-form-wrap input::-webkit-contacts-auto-fill-button,
 .contact-form-wrap input::-webkit-credentials-auto-fill-button {
     display: none !important;
 }
-
 
 .contact-form-wrap input:-webkit-autofill,
 .contact-form-wrap textarea:-webkit-autofill {
@@ -1039,11 +1017,9 @@
     box-shadow: 0 0 0 1000px #ffffff inset !important;
 }
 
-/* ===== HARD MOBILE FIX: CONTACT FORM + CONTACT FAQ ===== */
-
 @media (max-width: 768px) {
 
-    /* убираем дефолтный синий стиль iOS у кнопок/инпутов */
+    
     .contact-form-wrap button,
     .contact-form-wrap input,
     .contact-form-wrap textarea,
@@ -1081,7 +1057,7 @@
         -webkit-text-fill-color: #747c85 !important;
     }
 
-    /* полностью убираем дефолтные стрелки details в FAQ */
+    
     .contact-faq-list details,
     .contact-faq-list summary {
         -webkit-appearance: none !important;
@@ -1102,7 +1078,7 @@
         content: "" !important;
     }
 
-    /* наша иконка + / − */
+    
     .contact-faq-list .faq-item summary::after {
         content: "+" !important;
         display: grid !important;
@@ -1134,8 +1110,6 @@
     }
 }
 
-/* ===== FINAL FIX: CONTACT FAQ ARROW ===== */
-
 .contact-faq-list .contact-faq-card summary {
     -webkit-appearance: none !important;
     appearance: none !important;
@@ -1151,7 +1125,6 @@
     display: none !important;
 }
 
-/* убираем старую стрелку ↘ */
 .contact-faq-list .contact-faq-card summary::after {
     content: "+" !important;
     display: grid !important;
@@ -1181,14 +1154,6 @@
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
-
-
-
-
-/* ==========================================
-   CONTACT CLEAN SECTION
-========================================== */
-
 
 .contact-clean-grid {
     display: grid;
@@ -1274,8 +1239,6 @@
     font-size: 0.92rem;
     line-height: 1.6;
 }
-
-/* FORM */
 
 .contact-clean-form {
     display: grid;
@@ -1372,8 +1335,6 @@
     background: #343a40;
 }
 
-/* tablet */
-
 @media (max-width: 980px) {
     .contact-clean-grid {
         grid-template-columns: 1fr;
@@ -1392,8 +1353,6 @@
         max-width: 720px;
     }
 }
-
-/* mobile */
 
 @media (max-width: 600px) {
     .contact-clean-grid {
