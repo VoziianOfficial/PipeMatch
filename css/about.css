@@ -679,6 +679,19 @@
     transform: translateY(-4px);
 }
 
+.about-story-card--dark:hover h3 {
+    color: #17191c;
+}
+
+.about-story-card--dark:hover p {
+    color: #565d66;
+}
+
+.about-story-card--dark:hover .about-story-icon {
+    background: rgba(74, 80, 86, 0.1);
+    color: #5f6873;
+}
+
 .about-story-card .about-story-icon {
     width: 42px;
     height: 42px;

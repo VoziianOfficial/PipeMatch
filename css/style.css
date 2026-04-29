@@ -683,13 +683,21 @@ main section,
 }
 
 .mobile-menu-close {
+    display: grid;
+    place-items: center;
     width: 50px;
     height: 50px;
+    padding: 0;
     color: #17191c;
     background: #ffffff;
     border: 1px solid rgba(18, 20, 24, 0.1);
     box-shadow: var(--shadow-xs);
-    font-size: 1.2rem;
+    line-height: 0;
+}
+
+.mobile-menu-close .lucide {
+    width: 22px;
+    height: 22px;
 }
 
 .mobile-nav {
@@ -753,13 +761,21 @@ main section,
     box-shadow: var(--shadow-xs);
 }
 
-.select-wrap i {
+.select-wrap i,
+.select-wrap .lucide,
+.select-wrap [data-lucide] {
     position: absolute;
     top: 50%;
     right: 18px;
     transform: translateY(-50%);
     pointer-events: none;
     color: var(--color-text-muted);
+}
+
+.select-wrap .lucide,
+.select-wrap [data-lucide] {
+    width: 20px;
+    height: 20px;
 }
 
 .mobile-contact-card {
@@ -1374,6 +1390,8 @@ summary::-webkit-details-marker {
 .service-card-arrow,
 .review-stars i,
 .select-wrap i,
+.select-wrap .lucide,
+.select-wrap [data-lucide],
 .input-shell > i:first-child,
 .select-icon {
     color: #747c85 !important;
@@ -2745,3 +2763,611 @@ main::before,
     }
 }
 
+
+/* =====================================================
+   PIPEMATCH REAL HOVER UPDATE
+   Works with your actual HTML classes
+===================================================== */
+
+:root {
+    --pm-hover: #63746b;
+    --pm-hover-dark: #46564e;
+    --pm-warm: #c8b9a6;
+    --pm-ink: #17191c;
+    --pm-card-light: #f4f7f5;
+    --pm-hover-shadow: 0 26px 70px rgba(99, 116, 107, 0.22);
+    --pm-dark-shadow: 0 28px 80px rgba(18, 20, 24, 0.28);
+}
+
+/* ===============================
+   1. LOGO FIX — квадрат тоже меняется
+================================ */
+
+.brand-mark {
+    background: transparent !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.brand-mark svg {
+    width: 50px !important;
+    height: 50px !important;
+    transition: transform 0.4s ease, filter 0.4s ease !important;
+}
+
+.brand-mark svg rect,
+.brand-mark svg path {
+    transition: fill 0.4s ease, stroke 0.4s ease !important;
+}
+
+.brand:hover .brand-mark svg {
+    transform: rotate(-6deg) scale(1.08) !important;
+    filter: drop-shadow(0 16px 26px rgba(99, 116, 107, 0.38));
+}
+
+/* вот это красит именно квадрат */
+.brand:hover .brand-mark svg rect {
+    fill: #63746b !important;
+}
+
+/* вот это красит ключ/иконку внутри */
+.brand:hover .brand-mark svg path {
+    fill: #ffffff !important;
+}
+
+.brand:hover .brand-name {
+    color: #63746b !important;
+}
+
+.brand:hover .brand-tag {
+    color: #46564e !important;
+}
+
+/* footer logo */
+.brand--footer:hover .brand-name,
+.brand--footer:hover .brand-tag {
+    color: #c8b9a6 !important;
+}
+
+/* ===============================
+   2. HEADER NAV
+================================ */
+
+.desktop-nav-list a:hover,
+.desktop-nav-list a.is-active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #63746b 0%, #17191c 100%) !important;
+    box-shadow: 0 16px 34px rgba(99, 116, 107, 0.32) !important;
+    transform: translateY(-2px) !important;
+}
+
+.mobile-nav-list a:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #63746b 0%, #17191c 100%) !important;
+    transform: translateX(6px) !important;
+}
+
+/* ===============================
+   3. BUTTONS — заметнее
+================================ */
+
+.btn,
+.header-phone-btn,
+.mobile-callbar-link,
+.services-index-link,
+.map-open-link,
+.faq-support-card a,
+.bottom-btn {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease !important;
+}
+
+.btn:hover,
+.header-phone-btn:hover,
+.mobile-callbar-link:hover,
+.services-index-link:hover,
+.map-open-link:hover,
+.faq-support-card a:hover,
+.bottom-btn:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #63746b 0%, #17191c 100%) !important;
+    border-color: rgba(200, 185, 166, 0.45) !important;
+    box-shadow: 0 24px 58px rgba(99, 116, 107, 0.34) !important;
+    transform: translateY(-4px) !important;
+}
+
+.btn svg,
+.btn i,
+.header-phone-btn svg,
+.header-phone-btn i,
+.mobile-callbar-link svg,
+.mobile-callbar-link i,
+.services-index-link svg,
+.map-open-link svg,
+.faq-support-card a svg {
+    transition: transform 0.35s ease, stroke 0.35s ease, color 0.35s ease !important;
+}
+
+.btn:hover svg,
+.btn:hover i,
+.header-phone-btn:hover svg,
+.header-phone-btn:hover i,
+.mobile-callbar-link:hover svg,
+.mobile-callbar-link:hover i,
+.services-index-link:hover svg,
+.map-open-link:hover svg,
+.faq-support-card a:hover svg {
+    transform: translateX(6px) !important;
+}
+
+/* ===============================
+   4. HERO BOTTOM CARDS
+================================ */
+
+.hero-estate-card,
+.hero-estate-disclaimer {
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease !important;
+}
+
+.hero-estate-card:hover,
+.hero-estate-disclaimer:hover {
+    background: rgba(99, 116, 107, 0.32) !important;
+    border-color: rgba(200, 185, 166, 0.38) !important;
+    box-shadow: 0 24px 70px rgba(99, 116, 107, 0.24) !important;
+    transform: translateY(-8px) !important;
+}
+
+.hero-estate-card:hover h3,
+.hero-estate-disclaimer:hover h3 {
+    color: #f3e6d4 !important;
+}
+
+.hero-estate-card:hover span {
+    color: #ffffff !important;
+}
+
+/* ===============================
+   5. SERVICES INDEX SECTION
+================================ */
+
+.services-index {
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease !important;
+}
+
+.services-index:hover {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(99, 116, 107, 0.16), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f2f5f3 100%) !important;
+    border-color: rgba(99, 116, 107, 0.28) !important;
+    box-shadow: var(--pm-hover-shadow) !important;
+}
+
+.services-index-item {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+.services-index-item:hover {
+    background: linear-gradient(135deg, #63746b 0%, #24282d 100%) !important;
+    border-color: rgba(200, 185, 166, 0.38) !important;
+    box-shadow: 0 20px 48px rgba(99, 116, 107, 0.28) !important;
+    transform: translateX(10px) !important;
+}
+
+.services-index-item:hover h3,
+.services-index-item:hover p,
+.services-index-item:hover span {
+    color: #ffffff !important;
+}
+
+/* ===============================
+   6. STEP CARDS
+================================ */
+
+.step-card {
+    transition:
+        transform 0.38s ease,
+        background 0.38s ease,
+        border-color 0.38s ease,
+        box-shadow 0.38s ease !important;
+}
+
+.step-card:hover {
+    background:
+        linear-gradient(135deg, rgba(99, 116, 107, 0.96) 0%, rgba(36, 40, 45, 0.98) 100%) !important;
+    border-color: rgba(200, 185, 166, 0.42) !important;
+    box-shadow: var(--pm-dark-shadow) !important;
+    transform: translateY(-8px) !important;
+}
+
+.step-card:hover h3,
+.step-card:hover p {
+    color: #ffffff !important;
+}
+
+.step-card:hover .step-number {
+    background: #ffffff !important;
+    color: #63746b !important;
+    box-shadow: 0 14px 30px rgba(255, 255, 255, 0.22) !important;
+}
+
+/* ===============================
+   WOW HOVERS (CARDS / HEADINGS / ICONS)
+================================ */
+
+:where(
+        .directory-card-link,
+        .comparison-card,
+        .editorial-panel-card,
+        .services-stat-card,
+        .about-story-card,
+        .model-point,
+        .process-card,
+        .contact-info-card,
+        .choice,
+        .service-page-hero-card,
+        .service-page-sidebar-card,
+        .service-factor-card,
+        .service-step-card,
+        .service-overview-card,
+        .service-visual-card,
+        .service-accordion-item,
+        .faq-item
+    ) {
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base),
+        filter var(--transition-base);
+    will-change: transform;
+}
+
+:where(
+        .directory-card-link,
+        .comparison-card,
+        .editorial-panel-card,
+        .services-stat-card,
+        .about-story-card,
+        .model-point,
+        .process-card,
+        .contact-info-card,
+        .choice,
+        .service-page-hero-card,
+        .service-page-sidebar-card,
+        .service-factor-card,
+        .service-step-card,
+        .service-overview-card,
+        .service-visual-card,
+        .service-accordion-item,
+        .faq-item
+    ):hover {
+    filter: saturate(1.05) contrast(1.02);
+}
+
+:where(
+        .directory-card-link:hover h1,
+        .directory-card-link:hover h2,
+        .directory-card-link:hover h3,
+        .comparison-card:hover h1,
+        .comparison-card:hover h2,
+        .comparison-card:hover h3,
+        .editorial-panel-card:hover h1,
+        .editorial-panel-card:hover h2,
+        .editorial-panel-card:hover h3,
+        .service-card-link:hover h1,
+        .service-card-link:hover h2,
+        .service-card-link:hover h3,
+        .step-card:hover h1,
+        .step-card:hover h2,
+        .step-card:hover h3,
+        .about-story-card:hover h1,
+        .about-story-card:hover h2,
+        .about-story-card:hover h3,
+        .process-card:hover h1,
+        .process-card:hover h2,
+        .process-card:hover h3
+    ) {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    text-decoration-color: rgba(99, 116, 107, 0.55);
+}
+
+:where(a, button, [role="button"]):where(:hover, :focus-visible) .lucide {
+    transform: translateY(-1px);
+    filter: drop-shadow(0 10px 18px rgba(18, 20, 24, 0.18));
+}
+
+:where(.brand):where(:hover, :focus-visible) .lucide {
+    filter: drop-shadow(0 14px 24px rgba(99, 116, 107, 0.35));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :where(
+            .directory-card-link,
+            .comparison-card,
+            .editorial-panel-card,
+            .services-stat-card,
+            .about-story-card,
+            .model-point,
+            .process-card,
+            .contact-info-card,
+            .choice,
+            .service-page-hero-card,
+            .service-page-sidebar-card,
+            .service-factor-card,
+            .service-step-card,
+            .service-overview-card,
+            .service-visual-card,
+            .service-accordion-item,
+            .faq-item,
+            .lucide
+        ) {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ===============================
+   7. SERVICES CLEAN ROWS
+================================ */
+
+.services-clean-row {
+    transition:
+        padding-left 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease !important;
+}
+
+.services-clean-row:hover {
+    padding-left: 18px !important;
+    background: rgba(99, 116, 107, 0.1) !important;
+    border-color: rgba(99, 116, 107, 0.34) !important;
+}
+
+.services-clean-row:hover h3 {
+    color: #63746b !important;
+}
+
+.services-clean-row:hover span {
+    color: #46564e !important;
+}
+
+.services-clean-row svg {
+    transition: transform 0.3s ease, stroke 0.3s ease !important;
+}
+
+.services-clean-row:hover svg {
+    stroke: #63746b !important;
+    transform: translateX(8px) !important;
+}
+
+/* ===============================
+   8. REVIEW CARDS
+================================ */
+
+.review-card {
+    transition:
+        transform 0.38s ease,
+        background 0.38s ease,
+        border-color 0.38s ease,
+        box-shadow 0.38s ease !important;
+}
+
+.review-card:hover {
+    background:
+        linear-gradient(135deg, #ffffff 0%, #f4f7f5 55%, rgba(99, 116, 107, 0.16) 100%) !important;
+    border-color: rgba(99, 116, 107, 0.34) !important;
+    box-shadow: var(--pm-hover-shadow) !important;
+    transform: translateY(-8px) !important;
+}
+
+.review-card:hover h3 {
+    color: #63746b !important;
+}
+
+.review-card:hover .review-stars svg {
+    fill: #f5c542 !important;
+    stroke: #f5c542 !important;
+    transform: scale(1.08) !important;
+}
+
+/* ===============================
+   9. COVERAGE CARDS / MAP CARD
+================================ */
+
+.premium-coverage .coverage-points a,
+.map-center-card {
+    transition:
+        transform 0.38s ease,
+        background 0.38s ease,
+        border-color 0.38s ease,
+        box-shadow 0.38s ease !important;
+}
+
+.premium-coverage .coverage-points a:hover {
+    background: linear-gradient(135deg, #63746b 0%, #24282d 100%) !important;
+    border-color: rgba(200, 185, 166, 0.42) !important;
+    box-shadow: 0 20px 52px rgba(99, 116, 107, 0.3) !important;
+    transform: translateX(8px) !important;
+}
+
+.premium-coverage .coverage-points a:hover strong,
+.premium-coverage .coverage-points a:hover small {
+    color: #ffffff !important;
+}
+
+.premium-coverage .coverage-points a:hover>span {
+    background: #ffffff !important;
+    color: #63746b !important;
+}
+
+.premium-coverage .coverage-points a:hover>i,
+.premium-coverage .coverage-points a:hover svg {
+    stroke: #ffffff !important;
+    transform: translateX(6px) !important;
+}
+
+.map-center-card:hover {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-color: rgba(99, 116, 107, 0.34) !important;
+    box-shadow: var(--pm-hover-shadow) !important;
+    transform: translateY(-6px) !important;
+}
+
+/* ===============================
+   10. FAQ
+================================ */
+
+.faq-item,
+.faq-support-card {
+    transition:
+        transform 0.38s ease,
+        background 0.38s ease,
+        border-color 0.38s ease,
+        box-shadow 0.38s ease !important;
+}
+
+.faq-item:hover,
+.faq-support-card:hover {
+    background:
+        linear-gradient(135deg, #ffffff 0%, #f4f7f5 55%, rgba(99, 116, 107, 0.14) 100%) !important;
+    border-color: rgba(99, 116, 107, 0.34) !important;
+    box-shadow: var(--pm-hover-shadow) !important;
+    transform: translateY(-5px) !important;
+}
+
+.faq-question:hover .faq-icon,
+.faq-item:hover .faq-icon {
+    background: #63746b !important;
+    color: #ffffff !important;
+}
+
+.faq-question:hover .faq-toggle {
+    background: #63746b !important;
+    color: #ffffff !important;
+    transform: rotate(45deg) scale(1.06) !important;
+}
+
+/* ===============================
+   11. CTA STRIP
+================================ */
+
+.cta-strip {
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease !important;
+}
+
+.cta-strip:hover {
+    border-color: rgba(200, 185, 166, 0.42) !important;
+    box-shadow: 0 30px 86px rgba(99, 116, 107, 0.26) !important;
+    transform: translateY(-6px) !important;
+}
+
+.cta-strip:hover h2 {
+    color: #ffffff !important;
+}
+
+/* ===============================
+   12. SERVICE RAIL
+================================ */
+
+.rail-links a {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease !important;
+}
+
+.rail-links a:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #63746b 0%, #24282d 100%) !important;
+    border-color: rgba(200, 185, 166, 0.38) !important;
+    transform: translateX(8px) !important;
+}
+
+.rail-links a:hover::before {
+    background: #ffffff !important;
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ===============================
+   13. ALL LUCIDE ICONS
+================================ */
+
+svg.lucide,
+[data-lucide],
+i {
+    transition:
+        stroke 0.35s ease,
+        color 0.35s ease,
+        fill 0.35s ease,
+        transform 0.35s ease !important;
+}
+
+/* hover icons inside links/cards */
+a:hover svg.lucide,
+button:hover svg.lucide,
+.services-index-item:hover svg,
+.services-clean-row:hover svg,
+.coverage-points a:hover svg,
+.faq-question:hover svg,
+.footer-contact a:hover svg {
+    stroke: currentColor !important;
+}
+
+/* ===============================
+   14. FOOTER LINKS
+================================ */
+
+.footer-links-block a,
+.footer-contact a,
+.cookie-links a,
+.mobile-legal-links a {
+    transition: color 0.3s ease, transform 0.3s ease !important;
+}
+
+.footer-links-block a:hover,
+.footer-contact a:hover,
+.cookie-links a:hover,
+.mobile-legal-links a:hover {
+    color: #c8b9a6 !important;
+    transform: translateX(6px) !important;
+}
+
+/* ===============================
+   15. MOBILE — no wild hover
+================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .hero-estate-card:hover,
+    .hero-estate-disclaimer:hover,
+    .services-index-item:hover,
+    .step-card:hover,
+    .review-card:hover,
+    .faq-item:hover,
+    .cta-strip:hover {
+        transform: none !important;
+    }
+}
